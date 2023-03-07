@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://4tbqy46axylh"]
+
+[ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Sprites/Player.png" id="1_58v0r"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerMove.cs" id="1_jgndr"]
+[ext_resource type="PackedScene" uid="uid://cfbnelm6d7ggf" path="res://Prefabs/Bullet/BulletPrefab.tscn" id="2_jskl3"]
+
+[node name="Player2D" type="Node2D" node_paths=PackedStringArray("GunPosition") groups=["Players"]]
+script = ExtResource("1_jgndr")
+MoveSpeed = 200.0
+GunPosition = NodePath("GunPosition")
+BulletPrefab = ExtResource("2_jskl3")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite2D" parent="Area2d"]
+position = Vector2(0, -16)
+scale = Vector2(4, 4)
+texture = ExtResource("1_58v0r")
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Area2d"]
+position = Vector2(0, -11)
+polygon = PackedVector2Array(0, -22, 9, -9, 26, -5, 26, 11, -26, 11, -26, -5, -9, -9)
+
+[node name="GunPosition" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(4, 4)

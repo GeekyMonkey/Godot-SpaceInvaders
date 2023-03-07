@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfbnelm6d7ggf"]
+
+[ext_resource type="Script" path="res://Prefabs/Bullet/BulletPrefab.cs" id="1_7acxc"]
+[ext_resource type="Texture2D" uid="uid://c5llhln77xriq" path="res://Sprites/Bullet.png" id="2_7kgg4"]
+[ext_resource type="Script" path="res://Prefabs/Bullet/BulletSprite.cs" id="3_nd1a2"]
+[ext_resource type="AudioStream" uid="uid://cxae50cowysxd" path="res://Prefabs/Bullet/PlayerShoot.wav" id="4_l2af1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhm0v"]
+size = Vector2(4, 16)
+
+[node name="BulletPrefab" type="RigidBody2D" groups=["Missiles"]]
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_7acxc")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+texture = ExtResource("2_7kgg4")
+script = ExtResource("3_nd1a2")
+Color = Color(0.713726, 0, 0, 1)
+Speed = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_dhm0v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -19)
+stream = ExtResource("4_l2af1")
+autoplay = true
+max_polyphony = 2
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

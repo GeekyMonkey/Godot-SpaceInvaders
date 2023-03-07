@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://fnskrdgntppp" path="res://Prefabs/Player/Player.tscn" id="1_73u25"]
+[ext_resource type="Script" path="res://Prefabs/Player/PlayerMove.gd" id="2_yfbtb"]
+
+[node name="Player2D" instance=ExtResource("1_73u25")]
+script = ExtResource("2_yfbtb")
+MOVE_SPEED = 1000
