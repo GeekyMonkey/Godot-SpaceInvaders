@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Background/Background.cs" id="2_hbjl7"]
 [ext_resource type="FontFile" uid="uid://bnysnaafha7r" path="res://Fonts/space_invaders.ttf" id="3_uf0ya"]
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="4_1p12d"]
-[ext_resource type="PackedScene" uid="uid://cfvc0l5buw82" path="res://Prefabs/SwarmPrefab.tscn" id="6_rrlle"]
+[ext_resource type="PackedScene" uid="uid://c1x4drki5if1d" path="res://Prefabs/SwarmPrefab.tscn" id="6_rrlle"]
 
 [sub_resource type="Theme" id="Theme_jyikk"]
 default_font = ExtResource("3_uf0ya")

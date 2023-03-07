@@ -2,15 +2,20 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Alien1 : RigidBody2D
+public partial class AlienPrefab : RigidBody2D
 {
     private CustomSignals cs;
     private bool Dead = false;
+
+    private AnimatedSprite2D AnimatedSprite;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         cs = this.GetCustomSignals();
+        cs.Connect("Stomp", Callable.From(() => Stomp()));
+
+        AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,5 +43,10 @@ public partial class Alien1 : RigidBody2D
             await this.NextIdle();
             this.QueueFree();
         }
+    }
+
+    public void Stomp()
+    {
+        AnimatedSprite.Frame = AnimatedSprite.Frame == 0 ? 1 : 0;
     }
 }

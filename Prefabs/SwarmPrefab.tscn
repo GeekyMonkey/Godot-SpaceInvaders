@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfvc0l5buw82"]
+[gd_scene load_steps=9 format=3 uid="uid://c1x4drki5if1d"]
 
-[ext_resource type="PackedScene" uid="uid://6aw7y7yv3j4v" path="res://Prefabs/Aliens/Alien1.tscn" id="1_fibd7"]
+[ext_resource type="PackedScene" uid="uid://dehodu3pt7qo7" path="res://Prefabs/Aliens/AlienPrefab1.tscn" id="1_fibd7"]
 [ext_resource type="Script" path="res://Prefabs/SwarmPrefab.cs" id="1_hcdtq"]
 [ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/Sounds/fastinvader1.wav" id="2_dyme3"]
 [ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/Sounds/fastinvader2.wav" id="3_ilxj6"]
 [ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/Sounds/fastinvader3.wav" id="4_ahtcc"]
 [ext_resource type="AudioStream" uid="uid://cr5n6jer1txoo" path="res://Prefabs/Swarm/Sounds/fastinvader4.wav" id="5_2a0e2"]
+[ext_resource type="PackedScene" uid="uid://40yvrkfkkinr" path="res://Prefabs/Aliens/AlienPrefab2.tscn" id="7_y63qb"]
+[ext_resource type="PackedScene" uid="uid://dlfkcmdnmyful" path="res://Prefabs/Aliens/AlienPrefab3.tscn" id="8_07le4"]
 
 [node name="Swarm" type="Node2D"]
 script = ExtResource("1_hcdtq")
@@ -14,18 +16,54 @@ StompSounds = Array[AudioStream]([ExtResource("2_dyme3"), ExtResource("3_ilxj6")
 [node name="Alien1" parent="." instance=ExtResource("1_fibd7")]
 
 [node name="Alien2" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(65, 0)
+position = Vector2(66, 0)
 
 [node name="Alien3" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(1, 42)
+position = Vector2(-62, 0)
 
 [node name="Alien4" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(-63, 86)
+position = Vector2(-120, 0)
 
 [node name="Alien5" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(70, 46)
+position = Vector2(128, 0)
 
 [node name="Alien6" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(6, 88)
+position = Vector2(193, 0)
 
 [node name="StompSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AlienPrefab2" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(-119, 44)
+
+[node name="AlienPrefab3" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(-60, 44)
+
+[node name="AlienPrefab4" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(1, 44)
+
+[node name="AlienPrefab5" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(69, 44)
+
+[node name="AlienPrefab6" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(133, 45)
+
+[node name="AlienPrefab7" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(195, 45)
+
+[node name="AlienPrefab8" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(-118, -44)
+
+[node name="AlienPrefab9" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(-58, -44)
+
+[node name="AlienPrefab10" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(1, -45)
+
+[node name="AlienPrefab11" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(66, -45)
+
+[node name="AlienPrefab12" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(127, -45)
+
+[node name="AlienPrefab13" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(193, -45)

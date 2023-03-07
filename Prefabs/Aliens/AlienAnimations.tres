@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://1jfi24fygdqt"]
+
+[ext_resource type="Texture2D" uid="uid://drpj6rg8k83i8" path="res://Sprites/Alien1A.png" id="1_5fpyn"]
+[ext_resource type="Texture2D" uid="uid://bap8734436fpp" path="res://Sprites/Alien1B.png" id="2_exl7t"]
+[ext_resource type="Texture2D" uid="uid://bk0nt88gonuvx" path="res://Sprites/Alien2A.png" id="3_ecpb5"]
+[ext_resource type="Texture2D" uid="uid://bq4id2jkryivf" path="res://Sprites/Alien2B.png" id="4_6a7o2"]
+[ext_resource type="Texture2D" uid="uid://d070gvnygg7qg" path="res://Sprites/Alien3A.png" id="5_2di41"]
+[ext_resource type="Texture2D" uid="uid://b4pbvioc2tj64" path="res://Sprites/Alien3B.png" id="6_6isgg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5fpyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_exl7t")
+}],
+"loop": true,
+"name": &"Alien1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ecpb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6a7o2")
+}],
+"loop": true,
+"name": &"Alien2",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2di41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6isgg")
+}],
+"loop": true,
+"name": &"Alien3",
+"speed": 2.0
+}]
