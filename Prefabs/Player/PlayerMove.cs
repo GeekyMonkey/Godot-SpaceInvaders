@@ -28,6 +28,7 @@ public partial class PlayerMove : Node2D
         ScreenSizeX = GetViewportRect().Size.X;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
+        GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
 
         cs = this.GetCustomSignals();
         cs.Connect("AlienDied", Callable.From((Node alien) => OnAlienDied(alien)));
@@ -60,7 +61,7 @@ public partial class PlayerMove : Node2D
 
         float newX = Position.X + input * MoveSpeed * (float)delta;
         newX = Mathf.Clamp(newX, XMin, XMax);
-        newX = Mathf.Round(newX / 4) * 4;
+        // newX = Mathf.Round(newX);
         Position = new Vector2(newX, Position.Y);
     }
 

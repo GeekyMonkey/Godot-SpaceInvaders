@@ -17,35 +17,36 @@ default_font = ExtResource("3_uf0ya")
 [node name="Background" type="Sprite2D" parent="Environment"]
 editor_description = "Arcade cabinet background image"
 modulate = Color(0.411765, 0.411765, 0.411765, 1)
-position = Vector2(-3.5, -1.52588e-05)
-scale = Vector2(1.15966, 0.78634)
+position = Vector2(-3.00001, 26.5)
+scale = Vector2(0.42065, 0.344133)
 texture = ExtResource("1_46j1n")
 region_rect = Rect2(-0.074, 0, 300, 200)
 region_filter_clip_enabled = true
 script = ExtResource("2_hbjl7")
 
 [node name="Camera2d" type="Camera2D" parent="Environment"]
+zoom = Vector2(3, 3)
 
 [node name="UI" type="CanvasLayer" parent="Environment"]
 follow_viewport_enabled = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Environment/UI"]
-offset_left = -586.0
-offset_top = -436.0
-offset_right = -489.0
-offset_bottom = -411.0
-scale = Vector2(2, 2)
+[node name="ScoreLabel" type="RichTextLabel" parent="Environment/UI"]
+offset_left = -192.0
+offset_top = -145.0
+offset_right = -87.0
+offset_bottom = -116.0
 theme = SubResource("Theme_jyikk")
+theme_override_font_sizes/normal_font_size = 8
 text = "Score: 0"
 
 [node name="TopKillZone" parent="Environment" instance=ExtResource("4_1p12d")]
-position = Vector2(0, -500)
+position = Vector2(22, -180)
 
 [node name="BottomKillZone" parent="Environment" instance=ExtResource("4_1p12d")]
-position = Vector2(0, 500)
+position = Vector2(12, 179)
 
 [node name="PlayerCS" parent="." instance=ExtResource("2_emsd5")]
-position = Vector2(0, 412)
-MoveSpeed = 500.0
+position = Vector2(2, 143)
 
 [node name="Swarm" parent="." instance=ExtResource("6_rrlle")]
+position = Vector2(-32, -14)
