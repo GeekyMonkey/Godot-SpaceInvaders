@@ -25,7 +25,7 @@ public partial class PlayerMove : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        ScreenSizeX = GetViewportRect().Size.X;
+        ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
         GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
@@ -61,7 +61,7 @@ public partial class PlayerMove : Node2D
 
         float newX = Position.X + input * MoveSpeed * (float)delta;
         newX = Mathf.Clamp(newX, XMin, XMax);
-        // newX = Mathf.Round(newX);
+        newX = Mathf.Round(newX);
         Position = new Vector2(newX, Position.Y);
     }
 

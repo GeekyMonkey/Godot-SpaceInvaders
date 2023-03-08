@@ -33,7 +33,6 @@ public partial class BulletPrefab : RigidBody2D
 
     private async void MissileHitAlien(Node alien)
     {
-        cs.EmitStomp();
         await this.NextIdle();
         this.QueueFree();
     }
