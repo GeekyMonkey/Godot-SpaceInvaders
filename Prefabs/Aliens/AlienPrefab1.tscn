@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dehodu3pt7qo7"]
+[gd_scene load_steps=5 format=3 uid="uid://dehodu3pt7qo7"]
 
 [ext_resource type="Script" path="res://Prefabs/Aliens/AlienPrefab.cs" id="1_1kagq"]
+[ext_resource type="PackedScene" uid="uid://dhj6cu2qxxdk6" path="res://Prefabs/Aliens/AlienExplosionPrefab.tscn" id="2_6xpq8"]
 [ext_resource type="SpriteFrames" uid="uid://1jfi24fygdqt" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_af8e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
-size = Vector2(11, 8)
+size = Vector2(12, 8)
 
 [node name="AlienPrefab1" type="RigidBody2D" groups=["Aliens"]]
 gravity_scale = 0.0
@@ -15,10 +16,11 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_1kagq")
 Points = 20
+ExplosionPrefab = ExtResource("2_6xpq8")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_af8e7")
-animation = &"Alien1"
+animation = &"Alien2"
 metadata/playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -22,9 +22,10 @@ CS="*res://AutoLoad/CustomSignals.cs"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=900
+window/size/viewport_width=600
+window/size/viewport_height=450
 window/stretch/mode="viewport"
+window/stretch/scale=0.5
 
 [dotnet]
 

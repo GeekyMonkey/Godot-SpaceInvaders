@@ -18,11 +18,15 @@ public partial class AlienPrefab : RigidBody2D
 
     public Rect2 Extents;
 
+    [Export]
+    public PackedScene ExplosionPrefab;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         cs = this.GetCustomSignals();
         cs.Connect("Stomp", Callable.From(() => Stomp()));
+        // this.GetCustomSignals().OnStomp(Stomp);
 
         AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
 
@@ -52,10 +56,15 @@ public partial class AlienPrefab : RigidBody2D
         {
             Dead = true;
             // GetTree().CallGroup("Players", nameof(PlayerMove.MethodName.OnAlienDied), this);
-            cs.EmitAlienDied(this);
+            this.GetCustomSignals().EmitAlienDied(this);
 
             await this.NextIdle();
             this.QueueFree();
+
+            Node2D explosion = ExplosionPrefab.Instantiate<Node2D>(PackedScene.GenEditState.Instance);
+            explosion.Position = Position;
+            GetParent().AddChild(explosion);
+            // GetTree().CurrentScene.AddChild(explosion);
         }
     }
 

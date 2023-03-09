@@ -28,6 +28,9 @@ width = 8
 script = ExtResource("1_hcdtq")
 StompSounds = Array[AudioStream]([ExtResource("2_dyme3"), ExtResource("3_ilxj6"), ExtResource("4_ahtcc"), ExtResource("5_2a0e2")])
 XMargin = 0.0
+SpacingX = 20.0
+SpacingY = 18.0
+AlienTypes = Array[PackedScene]([ExtResource("1_fibd7"), ExtResource("7_y63qb"), ExtResource("8_07le4")])
 
 [node name="StompSoundPlayer" type="AudioStreamPlayer2D" parent="."]
 

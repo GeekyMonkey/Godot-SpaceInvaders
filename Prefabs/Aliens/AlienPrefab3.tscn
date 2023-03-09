@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlfkcmdnmyful"]
+[gd_scene load_steps=5 format=3 uid="uid://dlfkcmdnmyful"]
 
 [ext_resource type="Script" path="res://Prefabs/Aliens/AlienPrefab.cs" id="1_cbsr3"]
 [ext_resource type="SpriteFrames" uid="uid://1jfi24fygdqt" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_18fb5"]
+[ext_resource type="PackedScene" uid="uid://dhj6cu2qxxdk6" path="res://Prefabs/Aliens/AlienExplosionPrefab.tscn" id="2_43gy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
 size = Vector2(8, 8)
@@ -15,6 +16,7 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_cbsr3")
 Points = 30
+ExplosionPrefab = ExtResource("2_43gy2")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_18fb5")

@@ -23,4 +23,11 @@ public partial class CustomSignals : Node
     {
         this.EmitSignal(SignalName.ScoreChanged, score);
     }
+
+    [Signal]
+    public delegate void SwarmDeathEventHandler();
+    public void EmitSwarmDeath()
+    {
+        this.EmitSignal(SignalName.SwarmDeath);
+    }
 }

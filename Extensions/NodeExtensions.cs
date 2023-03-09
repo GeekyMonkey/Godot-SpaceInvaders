@@ -19,6 +19,6 @@ public static class NodeExtensions
 
     public static async Task DelayMs(this Node node, int milliseconds)
     {
-        await System.Threading.Tasks.Task.Delay(500);
+        await System.Threading.Tasks.Task.Delay(milliseconds);
     }
 }
