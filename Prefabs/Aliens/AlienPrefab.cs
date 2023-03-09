@@ -7,6 +7,9 @@ public partial class AlienPrefab : RigidBody2D
     private CustomSignals cs;
     private bool Dead = false;
 
+    [Export]
+    public int Points = 10;
+
     private AnimatedSprite2D AnimatedSprite;
 
     public float Width = 0f;

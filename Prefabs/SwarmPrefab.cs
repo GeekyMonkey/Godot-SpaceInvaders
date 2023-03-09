@@ -31,9 +31,10 @@ public partial class SwarmPrefab : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        cs = this.GetCustomSignals();
-        cs.Connect("Stomp", Callable.From(() => Stomp()));
         StompSoundPlayer = GetNode<AudioStreamPlayer2D>("./StompSoundPlayer");
+
+        cs = this.GetCustomSignals();
+        cs.Stomp += Stomp;
 
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;

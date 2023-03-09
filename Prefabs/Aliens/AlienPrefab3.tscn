@@ -14,6 +14,7 @@ lock_rotation = true
 freeze = true
 freeze_mode = 1
 script = ExtResource("1_cbsr3")
+Points = 30
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_18fb5")

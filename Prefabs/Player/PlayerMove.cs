@@ -20,7 +20,7 @@ public partial class PlayerMove : Node2D
     public float XMax;
     private float XMargin = 16f;
 
-    private CustomSignals cs;
+    // private CustomSignals cs;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -30,14 +30,14 @@ public partial class PlayerMove : Node2D
         XMax = ScreenSizeX / 2 - XMargin;
         GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
 
-        cs = this.GetCustomSignals();
-        cs.Connect("AlienDied", Callable.From((Node alien) => OnAlienDied(alien)));
+        // cs = this.GetCustomSignals();
+        // cs.Connect("AlienDied", Callable.From((Node alien) => OnAlienDied(alien)));
     }
 
-    public void OnAlienDied(Node alien)
-    {
-        GD.Print("Player knows " + alien.Name + " is dead!");
-    }
+    // public void OnAlienDied(Node alien)
+    // {
+    //     GD.Print("Player knows " + alien.Name + " is dead!");
+    // }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
