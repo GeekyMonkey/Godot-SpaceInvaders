@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
+    <NoWarn>CA1050;8019</NoWarn>
   </PropertyGroup>
 </Project>

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot;
@@ -12,11 +14,25 @@ public partial class AlienPrefab : RigidBody2D
     [Export]
     public int Points = 10;
 
+    public Marker2D GunPosition;
+
+    [Export]
+    public PackedScene[] BombPrefabs;
+
     private AnimatedSprite2D AnimatedSprite;
 
     public float Width = 0f;
     public float Height = 0f;
     public float SpriteScale = 1;
+
+    [Export]
+    public float ReloadSecMin = 1f;
+
+    [Export]
+    public float ReloadSecMax = 15f;
+
+    [Export]
+    public float ReloadTime = 1f;
 
     public Rect2 Extents;
 
@@ -32,6 +48,7 @@ public partial class AlienPrefab : RigidBody2D
         // this.GetCustomSignals().OnStomp(Stomp);
 
         AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
+        GunPosition = GetNode<Marker2D>("GunPosition");
 
         var collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
         SpriteScale = collisionShape.Transform.Scale.X;
@@ -40,6 +57,11 @@ public partial class AlienPrefab : RigidBody2D
 
         await this.DelayMs(1000);
         CheckView();
+    }
+
+    private void Reload()
+    {
+        ReloadTime = new RandomNumberGenerator().RandfRange(ReloadSecMin, ReloadSecMax);
     }
 
 
@@ -55,6 +77,25 @@ public partial class AlienPrefab : RigidBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        if (ViewIsClear && ReloadTime > 0)
+        {
+            ReloadTime -= (float)delta;
+            if (ReloadTime < 0)
+            {
+                Shoot();
+                Reload();
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        int bombTypeIndex = new RandomNumberGenerator().RandiRange(0, BombPrefabs.Length - 1);
+        // GD.Print("Bomb type " + bombTypeIndex + " at " + this.GunPosition.GlobalPosition);
+        var bombPrefab = BombPrefabs[bombTypeIndex];
+        var bomb = bombPrefab.Instantiate<Bomb>(PackedScene.GenEditState.Instance);
+        bomb.Position = this.GunPosition.GlobalPosition;
+        GetTree().CurrentScene.AddChild(bomb);
     }
 
     private void OnBodyEntered(Node otherObject)
@@ -92,12 +133,21 @@ public partial class AlienPrefab : RigidBody2D
     // Make sure there are no aliens under this alien's gun
     public void CheckView()
     {
-        var spaceState = GetWorld2D().DirectSpaceState;
-        var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + new Vector2(0, 1000), 2);
-        var result = spaceState.IntersectRay(query);
-        ViewIsClear = result.Count == 0;
+        if (IsInstanceValid(this))
+        {
+            var spaceState = GetWorld2D().DirectSpaceState;
+            var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + new Vector2(0, 1000), 2);
+            var result = spaceState.IntersectRay(query);
 
-        this.Modulate = new Color(1, 1, ViewIsClear ? 0.5f : 1, 1);
-        // this.Scale = Vector2.One * (ViewIsClear ? 1.5f : 1f);
+            bool newViewIsClear = result.Count == 0;
+            if (newViewIsClear == true && ViewIsClear == false)
+            {
+                Reload();
+            }
+
+            ViewIsClear = newViewIsClear;
+            this.Modulate = new Color(1, 1, ViewIsClear ? 0.5f : 1, 1);
+            // this.Scale = Vector2.One * (ViewIsClear ? 1.5f : 1f);
+        }
     }
 }

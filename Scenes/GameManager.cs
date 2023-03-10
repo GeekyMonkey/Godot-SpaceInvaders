@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class GameManager : Node2D
 {
@@ -35,7 +35,7 @@ public partial class GameManager : Node2D
         ScoreAdd(points);
     }
 
-    private void ScoreAdd(int points)
+    public void ScoreAdd(int points)
     {
         Score += points;
         cs.EmitScoreChanged(Score);

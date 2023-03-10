@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Sprites/Player.png" id="1_58v0r"]
 [ext_resource type="Script" path="res://Prefabs/Player/PlayerMove.cs" id="1_jgndr"]
-[ext_resource type="PackedScene" uid="uid://cfbnelm6d7ggf" path="res://Prefabs/Bullet/BulletPrefab.tscn" id="2_jskl3"]
+[ext_resource type="PackedScene" uid="uid://cfbnelm6d7ggf" path="res://Prefabs/Bullet/BulletPrefab.tscn" id="2_e4feu"]
 
 [node name="Player2D" type="Node2D" node_paths=PackedStringArray("GunPosition") groups=["Players"]]
 modulate = Color(0, 1, 0, 1)
 script = ExtResource("1_jgndr")
 MoveSpeed = 100.0
 GunPosition = NodePath("GunPosition")
-BulletPrefab = ExtResource("2_jskl3")
+BulletPrefab = ExtResource("2_e4feu")
 
 [node name="Area2d" type="Area2D" parent="."]
 

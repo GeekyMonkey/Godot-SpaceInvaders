@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://c1x4drki5if1d"]
 
-[ext_resource type="PackedScene" uid="uid://dehodu3pt7qo7" path="res://Prefabs/Aliens/AlienPrefab1.tscn" id="1_fibd7"]
+[ext_resource type="PackedScene" uid="uid://bw7oc731l6c6v" path="res://Prefabs/Aliens/AlienPrefab1.tscn" id="1_fibd7"]
 [ext_resource type="Script" path="res://Prefabs/SwarmPrefab.cs" id="1_hcdtq"]
 [ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/Sounds/fastinvader1.wav" id="2_dyme3"]
 [ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/Sounds/fastinvader2.wav" id="3_ilxj6"]
 [ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/Sounds/fastinvader3.wav" id="4_ahtcc"]
 [ext_resource type="AudioStream" uid="uid://cr5n6jer1txoo" path="res://Prefabs/Swarm/Sounds/fastinvader4.wav" id="5_2a0e2"]
-[ext_resource type="PackedScene" uid="uid://40yvrkfkkinr" path="res://Prefabs/Aliens/AlienPrefab2.tscn" id="7_y63qb"]
-[ext_resource type="PackedScene" uid="uid://dlfkcmdnmyful" path="res://Prefabs/Aliens/AlienPrefab3.tscn" id="8_07le4"]
+[ext_resource type="PackedScene" uid="uid://xrnc2vvoqbpn" path="res://Prefabs/Aliens/AlienPrefab2.tscn" id="7_y63qb"]
+[ext_resource type="PackedScene" uid="uid://8t5637cy1vx4" path="res://Prefabs/Aliens/AlienPrefab3.tscn" id="8_07le4"]
 
 [sub_resource type="Gradient" id="Gradient_go48i"]
 colors = PackedColorArray(0.101961, 0.105882, 0.615686, 1, 0.0470588, 1, 1, 1)

@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class BulletPrefab : RigidBody2D
 {
@@ -20,20 +20,37 @@ public partial class BulletPrefab : RigidBody2D
     {
     }
 
-    private void OnBodyEntered(Node body)
+    private void OnBodyEntered(Node other)
     {
-        if (body.IsInGroup("Aliens"))
+        if (other.IsInGroup("Aliens"))
         {
-            MissileHitAlien(body);
+            BulletHitAlien(other as AlienPrefab);
+        }
+        else
+        {
+            GD.Print("Bullet hit " + other);
+            if (other is Bomb bomb)
+            {
+                BulletHitBomb(bomb);
+            }
         }
         // todo - hit missiles
         // todo - hit shield
         // todo - hit ufo
     }
 
-    private async void MissileHitAlien(Node alien)
+    private async void BulletHitAlien(AlienPrefab alien)
     {
         await this.NextIdle();
         this.QueueFree();
+    }
+
+    private async void BulletHitBomb(Bomb bomb)
+    {
+        GD.Print("Bullet hit bomb " + bomb.Name);
+        this.GetGameManager().ScoreAdd(3);
+        await this.DelayMs(10);
+        bomb.QueueFree();
+        QueueFree();
     }
 }

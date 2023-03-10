@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class PlayerMove : Node2D
 {
@@ -28,7 +28,7 @@ public partial class PlayerMove : Node2D
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
-        GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
+        // GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
 
         // cs = this.GetCustomSignals();
         // cs.Connect("AlienDied", Callable.From((Node alien) => OnAlienDied(alien)));
@@ -79,7 +79,6 @@ public partial class PlayerMove : Node2D
             Node2D bullet = BulletPrefab.Instantiate<Node2D>(PackedScene.GenEditState.Instance);
             bullet.Position = GunPosition.GlobalPosition;
             GetTree().CurrentScene.AddChild(bullet);
-            GD.Print(GunPosition.GlobalPosition);
         }
     }
 }
