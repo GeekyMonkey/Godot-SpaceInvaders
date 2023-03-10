@@ -9,6 +9,7 @@
 size = Vector2(1, 4)
 
 [node name="BulletPrefab" type="RigidBody2D" groups=["Missiles"]]
+collision_mask = 3
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true
