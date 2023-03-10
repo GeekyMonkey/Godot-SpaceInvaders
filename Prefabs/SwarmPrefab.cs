@@ -26,7 +26,7 @@ public partial class SwarmPrefab : Node2D
     [Export]
     public int StepY = 8;
 
-    public bool DirectionRight = true;
+    public int DirectionX = 1; // 1 or -1
 
     [Export]
     public int SwarmType = 0;
@@ -63,13 +63,15 @@ public partial class SwarmPrefab : Node2D
 
         cs = this.GetCustomSignals();
         cs.Connect(CustomSignals.SignalName.Stomp, Callable.From(Stomp));
+        cs.Connect(CustomSignals.SignalName.AlienDied, Callable.From((AlienPrefab alien) =>
+            MeasureExtents()
+    ));
 
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
 
         CreateSwarm(SwarmType);
-        MeasureExtents();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -91,15 +93,11 @@ public partial class SwarmPrefab : Node2D
         StompSoundPlayer.Stream = StompSounds[StompSoundIndex];
         StompSoundPlayer.Play();
 
-        // todo - only do when an alien dies
-        MeasureExtents();
-
-        float dX = (DirectionRight ? 1f : -1f) * StepX;
+        float dX = DirectionX * StepX;
         Position = Position + new Vector2(dX, 0);
-        GD.Print("X=" + Position.X + " Dir=" + DirectionRight);
         if ((Position.X + SwarmExtents.Position.X) <= XMin || (Position.X + SwarmExtents.End.X) >= XMax)
         {
-            DirectionRight = !DirectionRight;
+            DirectionX *= -1;
 
             Position = Position + new Vector2(-dX, StepY);
         }
@@ -107,8 +105,7 @@ public partial class SwarmPrefab : Node2D
 
     public async void MeasureExtents()
     {
-        // todo - remove delay when fired at the correct time
-        await this.DelayMs(1);
+        await this.NextIdle();
         var children = this.GetChildren(false);
         float left = float.MaxValue;
         float top = float.MaxValue;
@@ -117,16 +114,18 @@ public partial class SwarmPrefab : Node2D
         int alienCount = 0;
         foreach (var child in children)
         {
-            //GD.Print(child.Name);
             if (child is AlienPrefab alien)
             {
-                alienCount++;
-                Rect2 extents = alien.Extents;
-                Vector2 pos = alien.Position;
-                left = Math.Min(left, pos.X + extents.Position.X);
-                top = Math.Min(top, pos.Y + extents.Position.Y);
-                right = Math.Max(right, pos.X + extents.End.X);
-                bottom = Math.Max(bottom, pos.Y + extents.End.Y);
+                if (!alien.Dead)
+                {
+                    alienCount++;
+                    Rect2 extents = alien.Extents;
+                    Vector2 pos = alien.Position;
+                    left = Math.Min(left, pos.X + extents.Position.X);
+                    top = Math.Min(top, pos.Y + extents.Position.Y);
+                    right = Math.Max(right, pos.X + extents.End.X);
+                    bottom = Math.Max(bottom, pos.Y + extents.End.Y);
+                }
             }
         }
 
@@ -139,7 +138,7 @@ public partial class SwarmPrefab : Node2D
         {
             SwarmExtents = new Rect2(left, top, right - left, bottom - top);
             // var swarmExtentsLocal = new Rect2(left - GlobalPosition.X, top - GlobalPosition.Y, right - GlobalPosition.X, bottom - GlobalPosition.Y);
-            GD.Print("Swarm extents: " + SwarmExtents);
+            GD.Print("Swarm of " + alienCount + " extents: " + SwarmExtents);
             GetNode<Sprite2D>("ExtentsMarker1").Position = SwarmExtents.Position;
             GetNode<Sprite2D>("ExtentsMarker2").Position = SwarmExtents.End;
         }
@@ -174,6 +173,7 @@ public partial class SwarmPrefab : Node2D
                 }
             }
         }
+        MeasureExtents();
     }
 
     private void ClearSwarm()

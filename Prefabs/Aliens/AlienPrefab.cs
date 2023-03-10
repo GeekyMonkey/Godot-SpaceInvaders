@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 public partial class AlienPrefab : RigidBody2D
 {
     private CustomSignals cs;
-    private bool Dead = false;
+    public bool Dead = false;
 
     [Export]
     public int Points = 10;
