@@ -15,6 +15,10 @@ public partial class PlayerMove : Node2D
     [Export]
     public PackedScene BulletPrefab;
 
+    [Export]
+    public PackedScene PlayerExplosionPrefab;
+
+
     public float ScreenSizeX;
     public float XMin;
     public float XMax;
@@ -80,5 +84,18 @@ public partial class PlayerMove : Node2D
             bullet.Position = GunPosition.GlobalPosition;
             GetTree().CurrentScene.AddChild(bullet);
         }
+    }
+
+    public async void OnBodyEntered(Node2D other)
+    {
+        GD.Print("Player hit by " + other.Name);
+        if (other is Bomb bomb)
+        {
+            Node2D explosion = PlayerExplosionPrefab.Instantiate<Node2D>(PackedScene.GenEditState.Instance);
+            explosion.Position = GlobalPosition;
+            GetTree().CurrentScene.AddChild(explosion);
+        }
+        await this.DelayMs(100);
+        QueueFree();
     }
 }
