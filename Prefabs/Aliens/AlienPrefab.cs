@@ -39,6 +39,8 @@ public partial class AlienPrefab : RigidBody2D
     [Export]
     public PackedScene ExplosionPrefab;
 
+    private bool IsStomping = true;
+
     // Called when the node enters the scene tree for the first time.
     public override async void _Ready()
     {
@@ -54,6 +56,14 @@ public partial class AlienPrefab : RigidBody2D
         SpriteScale = collisionShape.Transform.Scale.X;
         var collisionRect = collisionShape.Shape.GetRect();
         Extents = new Rect2(collisionRect.Position.X * SpriteScale, collisionRect.Position.Y * SpriteScale, collisionRect.Size.X * SpriteScale, collisionRect.Size.Y * SpriteScale);
+
+        this.GetCustomSignals().LivesChanged += (int lives) =>
+        {
+            if (lives == 0)
+            {
+                IsStomping = false;
+            }
+        };
 
         await this.DelayMs(1000);
         CheckView();
@@ -80,7 +90,7 @@ public partial class AlienPrefab : RigidBody2D
         if (ViewIsClear && ReloadTime > 0)
         {
             ReloadTime -= (float)delta;
-            if (ReloadTime < 0)
+            if (ReloadTime < 0 && IsStomping)
             {
                 Shoot();
                 Reload();

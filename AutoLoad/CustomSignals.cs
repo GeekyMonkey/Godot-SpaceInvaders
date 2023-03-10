@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class CustomSignals : Node
 {
@@ -23,6 +23,14 @@ public partial class CustomSignals : Node
     {
         this.EmitSignal(SignalName.ScoreChanged, score);
     }
+
+    [Signal]
+    public delegate void LivesChangedEventHandler(int score);
+    public void EmitLivesChanged(int lives)
+    {
+        this.EmitSignal(SignalName.LivesChanged, lives);
+    }
+
 
     [Signal]
     public delegate void SwarmDeathEventHandler();

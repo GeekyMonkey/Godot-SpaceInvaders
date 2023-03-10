@@ -94,8 +94,9 @@ public partial class PlayerMove : Node2D
             Node2D explosion = PlayerExplosionPrefab.Instantiate<Node2D>(PackedScene.GenEditState.Instance);
             explosion.Position = GlobalPosition;
             GetTree().CurrentScene.AddChild(explosion);
+            await this.DelayMs(100);
+            QueueFree();
+            this.GetGameManager().PlayerDied();
         }
-        await this.DelayMs(100);
-        QueueFree();
     }
 }

@@ -39,4 +39,4 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_odye5")
 autoplay = "default"
-frame_progress = 0.972167
+frame_progress = 0.618808

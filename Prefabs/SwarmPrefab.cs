@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class SwarmPrefab : Node2D
 {
@@ -19,6 +19,8 @@ public partial class SwarmPrefab : Node2D
     private float XMargin = 8f;
 
     private Rect2 SwarmExtents;
+
+    private bool IsStomping = true;
 
     [Export]
     public int StepX = 8;
@@ -65,7 +67,15 @@ public partial class SwarmPrefab : Node2D
         cs.Connect(CustomSignals.SignalName.Stomp, Callable.From(Stomp));
         cs.Connect(CustomSignals.SignalName.AlienDied, Callable.From((AlienPrefab alien) =>
             MeasureExtents()
-    ));
+        ));
+
+        this.GetCustomSignals().LivesChanged += (int lives) =>
+        {
+            if (lives == 0)
+            {
+                IsStomping = false;
+            }
+        };
 
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
@@ -88,18 +98,21 @@ public partial class SwarmPrefab : Node2D
 
     public void Stomp()
     {
-        StompSoundIndex++;
-        StompSoundIndex %= StompSounds.Length;
-        StompSoundPlayer.Stream = StompSounds[StompSoundIndex];
-        StompSoundPlayer.Play();
-
-        float dX = DirectionX * StepX;
-        Position = Position + new Vector2(dX, 0);
-        if ((Position.X + SwarmExtents.Position.X) <= XMin || (Position.X + SwarmExtents.End.X) >= XMax)
+        if (IsStomping)
         {
-            DirectionX *= -1;
+            StompSoundIndex++;
+            StompSoundIndex %= StompSounds.Length;
+            StompSoundPlayer.Stream = StompSounds[StompSoundIndex];
+            StompSoundPlayer.Play();
 
-            Position = Position + new Vector2(-dX, StepY);
+            float dX = DirectionX * StepX;
+            Position += new Vector2(dX, 0);
+            if ((Position.X + SwarmExtents.Position.X) <= XMin || (Position.X + SwarmExtents.End.X) >= XMax)
+            {
+                DirectionX *= -1;
+
+                Position += new Vector2(-dX, StepY);
+            }
         }
     }
 
