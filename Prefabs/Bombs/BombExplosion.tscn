@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckluyb5kji1xk"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://Prefabs/Bombs/BombExplosion.cs" id="1_y8oq6"]
-[ext_resource type="AudioStream" uid="uid://d7mhun4oen1l" path="res://Prefabs/Bombs/Thud.mp3" id="2_78v11"]
-[ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Sprites/AlienDeath.png" id="3_m32sn"]
-[ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Sprites/radial_gradient_transparent.png" id="4_mk6m2"]
+[ext_resource type="AudioStream" uid="uid://d7mhun4oen1l" path="res://Prefabs/Bombs/Sounds/Thud.mp3" id="2_78v11"]
+[ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Aliens/Sprites/AlienDeath.png" id="3_m32sn"]
+[ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_wh1vc"]
 
 [node name="BombExplosion" type="Node2D"]
 script = ExtResource("1_y8oq6")
 FadeSeconds = 0.6
 
-[node name="BombExplosionSound" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_78v11")
 autoplay = true
 
@@ -22,6 +22,6 @@ texture = ExtResource("3_m32sn")
 [node name="ExplosionLight" type="PointLight2D" parent="."]
 color = Color(0.705882, 0.427451, 0.0470588, 1)
 energy = 9.14
-texture = ExtResource("4_mk6m2")
+texture = ExtResource("4_wh1vc")
 texture_scale = 0.2
 height = 1.0

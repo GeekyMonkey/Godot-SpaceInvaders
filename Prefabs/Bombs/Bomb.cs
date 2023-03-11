@@ -35,5 +35,6 @@ public partial class Bomb : RigidBody2D
         var explosion = BombExplosionPrefab.Instantiate<BombExplosion>(PackedScene.GenEditState.Instance);
         explosion.GlobalPosition = GlobalPosition;
         GetTree().CurrentScene.AddChild(explosion);
+        QueueFree();
     }
 }

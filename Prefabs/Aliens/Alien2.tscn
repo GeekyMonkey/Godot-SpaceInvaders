@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Prefabs/Aliens/Alien.cs" id="1_ljdes"]
+[ext_resource type="SpriteFrames" uid="uid://1jfi24fygdqt" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_l2t06"]
+[ext_resource type="PackedScene" uid="uid://dfmnl6syfykha" path="res://Prefabs/Bombs/BombPrefabA.tscn" id="2_n8gfv"]
+[ext_resource type="PackedScene" path="res://Prefabs/Aliens/AlienExplosion.tscn" id="2_vybej"]
+[ext_resource type="PackedScene" uid="uid://dvxqvakpk64rw" path="res://Prefabs/Bombs/BombPrefabB.tscn" id="3_1wn72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
+size = Vector2(11, 8)
+
+[node name="AlienPrefab2" type="RigidBody2D" groups=["Aliens"]]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_ljdes")
+BombPrefabs = Array[PackedScene]([ExtResource("2_n8gfv"), ExtResource("3_1wn72")])
+ExplosionPrefab = ExtResource("2_vybej")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_l2t06")
+animation = &"Alien1"
+metadata/playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ebuqj")
+one_way_collision_margin = 0.0
+
+[node name="GunPosition" type="Marker2D" parent="."]
+position = Vector2(0, 3)
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

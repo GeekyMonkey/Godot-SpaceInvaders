@@ -1,17 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://4tbqy46axylh"]
+[gd_scene load_steps=3 format=3 uid="uid://c57avfx61vgpf"]
 
-[ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Sprites/Player.png" id="1_58v0r"]
-[ext_resource type="Script" path="res://Prefabs/Player/PlayerMove.cs" id="1_jgndr"]
-[ext_resource type="PackedScene" uid="uid://cfbnelm6d7ggf" path="res://Prefabs/Bullet/BulletPrefab.tscn" id="2_e4feu"]
-[ext_resource type="PackedScene" uid="uid://d0h0vwe74ipfo" path="res://Prefabs/Player/PlayerExplosion.tscn" id="3_jlj3e"]
+[ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Prefabs/Player/Sprites/Player.png" id="1_58v0r"]
+[ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_jgndr"]
 
-[node name="Player2D" type="Node2D" node_paths=PackedStringArray("GunPosition") groups=["Players"]]
+[node name="Player2D" type="Node2D" groups=["Players"]]
 modulate = Color(0, 1, 0, 1)
 script = ExtResource("1_jgndr")
 MoveSpeed = 100.0
-GunPosition = NodePath("GunPosition")
-BulletPrefab = ExtResource("2_e4feu")
-PlayerExplosionPrefab = ExtResource("3_jlj3e")
 
 [node name="Area2d" type="Area2D" parent="."]
 collision_mask = 4

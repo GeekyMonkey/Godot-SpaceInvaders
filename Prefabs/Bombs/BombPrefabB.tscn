@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvxqvakpk64rw"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://Prefabs/Bombs/Bomb.cs" id="1_e8mdi"]
-[ext_resource type="PackedScene" uid="uid://ckluyb5kji1xk" path="res://Prefabs/Bombs/BombExplosion.tscn" id="2_64g3u"]
-[ext_resource type="Texture2D" uid="uid://stothgnxshk5" path="res://Sprites/Bomb1A.png" id="2_odr6u"]
-[ext_resource type="Texture2D" uid="uid://vooxfuq655v0" path="res://Sprites/Bomb1B.png" id="3_qo4v8"]
-[ext_resource type="Texture2D" uid="uid://dggt2b1l1qp7x" path="res://Sprites/Bomb2A.png" id="4_8g1te"]
-[ext_resource type="Texture2D" uid="uid://ckuqcvcifqj6k" path="res://Sprites/Bomb2B.png" id="5_i0h5k"]
+[ext_resource type="PackedScene" path="res://Prefabs/Bombs/BombExplosion.tscn" id="2_64g3u"]
+[ext_resource type="Texture2D" uid="uid://stothgnxshk5" path="res://Prefabs/Bombs/Sprites/Bomb1A.png" id="2_odr6u"]
+[ext_resource type="Texture2D" uid="uid://vooxfuq655v0" path="res://Prefabs/Bombs/Sprites/Bomb1B.png" id="3_qo4v8"]
+[ext_resource type="Texture2D" uid="uid://dggt2b1l1qp7x" path="res://Prefabs/Bombs/Sprites/Bomb2A.png" id="4_8g1te"]
+[ext_resource type="Texture2D" uid="uid://ckuqcvcifqj6k" path="res://Prefabs/Bombs/Sprites/Bomb2B.png" id="5_i0h5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o82pm"]
 animations = [{

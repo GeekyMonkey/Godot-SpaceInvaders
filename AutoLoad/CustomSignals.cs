@@ -4,8 +4,8 @@ using Godot;
 public partial class CustomSignals : Node
 {
     [Signal]
-    public delegate void AlienDiedEventHandler(AlienPrefab alien);
-    public void EmitAlienDied(AlienPrefab alien)
+    public delegate void AlienDiedEventHandler(Alien alien);
+    public void EmitAlienDied(Alien alien)
     {
         this.EmitSignal(SignalName.AlienDied, alien);
     }

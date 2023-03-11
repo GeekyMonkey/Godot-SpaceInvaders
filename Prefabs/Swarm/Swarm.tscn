@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="PackedScene" path="res://Prefabs/Aliens/Alien1.tscn" id="1_fibd7"]
+[ext_resource type="Script" path="res://Prefabs/Swarm/Swarm.cs" id="1_hcdtq"]
+[ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/Sounds/fastinvader1.wav" id="2_dyme3"]
+[ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/Sounds/fastinvader2.wav" id="3_ilxj6"]
+[ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/Sounds/fastinvader3.wav" id="4_ahtcc"]
+[ext_resource type="AudioStream" uid="uid://cr5n6jer1txoo" path="res://Prefabs/Swarm/Sounds/fastinvader4.wav" id="5_2a0e2"]
+[ext_resource type="PackedScene" path="res://Prefabs/Aliens/Alien2.tscn" id="7_y63qb"]
+[ext_resource type="PackedScene" path="res://Prefabs/Aliens/Alien3.tscn" id="8_07le4"]
+
+[sub_resource type="Gradient" id="Gradient_go48i"]
+colors = PackedColorArray(0.101961, 0.105882, 0.615686, 1, 0.0470588, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nsmsn"]
+gradient = SubResource("Gradient_go48i")
+width = 8
+
+[sub_resource type="Gradient" id="Gradient_6s5wf"]
+offsets = PackedFloat32Array(0.00843882, 0.995781)
+colors = PackedColorArray(0.768627, 0, 0, 1, 0.936819, 0.404075, 0.95328, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vmkni"]
+gradient = SubResource("Gradient_6s5wf")
+width = 8
+
+[node name="Swarm" type="Node2D"]
+script = ExtResource("1_hcdtq")
+StompSounds = Array[AudioStream]([ExtResource("2_dyme3"), ExtResource("3_ilxj6"), ExtResource("4_ahtcc"), ExtResource("5_2a0e2")])
+XMargin = 0.0
+SpacingX = 20.0
+SpacingY = 18.0
+AlienTypes = Array[PackedScene]([ExtResource("1_fibd7"), ExtResource("7_y63qb"), ExtResource("8_07le4")])
+
+[node name="StompSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ExtentsMarker1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-24, -24)
+scale = Vector2(1, 8)
+texture = SubResource("GradientTexture1D_nsmsn")
+
+[node name="ExtentsMarker2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(40, 16)
+scale = Vector2(1, 8)
+texture = SubResource("GradientTexture1D_vmkni")
+
+[node name="StompTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.25
+autostart = true
+
+[node name="Alien1" parent="." instance=ExtResource("1_fibd7")]
+
+[node name="Alien2" parent="." instance=ExtResource("1_fibd7")]
+position = Vector2(16, 0)
+
+[node name="Alien3" parent="." instance=ExtResource("1_fibd7")]
+position = Vector2(-16, 0)
+
+[node name="Alien4" parent="." instance=ExtResource("1_fibd7")]
+position = Vector2(-32, 0)
+
+[node name="Alien5" parent="." instance=ExtResource("1_fibd7")]
+position = Vector2(32, 0)
+
+[node name="AlienPrefab2" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(-32, 16)
+
+[node name="AlienPrefab3" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(-16, 16)
+
+[node name="AlienPrefab4" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(0, 16)
+
+[node name="AlienPrefab5" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(16, 16)
+
+[node name="AlienPrefab6" parent="." instance=ExtResource("7_y63qb")]
+position = Vector2(32, 16)
+
+[node name="AlienPrefab8" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(-32, -16)
+
+[node name="AlienPrefab9" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(-16, -16)
+
+[node name="AlienPrefab10" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(0, -16)
+
+[node name="AlienPrefab11" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(16, -16)
+
+[node name="AlienPrefab12" parent="." instance=ExtResource("8_07le4")]
+position = Vector2(32, -16)
+
+[connection signal="timeout" from="StompTimer" to="." method="StompTimer"]
