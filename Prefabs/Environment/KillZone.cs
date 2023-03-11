@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class KillZone : Area2D
