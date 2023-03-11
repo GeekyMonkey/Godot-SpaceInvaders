@@ -1,51 +1,66 @@
 using Godot;
 
+/// <summary>
+/// Game manager
+/// </summary>
 public partial class GameManager : Node2D
 {
-    private CustomSignals cs;
-
-    public int Score = 0;
+    // Public State
     public int Level = 1;
-
+    public int Score = 0;
     public int PlayerLives = 3;
 
-    // Called when the node enters the scene tree for the first time.
+    // Private State
+    private CustomSignals cs;
+
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// </summary>
     public override void _Ready()
     {
         cs = this.GetCustomSignals();
+
+        // Listen for alien deaths
         cs.Connect(CustomSignals.SignalName.AlienDied, Callable.From((Alien alien) => OnAlienDied(alien)));
 
-        cs.Connect(CustomSignals.SignalName.SwarmDeath, Callable.From(() =>
+        // Listen for swarm deaths
+        cs.Connect(CustomSignals.SignalName.SwarmDeath, Callable.From(async () =>
         {
+            // Add a bunch of points
+            await this.DelaySec(0.5);
+            ScoreAdd(201);
+            await this.DelaySec(2.5);
+
+            // Level up
             SpawnNewSwarm();
         }));
-
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
-
+    /// <summary>
+    /// An alien is pining for the fjords
+    /// </summary>
     private void OnAlienDied(Alien alien)
     {
         int points = alien.Points;
         ScoreAdd(points);
     }
 
+    /// <summary>
+    /// Add some points
+    /// </summary>
     public void ScoreAdd(int points)
     {
         Score += points;
+
+        // Alert the text box
         cs.EmitScoreChanged(Score);
     }
 
-
-    private async void SpawnNewSwarm()
+    /// <summary>
+    /// Spawn a new swarm
+    /// </summary>
+    private void SpawnNewSwarm()
     {
-        await this.DelayMs(500);
-        ScoreAdd(201);
-        await this.DelayMs(2500);
-
         Level++;
         this.SpawnPrefab<Swarm>((swarm) =>
         {
@@ -53,6 +68,9 @@ public partial class GameManager : Node2D
         });
     }
 
+    /// <summary>
+    /// The player has lost a life
+    /// </summary>
     public async void PlayerDied()
     {
         PlayerLives--;
@@ -60,11 +78,14 @@ public partial class GameManager : Node2D
 
         if (PlayerLives > 0)
         {
-            await this.DelayMs(2000);
+            await this.DelaySec(2);
             SpawnPlayer();
         }
     }
 
+    /// <summary>
+    /// Spawn a player
+    /// </summary>
     public void SpawnPlayer()
     {
         Marker2D spawnMarker = GetNode<Marker2D>("PlayerSpawnPoint");
@@ -72,7 +93,5 @@ public partial class GameManager : Node2D
         {
             player.GlobalPosition = spawnMarker.GlobalPosition;
         });
-
-
     }
 }

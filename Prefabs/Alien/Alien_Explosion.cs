@@ -3,17 +3,19 @@ using System;
 
 public partial class Alien_Explosion : Node2D
 {
+    // Editor State
+    [Export] public double FadeSeconds = 1.1f;
+
+    // Private state
     private double Age = 0f;
-
-    [Export]
-    public double FadeSeconds = 1.1f;
-
     private Sprite2D Sprite;
     private AudioStreamPlayer2D ExplosionSound;
     private PointLight2D ExplosionLight;
     private float LightEnergy;
 
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// </summary>
     public override void _Ready()
     {
         Sprite = GetNode<Sprite2D>("./AlienDeathSprite");
@@ -22,7 +24,9 @@ public partial class Alien_Explosion : Node2D
         LightEnergy = ExplosionLight.Energy;
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// <summary>
+    /// Fade out the explosion
+    /// </summary>
     public override void _Process(double delta)
     {
         Age += delta;

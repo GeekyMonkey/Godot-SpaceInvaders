@@ -1,91 +1,96 @@
 using Godot;
 
+/// <summary>
+/// Alien Prefab
+/// </summary>
 public partial class Alien : RigidBody2D
 {
-    private CustomSignals cs;
+    // Editor State
+    [Export] public int BombTypes = 2;
+    [Export] public int Points = 10;
+    [Export] public float ReloadSecMin = 1f;
+    [Export] public float ReloadSecMax = 15f;
+
+    // Public State
     public bool Dead = false;
-    public bool ViewIsClear = false;
 
-    [Export]
-    public int Points = 10;
-
-    public Marker2D GunPosition;
-
-    [Export]
-    public int BombTypes = 2;
-
+    // Private State
     private AnimatedSprite2D AnimatedSprite;
-
-    public float Width = 0f;
-    public float Height = 0f;
-    public float SpriteScale = 1;
-
-    [Export]
-    public float ReloadSecMin = 1f;
-
-    [Export]
-    public float ReloadSecMax = 15f;
-
-    [Export]
-    public float ReloadTime = 1f;
-
-    public Rect2 Extents;
-
+    private Marker2D GunPosition;
     private PointLight2D GunSprite;
+    public Rect2 Extents;
+    private float Width = 0f;
+    private float Height = 0f;
+    private bool PlayerIsDead = false;
+    private float ReloadTime = 1f;
+    private float SpriteScale = 1;
+    private bool ViewIsClear = false;
 
-    private bool IsStomping = true;
-
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Alien added to the scene
+    /// </summary>
     public override async void _Ready()
     {
-        cs = this.GetCustomSignals();
-        cs.Connect("Stomp", Callable.From(() => Stomp()));
-        cs.Connect(CustomSignals.SignalName.AlienDied, Callable.From((Alien alien) => OnAlienDied(alien)));
-        // this.GetCustomSignals().OnStomp(Stomp);
-
         AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
         GunPosition = GetNode<Marker2D>("GunPosition");
         GunSprite = GetNode<PointLight2D>("GunSprite");
 
+        // Watch for swarm stomp events
+        this.GetCustomSignals().Connect("Stomp", Callable.From(() => Stomp()));
+
+        // Watch for alien died event
+        this.GetCustomSignals().Connect(CustomSignals.SignalName.AlienDied, Callable.From((Alien alien) => OnAlienDied(alien)));
+
+        // Watch for player lives changed to stop stomping when he's dead
+        this.GetCustomSignals().LivesChanged += (int lives) =>
+        {
+            if (lives == 0)
+            {
+                PlayerIsDead = true;
+                CheckView();
+            }
+        };
+
+        // Measure the size of the alien so we can get the size of the swarm
         var collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
         SpriteScale = collisionShape.Transform.Scale.X;
         var collisionRect = collisionShape.Shape.GetRect();
         Extents = new Rect2(collisionRect.Position.X * SpriteScale, collisionRect.Position.Y * SpriteScale, collisionRect.Size.X * SpriteScale, collisionRect.Size.Y * SpriteScale);
 
-        this.GetCustomSignals().LivesChanged += (int lives) =>
-        {
-            if (lives == 0)
-            {
-                IsStomping = false;
-            }
-        };
-
-        await this.DelayMs(1000);
+        // Initial check if it's safe to shoot
+        await this.DelaySec(1);
         CheckView();
     }
 
+    /// <summary>
+    /// Begin reloading
+    /// </summary>
     private void Reload()
     {
         ReloadTime = new RandomNumberGenerator().RandfRange(ReloadSecMin, ReloadSecMax);
     }
 
-
+    /// <summary>
+    /// An alien has perished. Perhaps now we have a clear shot at the player.
+    /// </summary>
     private async void OnAlienDied(Alien alien)
     {
         if (alien != this)
         {
-            await this.DelayMs(500);
+            await this.DelaySec(0.5);
             CheckView();
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// <summary>
+    /// Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// </summary>
     public override void _Process(double delta)
     {
         if (ViewIsClear && ReloadTime > 0)
         {
             ReloadTime -= (float)delta;
-            if (ReloadTime < 0 && IsStomping)
+            if (ReloadTime < 0 && !PlayerIsDead)
             {
                 Shoot();
                 Reload();
@@ -93,49 +98,64 @@ public partial class Alien : RigidBody2D
         }
     }
 
+    /// <summary>
+    /// Drop a bomb
+    /// </summary>
     private void Shoot()
     {
         int bombTypeIndex = new RandomNumberGenerator().RandiRange(1, BombTypes);
-        // GD.Print("Bomb type " + bombTypeIndex + " at " + this.GunPosition.GlobalPosition);
-        var bomb = this.Root().SpawnPrefab<Bomb>((b) =>
+        var bomb = this.SpawnPrefabAtRoot<Bomb>((b) =>
         {
             b.Position = this.GunPosition.GlobalPosition;
         }, $"Bomb_{bombTypeIndex}");
     }
 
+    /// <summary>
+    /// Alien has collided with something
+    /// </summary>
     private void OnBodyEntered(Node otherObject)
     {
         // GD.Print(this.Name + " hit by " + otherObject.Name + " in group " + otherObject.GetGroups());
-        if (otherObject.IsInGroup("Missiles"))
+        if (otherObject is Bullet)
         {
-            HitByMissile(otherObject);
+            HitByBullet(otherObject);
         }
     }
 
-    private async void HitByMissile(Node missile)
+    /// <summary>
+    /// A bullet has hit this alien
+    /// </summary>
+    private void HitByBullet(Node missile)
     {
         if (!Dead)
         {
             Dead = true;
-            // GetTree().CallGroup("Players", nameof(PlayerMove.MethodName.OnAlienDied), this);
+
+            // Spread the word
             this.GetCustomSignals().EmitAlienDied(this);
 
-            await this.NextIdle();
-            this.QueueFree();
-
+            // Show an explosion
             GetParent().SpawnPrefab<Alien_Explosion>((e) =>
-          {
-              e.Position = Position;
-          });
+            {
+                e.Position = Position;
+            });
+
+            // Remove alien from the scene
+            this.QueueFree();
         }
     }
 
+    /// <summary>
+    /// We're all stompin'. Do a little dance.
+    /// </summary>
     public void Stomp()
     {
         AnimatedSprite.Frame = AnimatedSprite.Frame == 0 ? 1 : 0;
     }
 
-    // Make sure there are no aliens under this alien's gun
+    /// <summary>
+    /// Make sure there are no aliens under this alien's gun
+    /// </summary>
     public void CheckView()
     {
         if (IsInstanceValid(this))
@@ -143,15 +163,16 @@ public partial class Alien : RigidBody2D
             var spaceState = GetWorld2D().DirectSpaceState;
             var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + new Vector2(0, 1000), 2);
             var result = spaceState.IntersectRay(query);
-
             bool newViewIsClear = result.Count == 0;
+
+            // The view has just become clear - Begin reloading
             if (newViewIsClear == true && ViewIsClear == false)
             {
                 Reload();
             }
 
             ViewIsClear = newViewIsClear;
-            GunSprite.Enabled = ViewIsClear;
+            GunSprite.Enabled = ViewIsClear && !PlayerIsDead;
         }
     }
 }

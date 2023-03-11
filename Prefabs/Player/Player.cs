@@ -2,47 +2,40 @@ using Godot;
 
 public partial class Player : Node2D
 {
-    [Export]
-    public float MoveSpeed = 500;
+    // Editor State
+    [Export] public float MoveSpeed = 500;
+    [Export] public float ReloadSec = 0.25f;
 
-    [Export]
-    public float ReloadSec = 0.25f;
-
-    public Marker2D GunPosition;
-
-    public float ScreenSizeX;
-    public float XMin;
-    public float XMax;
+    // Private State
+    private Marker2D GunPosition;
+    private float ScreenSizeX;
+    private float XMin;
+    private float XMax;
     private float XMargin = 16f;
 
-    // private CustomSignals cs;
-
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Player added to scene
+    /// </summary>
     public override void _Ready()
     {
         GunPosition = GetNode<Marker2D>("GunPosition");
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
-        // GD.Print("Player xMin=" + XMin + "  xMax=" + XMax);
-
-        // cs = this.GetCustomSignals();
-        // cs.Connect("AlienDied", Callable.From((Node alien) => OnAlienDied(alien)));
     }
 
-    // public void OnAlienDied(Node alien)
-    // {
-    //     GD.Print("Player knows " + alien.Name + " is dead!");
-    // }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// <summary>
+    /// Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// </summary>
     public override void _Process(double delta)
     {
         ProcessMoveInput(delta);
         ProcessShootInput(delta);
     }
 
-    // Left/right movement
+    /// <summary>
+    /// Left/right movement
+    /// </summary>
     private void ProcessMoveInput(double delta)
     {
         float input = 0;
@@ -61,7 +54,9 @@ public partial class Player : Node2D
         Position = new Vector2(newX, Position.Y);
     }
 
-    // Left/right movement
+    /// <summary>
+    /// Shoot Input
+    /// </summary>
     private void ProcessShootInput(double delta)
     {
         float input = 0;
@@ -72,24 +67,27 @@ public partial class Player : Node2D
 
         if (input == 1)
         {
-            this.Root().SpawnPrefab<Bullet>((bullet) =>
+            this.SpawnPrefabAtRoot<Bullet>((bullet) =>
             {
                 bullet.GlobalPosition = GunPosition.GlobalPosition;
             });
         }
     }
 
+    /// <summary>
+    /// Something collided with the player
+    /// </summary>
     public async void OnBodyEntered(Node2D other)
     {
         GD.Print("Player hit by " + other.Name);
         if (other is Bomb bomb)
         {
-            this.Root().SpawnPrefab<Player_Explosion>((explosion) =>
+            this.SpawnPrefabAtRoot<Player_Explosion>((explosion) =>
             {
                 explosion.Position = GlobalPosition;
             });
 
-            await this.DelayMs(100);
+            await this.DelaySec(0.1);
             QueueFree();
             this.GetGameManager().PlayerDied();
         }

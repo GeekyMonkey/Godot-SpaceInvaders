@@ -3,16 +3,19 @@ using System;
 
 public partial class Player_Explosion : Node2D
 {
+    // Editor State
+    [Export] public double FadeSeconds = 2.1f;
+
+    // Private State
     private double Age = 0f;
-
-    [Export]
-    public double FadeSeconds = 2.1f;
-
-    private AnimatedSprite2D Sprite;
-    private AudioStreamPlayer2D ExplosionSound;
     private PointLight2D ExplosionLight;
+    private AudioStreamPlayer2D ExplosionSound;
     private float LightEnergy;
+    private AnimatedSprite2D Sprite;
 
+    /// <summary>
+    /// Node started
+    /// </summary>
     public override void _Ready()
     {
         Sprite = GetNode<AnimatedSprite2D>("./PlayerDeathSprite");
@@ -21,6 +24,9 @@ public partial class Player_Explosion : Node2D
         LightEnergy = ExplosionLight.Energy;
     }
 
+    /// <summary>
+    /// Node Update
+    /// </summary>
     public override void _Process(double delta)
     {
         Age += delta;

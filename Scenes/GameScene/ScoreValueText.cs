@@ -1,22 +1,33 @@
 using Godot;
 
+/// <summary>
+/// Score Value Text
+/// </summary>
 public partial class ScoreValueText : RichTextLabel
 {
-    int scoreDisplayed = 0;
-    int scoreCurrent = 0;
+    // Editor State
+    [Export] double changeDelay = 0.01f;
 
-    double changeDelay = 0.01f;
-    double changeTime = 0;
+    // Private state
+    private double changeTime = 0;
+    private int scoreDisplayed = 0;
+    private int scoreCurrent = 0;
 
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// </summary>
     public override void _Ready()
     {
-        this.GetCustomSignals().ScoreChanged += ScoreChanged;
+        // Respond to the score changed event
+        this.GetCustomSignals().ScoreChanged += (newScore) => scoreCurrent = newScore;
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// <summary>
+    /// Called every frame. 'delta' is the elapsed time since the previous frame.
+    /// </summary>
     public override void _Process(double delta)
     {
+        // If the score displayed is behind the actual score - increment by one, but slowly
         if (scoreCurrent > scoreDisplayed)
         {
             changeTime += delta;
@@ -27,10 +38,5 @@ public partial class ScoreValueText : RichTextLabel
                 changeTime = 0;
             }
         }
-    }
-
-    private void ScoreChanged(int score)
-    {
-        scoreCurrent = score;
     }
 }

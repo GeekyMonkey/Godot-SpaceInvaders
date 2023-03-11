@@ -4,37 +4,33 @@ using System;
 
 public partial class Swarm : Node2D
 {
-    [Export]
-    AudioStream[] StompSounds;
+    // Editor State
+    [ExportCategory("Sounds")]
+    [Export] AudioStream[] StompSounds;
 
-    AudioStreamPlayer2D StompSoundPlayer;
+    [ExportCategory("Swarm Geometry")]
+    [Export] public float SpacingX = 16f;
+    [Export] public float SpacingY = 16f;
+    [Export] private float XMargin = 8f;
 
-    private int StompSoundIndex = 0;
-    private CustomSignals cs;
+    [ExportCategory("Swarm Movement")]
+    [Export] public int StepX = 8;
+    [Export] public int StepY = 8;
 
-    public float ScreenSizeX;
-    public float XMin;
-    public float XMax;
-
-    [Export]
-    private float XMargin = 8f;
-
-    private Rect2 SwarmExtents;
-
-    private bool IsStomping = true;
-
-    [Export]
-    public int StepX = 8;
-
-    [Export]
-    public int StepY = 8;
-
-    public int DirectionX = 1; // 1 or -1
-
-    [Export]
+    // Public State
     public int SwarmType = 0;
 
-    public string[][] SwarmPatterns = new string[][] {
+    // Private State
+    private int DirectionX = 1; // 1 or -1
+    private bool IsStomping = true;
+    private float ScreenSizeX;
+    private int StompSoundIndex = 0;
+    private AudioStreamPlayer2D StompSoundPlayer;
+    private Rect2 SwarmExtents;
+    private float XMin;
+    private float XMax;
+
+    private string[][] SwarmPatterns = new string[][] {
         new String[] {
        "23332",
        " 222 ",
@@ -50,24 +46,23 @@ public partial class Swarm : Node2D
         }
     };
 
-    [Export]
-    public float SpacingX = 16f;
 
-    [Export]
-    public float SpacingY = 16f;
-
-
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// </summary>
     public override void _Ready()
     {
         StompSoundPlayer = GetNode<AudioStreamPlayer2D>("./StompSoundPlayer");
 
-        cs = this.GetCustomSignals();
-        cs.Connect(CustomSignals.SignalName.Stomp, Callable.From(Stomp));
-        cs.Connect(CustomSignals.SignalName.AlienDied, Callable.From((Alien alien) =>
+        // It's stompin' time!
+        this.GetCustomSignals().Connect(CustomSignals.SignalName.Stomp, Callable.From(Stomp));
+
+        // When an alien dies, re-check the swarm size
+        this.GetCustomSignals().Connect(CustomSignals.SignalName.AlienDied, Callable.From((Alien alien) =>
             MeasureExtents()
         ));
 
+        // The player is out of lives - stop stomping
         this.GetCustomSignals().LivesChanged += (int lives) =>
         {
             if (lives == 0)
@@ -76,35 +71,37 @@ public partial class Swarm : Node2D
             }
         };
 
+        // Measure the screen
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
 
-        GD.Print("Creating swarm type " + SwarmType);
+        // Create the swarm
         CreateSwarm(SwarmType);
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-        // AudioStreamPlayer2D p;
-        // p.Stream
-    }
-
+    /// <summary>
+    /// Timer says it's stomping time. Alert the aliens!
+    /// </summary>
     public void StompTimer()
     {
-        cs.EmitStomp();
+        this.GetCustomSignals().EmitStomp();
     }
 
+    /// <summary>
+    /// Move the swarm and make the sound
+    /// </summary>
     public void Stomp()
     {
         if (IsStomping)
         {
+            // Play a sound
             StompSoundIndex++;
             StompSoundIndex %= StompSounds.Length;
             StompSoundPlayer.Stream = StompSounds[StompSoundIndex];
             StompSoundPlayer.Play();
 
+            // Move the swarm
             float dX = DirectionX * StepX;
             Position += new Vector2(dX, 0);
             if ((Position.X + SwarmExtents.Position.X) <= XMin || (Position.X + SwarmExtents.End.X) >= XMax)
@@ -116,6 +113,9 @@ public partial class Swarm : Node2D
         }
     }
 
+    /// <summary>
+    /// Measure the size of the swarm so we can tell if a side is hit
+    /// </summary>
     public async void MeasureExtents()
     {
         await this.NextIdle();
@@ -150,10 +150,9 @@ public partial class Swarm : Node2D
         else
         {
             SwarmExtents = new Rect2(left, top, right - left, bottom - top);
-            // var swarmExtentsLocal = new Rect2(left - GlobalPosition.X, top - GlobalPosition.Y, right - GlobalPosition.X, bottom - GlobalPosition.Y);
-            GD.Print("Swarm of " + alienCount + " extents: " + SwarmExtents);
-            GetNode<Sprite2D>("ExtentsMarker1").Position = SwarmExtents.Position;
-            GetNode<Sprite2D>("ExtentsMarker2").Position = SwarmExtents.End;
+            // GD.Print("Swarm of " + alienCount + " extents: " + SwarmExtents);
+            // GetNode<Sprite2D>("ExtentsMarker1").Position = SwarmExtents.Position;
+            // GetNode<Sprite2D>("ExtentsMarker2").Position = SwarmExtents.End;
         }
     }
 
@@ -163,6 +162,7 @@ public partial class Swarm : Node2D
     /// <param name="swarmType">Number of the swarm pattern</param>
     private void CreateSwarm(int swarmType)
     {
+        GD.Print("Creating swarm type " + swarmType);
         ClearSwarm();
         var swarmPattern = SwarmPatterns[swarmType % SwarmPatterns.Length];
         int rows = swarmPattern.Length;
@@ -193,17 +193,18 @@ public partial class Swarm : Node2D
         MeasureExtents();
     }
 
+    /// <summary>
+    /// Remove any aliens from the swarm
+    /// </summary>
     private void ClearSwarm()
     {
         var children = this.GetChildren(false);
         foreach (var child in children)
         {
-            //GD.Print(child.Name);
             if (child is Alien alien)
             {
                 alien.QueueFree();
             }
         }
-
     }
 }

@@ -2,21 +2,42 @@ using Godot;
 
 public partial class Bomb : RigidBody2D
 {
-    [Export]
-    public float Speed = 50f;
+    // Editor State
+    [Export] public float Speed = 50f;
 
+    /// <summary>
+    /// Bomb added to scene
+    /// </summary>
     public override void _Ready()
     {
-        LinearVelocity = Vector2.Up * -Speed;
+        // Start moving down
+        LinearVelocity = Vector2.Down * Speed;
+
+        // Watch for collisions
         Connect(SignalName.BodyEntered, Callable.From((Node o) => OnBodyEntered(o)));
     }
 
+    /// <summary>
+    /// Bomb collided with something
+    /// </summary>
     private void OnBodyEntered(Node other)
     {
-        GD.Print("Bomb " + this.Name + " hit " + other.Name);
-        this.Root().SpawnPrefab<Bomb_Explosion>((bombExp) =>
+        if (other is Bullet)
         {
-            bombExp.GlobalPosition = GlobalPosition;
-        }, "Bomb_Explosion");
+            // GD.Print("Bomb " + this.Name + " hit " + other.Name);
+            // Show an explosion where the bullet hit the bomb
+            this.SpawnPrefabAtRoot<Bomb_Explosion>((bombExp) =>
+            {
+                bombExp.GlobalPosition = GlobalPosition;
+            }, "Bomb_Explosion");
+        }
+        else
+        {
+            // ToDo: bomb collide with player
+            // ToDo: bomb collide with shield
+        }
+
+        // Remove the bomb
+        QueueFree();
     }
 }
