@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "SpaceInvaders": {
+      "commandName": "Project"
+    },
+    "Godot": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Godot\\Godot_win64.exe",
+      "commandLineArgs": "--path . --verbose",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}
