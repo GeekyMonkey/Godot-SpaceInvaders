@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk0nt88gonuvx"
-path="res://.godot/imported/Alien2A.png-b711f1cf0d94cdbe2ebcc716787891cf.ctex"
+uid="uid://dggt2b1l1qp7x"
+path="res://.godot/imported/Bomb2A.png-b636a4480355697f11261e984ecb2ef0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prefabs/Aliens/Sprites/Alien2A.png"
-dest_files=["res://.godot/imported/Alien2A.png-b711f1cf0d94cdbe2ebcc716787891cf.ctex"]
+source_file="res://Prefabs/Bomb/Sprites/Bomb2A.png"
+dest_files=["res://.godot/imported/Bomb2A.png-b636a4480355697f11261e984ecb2ef0.ctex"]
 
 [params]
 

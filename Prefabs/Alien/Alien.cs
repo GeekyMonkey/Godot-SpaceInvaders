@@ -17,7 +17,7 @@ public partial class Alien : RigidBody2D
     public Marker2D GunPosition;
 
     [Export]
-    public PackedScene[] BombPrefabs;
+    public int BombTypes = 2;
 
     private AnimatedSprite2D AnimatedSprite;
 
@@ -36,8 +36,7 @@ public partial class Alien : RigidBody2D
 
     public Rect2 Extents;
 
-    [Export]
-    public PackedScene ExplosionPrefab;
+    private PointLight2D GunSprite;
 
     private bool IsStomping = true;
 
@@ -51,6 +50,7 @@ public partial class Alien : RigidBody2D
 
         AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
         GunPosition = GetNode<Marker2D>("GunPosition");
+        GunSprite = GetNode<PointLight2D>("GunSprite");
 
         var collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
         SpriteScale = collisionShape.Transform.Scale.X;
@@ -100,12 +100,12 @@ public partial class Alien : RigidBody2D
 
     private void Shoot()
     {
-        int bombTypeIndex = new RandomNumberGenerator().RandiRange(0, BombPrefabs.Length - 1);
+        int bombTypeIndex = new RandomNumberGenerator().RandiRange(1, BombTypes);
         // GD.Print("Bomb type " + bombTypeIndex + " at " + this.GunPosition.GlobalPosition);
-        var bombPrefab = BombPrefabs[bombTypeIndex];
-        var bomb = bombPrefab.Instantiate<Bomb>(PackedScene.GenEditState.Instance);
-        bomb.Position = this.GunPosition.GlobalPosition;
-        GetTree().CurrentScene.AddChild(bomb);
+        var bomb = this.Root().SpawnPrefab<Bomb>((b) =>
+        {
+            b.Position = this.GunPosition.GlobalPosition;
+        }, $"Bomb_{bombTypeIndex}");
     }
 
     private void OnBodyEntered(Node otherObject)
@@ -128,10 +128,10 @@ public partial class Alien : RigidBody2D
             await this.NextIdle();
             this.QueueFree();
 
-            Node2D explosion = ExplosionPrefab.Instantiate<Node2D>(PackedScene.GenEditState.Instance);
-            explosion.Position = Position;
-            GetParent().AddChild(explosion);
-            // GetTree().CurrentScene.AddChild(explosion);
+            GetParent().SpawnPrefab<Alien_Explosion>((e) =>
+          {
+              e.Position = Position;
+          });
         }
     }
 
@@ -156,8 +156,7 @@ public partial class Alien : RigidBody2D
             }
 
             ViewIsClear = newViewIsClear;
-            this.Modulate = new Color(1, 1, ViewIsClear ? 0.5f : 1, 1);
-            // this.Scale = Vector2.One * (ViewIsClear ? 1.5f : 1f);
+            GunSprite.Enabled = ViewIsClear;
         }
     }
 }

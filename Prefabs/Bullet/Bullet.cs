@@ -13,6 +13,8 @@ public partial class Bullet : RigidBody2D
     {
         cs = this.GetCustomSignals();
         LinearVelocity = Vector2.Up * Speed;
+
+        Connect(SignalName.BodyEntered, Callable.From((Node other) => OnBodyEntered(other)));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

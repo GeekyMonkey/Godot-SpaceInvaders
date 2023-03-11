@@ -73,8 +73,10 @@ public partial class Player : Node2D
 
         if (input == 1)
         {
-            var bullet = this.GetGameManager().SpawnPrefab<Bullet>();
-            bullet.GlobalPosition = GunPosition.GlobalPosition;
+            this.Root().SpawnPrefab<Bullet>((bullet) =>
+            {
+                bullet.GlobalPosition = GunPosition.GlobalPosition;
+            });
         }
     }
 
@@ -83,8 +85,11 @@ public partial class Player : Node2D
         GD.Print("Player hit by " + other.Name);
         if (other is Bomb bomb)
         {
-            var explosionn = this.GetGameManager().SpawnPrefab<Player_Explosion>();
-            explosionn.Position = GlobalPosition;
+            this.Root().SpawnPrefab<Player_Explosion>((explosion) =>
+            {
+                explosion.Position = GlobalPosition;
+            });
+
             await this.DelayMs(100);
             QueueFree();
             this.GetGameManager().PlayerDied();

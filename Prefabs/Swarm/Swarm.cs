@@ -81,6 +81,7 @@ public partial class Swarm : Node2D
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;
 
+        GD.Print("Creating swarm type " + SwarmType);
         CreateSwarm(SwarmType);
     }
 

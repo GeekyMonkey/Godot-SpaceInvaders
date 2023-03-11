@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvm12vvhkvt63"]
+
+[ext_resource type="Script" path="res://Prefabs/Alien/Alien_Explosion.cs" id="1_5vffw"]
+[ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Alien/Sprites/AlienDeath.png" id="2_q322u"]
+[ext_resource type="AudioStream" uid="uid://djh407vngdv7y" path="res://Prefabs/Alien/Sounds/InvaderDeath.wav" id="3_ooj2y"]
+[ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_qb2na"]
+
+[node name="AlienExplosionPrefab" type="Node2D"]
+script = ExtResource("1_5vffw")
+FadeSeconds = 0.2
+
+[node name="AlienDeathSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_q322u")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ooj2y")
+autoplay = true
+
+[node name="ExplosionLight" type="PointLight2D" parent="."]
+color = Color(1, 0.0941176, 0.129412, 1)
+energy = 9.14
+texture = ExtResource("4_qb2na")
+texture_scale = 0.2
+height = 1.0

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://djh407vngdv7y"
-path="res://.godot/imported/InvaderDeath.wav-13cdc04c26c179abe16dc5d0d1c10fe7.sample"
+path="res://.godot/imported/InvaderDeath.wav-2305444e45c17627a7133ad1dc85211b.sample"
 
 [deps]
 
-source_file="res://Prefabs/Aliens/Sounds/InvaderDeath.wav"
-dest_files=["res://.godot/imported/InvaderDeath.wav-13cdc04c26c179abe16dc5d0d1c10fe7.sample"]
+source_file="res://Prefabs/Alien/Sounds/InvaderDeath.wav"
+dest_files=["res://.godot/imported/InvaderDeath.wav-2305444e45c17627a7133ad1dc85211b.sample"]
 
 [params]
 

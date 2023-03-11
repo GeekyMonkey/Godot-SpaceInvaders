@@ -1,8 +1,9 @@
 using System;
 using Godot;
 
-public partial class AlienExplosion : Node2D
+public partial class Bomb_Explosion : Node2D
 {
+
     private double Age = 0f;
 
     [Export]
@@ -16,7 +17,7 @@ public partial class AlienExplosion : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        Sprite = GetNode<Sprite2D>("./AlienDeathSprite");
+        Sprite = GetNode<Sprite2D>("./BombExplosionSprite");
         ExplosionSound = GetNode<AudioStreamPlayer2D>("./ExplosionSound");
         ExplosionLight = GetNode<PointLight2D>("./ExplosionLight");
         LightEnergy = ExplosionLight.Energy;

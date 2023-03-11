@@ -40,20 +40,6 @@ public partial class GameManager : Node2D
         cs.EmitScoreChanged(Score);
     }
 
-    public T SpawnPrefab<T>(Node parent = null) where T : Node
-    {
-        var typeName = typeof(T).Name;
-        GD.Print("GameManager Spawning " + typeName);
-        string prefabFolder = typeName.Split("_")[0];
-        var prefab = GD.Load<PackedScene>($"res://Prefabs/{prefabFolder}/{typeName}.tscn");
-        T obj = prefab.Instantiate<T>(PackedScene.GenEditState.Instance);
-        if (parent == null)
-        {
-            parent = GetTree().CurrentScene;
-        }
-        parent.AddChild(obj);
-        return obj;
-    }
 
     private async void SpawnNewSwarm()
     {
@@ -62,8 +48,10 @@ public partial class GameManager : Node2D
         await this.DelayMs(2500);
 
         Level++;
-        var swarm = SpawnPrefab<Swarm>();
-        swarm.SwarmType = Level - 1;
+        this.SpawnPrefab<Swarm>((swarm) =>
+        {
+            swarm.SwarmType = Level - 1;
+        });
     }
 
     public async void PlayerDied()
@@ -81,7 +69,11 @@ public partial class GameManager : Node2D
     public void SpawnPlayer()
     {
         Marker2D spawnMarker = GetNode<Marker2D>("PlayerSpawnPoint");
-        var player = SpawnPrefab<Player>();
-        player.GlobalPosition = spawnMarker.GlobalPosition;
+        this.SpawnPrefab<Player>((player) =>
+        {
+            player.GlobalPosition = spawnMarker.GlobalPosition;
+        });
+
+
     }
 }
