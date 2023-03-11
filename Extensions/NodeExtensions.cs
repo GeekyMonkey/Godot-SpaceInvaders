@@ -29,20 +29,30 @@ public static class NodeExtensions
         await System.Threading.Tasks.Task.Delay(milliseconds);
     }
 
+    /// <summary>
+    /// Get the root node of the current scene
+    /// </summary>
+    /// <returns>Scene root node</returns>
     public static Node Root(this Node node)
     {
         return node.GetTree().CurrentScene;
     }
 
-    public readonly struct SpawnOptions<T> where T : Node
-    {
-        readonly string Path;
-        readonly PrefabInitCallback<T> Init;
-    }
-
+    /// <summary>
+    /// Used to initialize your new prefab object before it is added to the scene
+    /// </summary>
+    /// <typeparam name="T">Prefab's main script class</typeparam>
+    /// <param name="newObject">The newly created prefab instance</param>
     public delegate void PrefabInitCallback<T>(T newObject);
 
-
+    /// <summary>
+    /// Spawn a prefab instance as the child of this node
+    /// </summary>
+    /// <typeparam name="T">Type of the prefab's main script class</typeparam>
+    /// <param name="node">The node that will be the parent</param>
+    /// <param name="init">A callback to initailize your new prefab instance before it is plonked into the scene</param>
+    /// <param name="variantName">If the prefab folder has different prefab variants, specify which one here. This must be the folder name, then an underscore, then a variant name.</param>
+    /// <returns>New prefab instance</returns>
     public static T SpawnPrefab<T>(this Node node, PrefabInitCallback<T> init = null, string variantName = null) where T : Node
     {
         var typeName = typeof(T).Name;

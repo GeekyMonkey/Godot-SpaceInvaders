@@ -156,6 +156,10 @@ public partial class Swarm : Node2D
         }
     }
 
+    /// <summary>
+    /// Create a swarm of the specified type
+    /// </summary>
+    /// <param name="swarmType">Number of the swarm pattern</param>
     private void CreateSwarm(int swarmType)
     {
         ClearSwarm();
@@ -181,7 +185,7 @@ public partial class Swarm : Node2D
                     this.SpawnPrefab<Alien>((alien) =>
                     {
                         alien.Position = new Vector2(x, y);
-                    }, $"Alien_{alienTypeIndex}");
+                    }, variantName: $"Alien_{alienTypeIndex}");
                 }
             }
         }
