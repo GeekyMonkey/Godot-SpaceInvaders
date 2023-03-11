@@ -55,8 +55,6 @@ public partial class Swarm : Node2D
     [Export]
     public float SpacingY = 16f;
 
-    [Export]
-    PackedScene[] AlienTypes;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -174,16 +172,16 @@ public partial class Swarm : Node2D
         {
             for (int col = 0; col < columns; col++)
             {
-                int alienTypeIndex = swarmPattern[row][col] - '1';
-                if (alienTypeIndex >= 0 && alienTypeIndex < AlienTypes.Length)
+                int alienTypeIndex = swarmPattern[row][col] - '0';
+                if (alienTypeIndex >= 1 && alienTypeIndex <= 3)
                 {
-                    var alientType = AlienTypes[alienTypeIndex];
-                    var alien = alientType.Instantiate<Alien>(PackedScene.GenEditState.Instance);
                     float x = left + col * SpacingX;
                     float y = top + row * SpacingY;
-                    // GD.Print("Create Alien {0} at {1},{2}", alienTypeIndex, x, y);
-                    alien.Position = new Vector2(x, y);
-                    AddChild(alien);
+                    GD.Print($"Spawn alien {alienTypeIndex} at {x},{y}");
+                    this.SpawnPrefab<Alien>((alien) =>
+                    {
+                        alien.Position = new Vector2(x, y);
+                    }, $"Alien_{alienTypeIndex}");
                 }
             }
         }
