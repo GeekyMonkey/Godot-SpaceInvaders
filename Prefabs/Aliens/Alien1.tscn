@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsvh6y1n04skp"]
+[gd_scene load_steps=7 format=3 uid="uid://cyabku4lalha"]
 
 [ext_resource type="Script" path="res://Prefabs/Aliens/Alien.cs" id="1_1kagq"]
 [ext_resource type="PackedScene" path="res://Prefabs/Aliens/AlienExplosion.tscn" id="2_6xpq8"]
 [ext_resource type="SpriteFrames" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_af8e7"]
-[ext_resource type="PackedScene" path="res://Prefabs/Bombs/BombPrefabA.tscn" id="2_rljov"]
-[ext_resource type="PackedScene" path="res://Prefabs/Bombs/BombPrefabB.tscn" id="3_52tp8"]
+[ext_resource type="PackedScene" path="res://Prefabs/Bombs/Bomb1.tscn" id="2_rljov"]
+[ext_resource type="PackedScene" path="res://Prefabs/Bombs/Bomb2.tscn" id="3_52tp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
 size = Vector2(12, 8)

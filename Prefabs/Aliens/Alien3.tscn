@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://1dx1kxirgbg7"]
 
 [ext_resource type="Script" path="res://Prefabs/Aliens/Alien.cs" id="1_cbsr3"]
-[ext_resource type="SpriteFrames" uid="uid://1jfi24fygdqt" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_18fb5"]
+[ext_resource type="SpriteFrames" path="res://Prefabs/Aliens/AlienAnimations.tres" id="2_18fb5"]
 [ext_resource type="PackedScene" path="res://Prefabs/Aliens/AlienExplosion.tscn" id="2_43gy2"]
-[ext_resource type="PackedScene" uid="uid://dfmnl6syfykha" path="res://Prefabs/Bombs/BombPrefabA.tscn" id="2_sp8dt"]
-[ext_resource type="PackedScene" uid="uid://dvxqvakpk64rw" path="res://Prefabs/Bombs/BombPrefabB.tscn" id="3_1ymri"]
+[ext_resource type="PackedScene" path="res://Prefabs/Bombs/Bomb1.tscn" id="2_dtjom"]
+[ext_resource type="PackedScene" path="res://Prefabs/Bombs/Bomb2.tscn" id="3_ndmqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
 size = Vector2(8, 8)
@@ -20,7 +20,7 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_cbsr3")
 Points = 30
-BombPrefabs = Array[PackedScene]([ExtResource("2_sp8dt"), ExtResource("3_1ymri")])
+BombPrefabs = Array[PackedScene]([ExtResource("2_dtjom"), ExtResource("3_ndmqj")])
 ExplosionPrefab = ExtResource("2_43gy2")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
