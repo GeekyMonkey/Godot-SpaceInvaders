@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 
-public partial class Swarm : Node2D
+public partial class Swarm : GmNode2D
 {
     // Editor State
     [ExportCategory("Sounds")]
@@ -118,8 +118,8 @@ public partial class Swarm : Node2D
     /// </summary>
     public async void MeasureExtents()
     {
-        await this.NextIdle();
-        var children = this.GetChildren(false);
+        await NextIdle();
+        var children = GetChildren(false);
         float left = float.MaxValue;
         float top = float.MaxValue;
         float bottom = float.MinValue;
@@ -183,7 +183,7 @@ public partial class Swarm : Node2D
                     float x = left + col * SpacingX;
                     float y = top + row * SpacingY;
                     GD.Print($"Spawn alien {alienTypeIndex} at {x},{y}");
-                    this.SpawnPrefab<Alien>((alien) =>
+                    SpawnPrefabChild<Alien>((alien) =>
                     {
                         alien.Position = new Vector2(x, y);
                     }, variantName: $"Alien_{alienTypeIndex}");
@@ -198,7 +198,7 @@ public partial class Swarm : Node2D
     /// </summary>
     private void ClearSwarm()
     {
-        var children = this.GetChildren(false);
+        var children = GetChildren(false);
         foreach (var child in children)
         {
             if (child is Alien alien)

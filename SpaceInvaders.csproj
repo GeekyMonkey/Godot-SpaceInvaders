@@ -6,6 +6,10 @@
     <RootNamespace />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="script_templates\**" />
+    <EmbeddedResource Remove="script_templates\**" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include=".editorconfig" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Player : Node2D
+public partial class Player : GmNode2D
 {
     // Editor State
     [Export] public float MoveSpeed = 500;
@@ -67,7 +67,7 @@ public partial class Player : Node2D
 
         if (input == 1)
         {
-            this.SpawnPrefabAtRoot<Bullet>((bullet) =>
+            SpawnPrefabAtRoot<Bullet>((bullet) =>
             {
                 bullet.GlobalPosition = GunPosition.GlobalPosition;
             });
@@ -82,14 +82,14 @@ public partial class Player : Node2D
         GD.Print("Player hit by " + other.Name);
         if (other is Bomb bomb)
         {
-            this.SpawnPrefabAtRoot<Player_Explosion>((explosion) =>
+            SpawnPrefabAtRoot<Player_Explosion>((explosion) =>
             {
                 explosion.Position = GlobalPosition;
             });
 
-            await this.DelaySec(0.1);
+            await DelaySec(0.1);
             QueueFree();
-            this.GetGameManager().PlayerDied();
+            GameManager.PlayerDied();
         }
     }
 }

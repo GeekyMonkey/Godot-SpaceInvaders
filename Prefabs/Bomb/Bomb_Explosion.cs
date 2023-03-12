@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Bomb Explosion
 /// </summary>
-public partial class Bomb_Explosion : Node2D
+public partial class Bomb_Explosion : GmNode2D
 {
     // Editor State
     [Export] public double FadeSeconds = 1.1f;

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Bomb : RigidBody2D
+public partial class Bomb : GmRigidBody2D
 {
     // Editor State
     [Export] public float Speed = 50f;
@@ -26,7 +26,7 @@ public partial class Bomb : RigidBody2D
         {
             // GD.Print("Bomb " + this.Name + " hit " + other.Name);
             // Show an explosion where the bullet hit the bomb
-            this.SpawnPrefabAtRoot<Bomb_Explosion>((bombExp) =>
+            SpawnPrefabAtRoot<Bomb_Explosion>((bombExp) =>
             {
                 bombExp.GlobalPosition = GlobalPosition;
             }, "Bomb_Explosion");

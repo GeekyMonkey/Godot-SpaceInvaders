@@ -3,7 +3,7 @@ using Godot;
 /// <summary>
 /// Background Image
 /// </summary>
-public partial class Background : Sprite2D
+public partial class Background : GmSprite2D
 {
     /// <summary>
     /// Called when the node enters the scene tree for the first time.
@@ -12,9 +12,9 @@ public partial class Background : Sprite2D
     {
         // Size the sprite texture
         var vpSize = GetViewportRect().Size;
-        var textureSize = this.Texture.GetSize();
+        var textureSize = Texture.GetSize();
         var scale = vpSize.X / textureSize.X;
-        this.ApplyScale(new Vector2(scale, scale));
+        ApplyScale(new Vector2(scale, scale));
         GD.Print("Background scale = " + scale);
     }
 }

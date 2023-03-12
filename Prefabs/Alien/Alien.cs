@@ -3,7 +3,7 @@ using Godot;
 /// <summary>
 /// Alien Prefab
 /// </summary>
-public partial class Alien : RigidBody2D
+public partial class Alien : GmRigidBody2D
 {
     // Editor State
     [Export] public int BombTypes = 2;
@@ -58,7 +58,7 @@ public partial class Alien : RigidBody2D
         Extents = new Rect2(collisionRect.Position.X * SpriteScale, collisionRect.Position.Y * SpriteScale, collisionRect.Size.X * SpriteScale, collisionRect.Size.Y * SpriteScale);
 
         // Initial check if it's safe to shoot
-        await this.DelaySec(1);
+        await DelaySec(1);
         CheckView();
     }
 
@@ -77,7 +77,7 @@ public partial class Alien : RigidBody2D
     {
         if (alien != this)
         {
-            await this.DelaySec(0.5);
+            await DelaySec(0.5);
             CheckView();
         }
     }
@@ -104,9 +104,9 @@ public partial class Alien : RigidBody2D
     private void Shoot()
     {
         int bombTypeIndex = new RandomNumberGenerator().RandiRange(1, BombTypes);
-        var bomb = this.SpawnPrefabAtRoot<Bomb>((b) =>
+        var bomb = SpawnPrefabAtRoot<Bomb>((b) =>
         {
-            b.Position = this.GunPosition.GlobalPosition;
+            b.Position = GunPosition.GlobalPosition;
         }, $"Bomb_{bombTypeIndex}");
     }
 
@@ -115,7 +115,7 @@ public partial class Alien : RigidBody2D
     /// </summary>
     private void OnBodyEntered(Node otherObject)
     {
-        // GD.Print(this.Name + " hit by " + otherObject.Name + " in group " + otherObject.GetGroups());
+        // GD.Print(Name + " hit by " + otherObject.Name + " in group " + otherObject.GetGroups());
         if (otherObject is Bullet)
         {
             HitByBullet(otherObject);
@@ -135,13 +135,13 @@ public partial class Alien : RigidBody2D
             this.GetCustomSignals().EmitAlienDied(this);
 
             // Show an explosion
-            GetParent().SpawnPrefab<Alien_Explosion>((e) =>
+            SpawnPrefabSibling<Alien_Explosion>((e) =>
             {
                 e.Position = Position;
             });
 
             // Remove alien from the scene
-            this.QueueFree();
+            QueueFree();
         }
     }
 

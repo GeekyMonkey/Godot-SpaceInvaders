@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Player_Explosion : Node2D
+public partial class Player_Explosion : GmNode2D
 {
     // Editor State
     [Export] public double FadeSeconds = 2.1f;

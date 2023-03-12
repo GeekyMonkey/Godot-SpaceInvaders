@@ -3,7 +3,7 @@ using Godot;
 /// <summary>
 /// Game manager
 /// </summary>
-public partial class GameManager : Node2D
+public partial class GameManager : GmNode2D
 {
     // Public State
     public int Level = 1;
@@ -27,9 +27,9 @@ public partial class GameManager : Node2D
         cs.Connect(CustomSignals.SignalName.SwarmDeath, Callable.From(async () =>
         {
             // Add a bunch of points
-            await this.DelaySec(0.5);
+            await DelaySec(0.5);
             ScoreAdd(201);
-            await this.DelaySec(2.5);
+            await DelaySec(2.5);
 
             // Level up
             SpawnNewSwarm();
@@ -62,7 +62,7 @@ public partial class GameManager : Node2D
     private void SpawnNewSwarm()
     {
         Level++;
-        this.SpawnPrefab<Swarm>((swarm) =>
+        SpawnPrefabChild<Swarm>((swarm) =>
         {
             swarm.SwarmType = Level - 1;
         });
@@ -78,7 +78,7 @@ public partial class GameManager : Node2D
 
         if (PlayerLives > 0)
         {
-            await this.DelaySec(2);
+            await DelaySec(2);
             SpawnPlayer();
         }
     }
@@ -89,7 +89,7 @@ public partial class GameManager : Node2D
     public void SpawnPlayer()
     {
         Marker2D spawnMarker = GetNode<Marker2D>("PlayerSpawnPoint");
-        this.SpawnPrefab<Player>((player) =>
+        SpawnPrefabChild<Player>((player) =>
         {
             player.GlobalPosition = spawnMarker.GlobalPosition;
         });

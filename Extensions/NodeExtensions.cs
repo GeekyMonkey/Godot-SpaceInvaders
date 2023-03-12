@@ -66,24 +66,22 @@ public static class NodeExtensions
     /// Spawn a prefab instance as the child of the scene root
     /// </summary>
     /// <typeparam name="T">Type of the prefab's main script class</typeparam>
-    /// <param name="node">The node that will be the parent</param>
     /// <param name="init">A callback to initialize your new prefab instance before it is plonked into the scene</param>
     /// <param name="variantName">If the prefab folder has different prefab variants, specify which one here. This must be the folder name, then an underscore, then a variant name.</param>
     /// <returns>New prefab instance</returns>
     public static T SpawnPrefabAtRoot<T>(this Node node, PrefabInitCallback<T> init = null, string variantName = null) where T : Node
     {
-        return node.Root().SpawnPrefab(init, variantName);
+        return node.Root().SpawnPrefabChild(init, variantName);
     }
 
     /// <summary>
     /// Spawn a prefab instance as the child of this node
     /// </summary>
     /// <typeparam name="T">Type of the prefab's main script class</typeparam>
-    /// <param name="node">The node that will be the parent</param>
     /// <param name="init">A callback to initialize your new prefab instance before it is plonked into the scene</param>
     /// <param name="variantName">If the prefab folder has different prefab variants, specify which one here. This must be the folder name, then an underscore, then a variant name.</param>
     /// <returns>New prefab instance</returns>
-    public static T SpawnPrefab<T>(this Node node, PrefabInitCallback<T> init = null, string variantName = null) where T : Node
+    public static T SpawnPrefabChild<T>(this Node node, PrefabInitCallback<T> init = null, string variantName = null) where T : Node
     {
         var typeName = typeof(T).Name;
         string prefabFolder;

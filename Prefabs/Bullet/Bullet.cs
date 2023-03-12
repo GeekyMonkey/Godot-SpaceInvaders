@@ -3,7 +3,7 @@ using Godot;
 /// <summary>
 /// Bullet Prefab
 /// </summary>
-public partial class Bullet : RigidBody2D
+public partial class Bullet : GmRigidBody2D
 {
     // Editor State
     [Export] public float Speed = 400f;
@@ -47,7 +47,7 @@ public partial class Bullet : RigidBody2D
     private void BulletHitAlien(Alien alien)
     {
         // The alien knows this is bad. Just remove the bullet
-        this.QueueFree();
+        QueueFree();
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public partial class Bullet : RigidBody2D
     private void BulletHitBomb(Bomb bomb)
     {
         // GD.Print("Bullet hit bomb " + bomb.Name);
-        this.GetGameManager().ScoreAdd(3);
+        GameManager.ScoreAdd(3);
 
         // Delete the bullet from the scene
         QueueFree();
