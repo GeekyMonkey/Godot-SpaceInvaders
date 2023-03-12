@@ -26,6 +26,7 @@ public partial class Swarm : GmNode2D
     private float ScreenSizeX;
     private int StompSoundIndex = 0;
     private AudioStreamPlayer2D StompSoundPlayer;
+    private bool SwarmDead = false;
     private Rect2 SwarmExtents;
     private float XMin;
     private float XMax;
@@ -85,7 +86,10 @@ public partial class Swarm : GmNode2D
     /// </summary>
     public void StompTimer()
     {
-        this.GetCustomSignals().EmitStomp();
+        if (!SwarmDead)
+        {
+            this.GetCustomSignals().EmitStomp();
+        }
     }
 
     /// <summary>
@@ -144,8 +148,10 @@ public partial class Swarm : GmNode2D
 
         if (alienCount == 0)
         {
-            QueueFree();
+            SwarmDead = true;
+            await DelaySec(1); // Allow last alien death sound to finish playing
             this.GetCustomSignals().EmitSwarmDeath();
+            QueueFree();
         }
         else
         {
