@@ -3,6 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <NoWarn>CA1050;8019</NoWarn>
+    <RootNamespace />
   </PropertyGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

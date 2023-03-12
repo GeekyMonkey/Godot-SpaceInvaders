@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Prefabs/Player/Sprites/Player.png" id="1_58v0r"]
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_jgndr"]
 
-[node name="Player2D" type="Node2D" groups=["Players"]]
+[node name="Player" type="Node2D" groups=["Players"]]
 modulate = Color(0, 1, 0, 1)
 script = ExtResource("1_jgndr")
 MoveSpeed = 100.0

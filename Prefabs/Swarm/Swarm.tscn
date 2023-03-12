@@ -58,15 +58,6 @@ position = Vector2(16, 0)
 [node name="Alien3" parent="." instance=ExtResource("1_fibd7")]
 position = Vector2(-16, 0)
 
-[node name="Alien4" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(-32, 0)
-
-[node name="Alien5" parent="." instance=ExtResource("1_fibd7")]
-position = Vector2(32, 0)
-
-[node name="AlienPrefab2" parent="." instance=ExtResource("7_y63qb")]
-position = Vector2(-32, 16)
-
 [node name="AlienPrefab3" parent="." instance=ExtResource("7_y63qb")]
 position = Vector2(-16, 16)
 
@@ -76,12 +67,6 @@ position = Vector2(0, 16)
 [node name="AlienPrefab5" parent="." instance=ExtResource("7_y63qb")]
 position = Vector2(16, 16)
 
-[node name="AlienPrefab6" parent="." instance=ExtResource("7_y63qb")]
-position = Vector2(32, 16)
-
-[node name="AlienPrefab8" parent="." instance=ExtResource("8_07le4")]
-position = Vector2(-32, -16)
-
 [node name="AlienPrefab9" parent="." instance=ExtResource("8_07le4")]
 position = Vector2(-16, -16)
 
@@ -90,8 +75,5 @@ position = Vector2(0, -16)
 
 [node name="AlienPrefab11" parent="." instance=ExtResource("8_07le4")]
 position = Vector2(16, -16)
-
-[node name="AlienPrefab12" parent="." instance=ExtResource("8_07le4")]
-position = Vector2(32, -16)
 
 [connection signal="timeout" from="StompTimer" to="." method="StompTimer"]
