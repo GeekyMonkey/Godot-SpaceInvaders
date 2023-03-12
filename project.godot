@@ -31,6 +31,10 @@ window/stretch/scale=0.5
 
 project/assembly_name="SpaceInvaders"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
 [input]
 
 move_right={

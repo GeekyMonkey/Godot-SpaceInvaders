@@ -33,7 +33,6 @@ public partial class Bomb : GmRigidBody2D
         }
         else
         {
-            // ToDo: bomb collide with player
             // ToDo: bomb collide with shield
         }
 
