@@ -6,8 +6,10 @@ public partial class Player : GmNode2D
     [Export] public float MoveSpeed = 500;
     [Export] public float ReloadSec = 0.25f;
 
+    // Child Nodes
+    [Node] private Marker2D GunPosition;
+
     // Private State
-    private Marker2D GunPosition;
     private float ScreenSizeX;
     private float XMin;
     private float XMax;
@@ -18,7 +20,8 @@ public partial class Player : GmNode2D
     /// </summary>
     public override void _Ready()
     {
-        GunPosition = GetNode<Marker2D>("GunPosition");
+        this.WireNodes();
+
         ScreenSizeX = GetViewportRect().Size.X / 3;
         XMin = ScreenSizeX / -2 + XMargin;
         XMax = ScreenSizeX / 2 - XMargin;

@@ -11,13 +11,15 @@ public partial class Alien : GmRigidBody2D
     [Export] public float ReloadSecMin = 1f;
     [Export] public float ReloadSecMax = 15f;
 
+    // Child nodes
+    [Node] private AnimatedSprite2D AnimatedSprite;
+    [Node] private Marker2D GunPosition;
+    [Node] private PointLight2D GunSprite;
+
     // Public State
     public bool Dead = false;
 
     // Private State
-    private AnimatedSprite2D AnimatedSprite;
-    private Marker2D GunPosition;
-    private PointLight2D GunSprite;
     public Rect2 Extents;
     private float Width = 0f;
     private float Height = 0f;
@@ -31,9 +33,7 @@ public partial class Alien : GmRigidBody2D
     /// </summary>
     public override async void _Ready()
     {
-        AnimatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
-        GunPosition = GetNode<Marker2D>("GunPosition");
-        GunSprite = GetNode<PointLight2D>("GunSprite");
+        this.WireNodes();
 
         // Watch for swarm stomp events
         this.GetCustomSignals().Connect("Stomp", Callable.From(() => Stomp()));

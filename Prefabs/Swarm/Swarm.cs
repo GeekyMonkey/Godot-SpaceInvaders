@@ -17,6 +17,9 @@ public partial class Swarm : GmNode2D
     [Export] public int StepX = 8;
     [Export] public int StepY = 8;
 
+    // Child Nodes
+    [Node] private AudioStreamPlayer2D StompSoundPlayer;
+
     // Public State
     public int SwarmType = 0;
 
@@ -25,7 +28,6 @@ public partial class Swarm : GmNode2D
     private bool IsStomping = true;
     private float ScreenSizeX;
     private int StompSoundIndex = 0;
-    private AudioStreamPlayer2D StompSoundPlayer;
     private bool SwarmDead = false;
     private Rect2 SwarmExtents;
     private float XMin;
@@ -53,7 +55,7 @@ public partial class Swarm : GmNode2D
     /// </summary>
     public override void _Ready()
     {
-        StompSoundPlayer = GetNode<AudioStreamPlayer2D>("./StompSoundPlayer");
+        this.WireNodes();
 
         // It's stompin' time!
         this.GetCustomSignals().Connect(CustomSignals.SignalName.Stomp, Callable.From(Stomp));

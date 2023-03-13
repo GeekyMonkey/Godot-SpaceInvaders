@@ -6,11 +6,13 @@ public partial class Alien_Explosion : GmNode2D
     // Editor State
     [Export] public double FadeSeconds = 1.1f;
 
+    // Child Nodes
+    [Node("./AlienDeathSprite")] private Sprite2D Sprite;
+    [Node] private AudioStreamPlayer2D ExplosionSound;
+    [Node] private PointLight2D ExplosionLight;
+
     // Private state
     private double Age = 0f;
-    private Sprite2D Sprite;
-    private AudioStreamPlayer2D ExplosionSound;
-    private PointLight2D ExplosionLight;
     private float LightEnergy;
 
     /// <summary>
@@ -18,9 +20,8 @@ public partial class Alien_Explosion : GmNode2D
     /// </summary>
     public override void _Ready()
     {
-        Sprite = GetNode<Sprite2D>("./AlienDeathSprite");
-        ExplosionSound = GetNode<AudioStreamPlayer2D>("./ExplosionSound");
-        ExplosionLight = GetNode<PointLight2D>("./ExplosionLight");
+        this.WireNodes();
+
         LightEnergy = ExplosionLight.Energy;
     }
 
