@@ -100,15 +100,30 @@ public static class NodeExtensions
         var prefab = GD.Load<PackedScene>($"res://Prefabs/{path}.tscn");
         T obj = prefab.Instantiate<T>(PackedScene.GenEditState.Instance);
 
-        // Init callback
+        // Init callback and add now
         if (init != null)
         {
             init(obj);
+
+            // Add the child now since we know it's initialized
+            node.AddChild(obj);
+        }
+        else
+        {
+            // Add a child on the next frame. Gives time to initialize before adding
+            node.AddChildDeferred(obj);
         }
 
         // Add the child
-        node.AddChild(obj);
         return obj;
+    }
+
+    /// <summary>
+    /// Add a child on the next frame. Gives time to initialize before adding
+    /// </summary>
+    public static void AddChildDeferred(this Node node, Node child)
+    {
+        node.CallDeferred("add_child", child);
     }
 
 }
