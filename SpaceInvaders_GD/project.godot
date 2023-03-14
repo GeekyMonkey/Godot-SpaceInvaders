@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SpaceInvaders"
+config/name="SpaceInvaders_GD"
 run/main_scene="res://Scenes/GameScene/Game.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 boot_splash/show_image=false
@@ -29,7 +29,7 @@ window/stretch/scale=0.5
 
 [dotnet]
 
-project/assembly_name="SpaceInvaders"
+project/assembly_name="SpaceInvaders_GD"
 
 [editor_plugins]
 

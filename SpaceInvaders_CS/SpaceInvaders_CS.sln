@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvaders", "SpaceInvaders.csproj", "{7C47EBD1-4C5C-46F5-9A0C-CC39A2CDB436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvaders_CS", "SpaceInvaders_CS.csproj", "{7C47EBD1-4C5C-46F5-9A0C-CC39A2CDB436}"
 EndProject
 EndProject
 Global

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd671pmqc8kq3"]
+
+[ext_resource type="Script" path="res://Prefabs/Alien/Alien.cs" id="1_sqb4a"]
+[ext_resource type="SpriteFrames" path="res://Prefabs/Alien/Sprites/AlienAnimations.tres" id="3_124s5"]
+[ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_47eo7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
+size = Vector2(12, 8)
+
+[node name="Alien_1" type="RigidBody2D" groups=["Aliens"]]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_sqb4a")
+Points = 20
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_124s5")
+animation = &"Alien2"
+metadata/playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ebuqj")
+one_way_collision_margin = 0.0
+
+[node name="GunPosition" type="Marker2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="GunSprite" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.052, 0.052)
+enabled = false
+color = Color(0.823529, 0, 0.188235, 1)
+energy = 2.0
+blend_mode = 2
+texture = ExtResource("4_47eo7")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

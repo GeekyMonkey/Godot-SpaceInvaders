@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Prefabs/Player/Player_Explosion.cs" id="1_sd13l"]
+[ext_resource type="AudioStream" uid="uid://b7t23iguesf3u" path="res://Prefabs/Player/Sounds/PlayerDeath.wav" id="2_g5rpf"]
+[ext_resource type="Texture2D" uid="uid://c2arxm8unhx82" path="res://Prefabs/Player/Sprites/PlayerDeath1.png" id="4_j5n7u"]
+[ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_xd5ed"]
+[ext_resource type="Texture2D" uid="uid://cbffj4nqcqekq" path="res://Prefabs/Player/Sprites/PlayerDeath2.png" id="5_8gnd4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odye5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j5n7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8gnd4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerExplosion" type="Node2D"]
+script = ExtResource("1_sd13l")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_g5rpf")
+autoplay = true
+
+[node name="ExplosionLight" type="PointLight2D" parent="."]
+color = Color(1, 0.0941176, 0.129412, 1)
+energy = 4.0
+texture = ExtResource("4_xd5ed")
+texture_scale = 0.2
+height = 1.0
+
+[node name="PlayerDeathSprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_odye5")
+autoplay = "default"
+frame_progress = 0.618808
