@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://cciqc7vldthew"]
 
-[ext_resource type="Script" path="res://Prefabs/Player/Player_Explosion.cs" id="1_sd13l"]
+[ext_resource type="Script" path="res://Prefabs/Player/Player_Explosion.gd" id="1_tnugv"]
 [ext_resource type="AudioStream" uid="uid://b7t23iguesf3u" path="res://Prefabs/Player/Sounds/PlayerDeath.wav" id="2_g5rpf"]
 [ext_resource type="Texture2D" uid="uid://c2arxm8unhx82" path="res://Prefabs/Player/Sprites/PlayerDeath1.png" id="4_j5n7u"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_xd5ed"]
@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [node name="PlayerExplosion" type="Node2D"]
-script = ExtResource("1_sd13l")
+script = ExtResource("1_tnugv")
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_g5rpf")

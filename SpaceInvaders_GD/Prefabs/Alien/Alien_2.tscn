@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjnd0n0oev3cy"]
+[gd_scene load_steps=6 format=3 uid="uid://cjnd0n0oev3cy"]
 
-[ext_resource type="Script" path="res://Prefabs/Alien/Alien.cs" id="1_yoq44"]
+[ext_resource type="Script" path="res://Prefabs/Alien/Alien.gd" id="1_277d3"]
 [ext_resource type="SpriteFrames" path="res://Prefabs/Alien/Sprites/AlienAnimations.tres" id="3_45jay"]
+[ext_resource type="Script" path="res://Prefabs/Alien/GunSprite.gd" id="4_jekhc"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_lgycb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuqj"]
@@ -16,7 +17,7 @@ contact_monitor = true
 lock_rotation = true
 freeze = true
 freeze_mode = 1
-script = ExtResource("1_yoq44")
+script = ExtResource("1_277d3")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_45jay")
@@ -33,10 +34,8 @@ position = Vector2(0, 3)
 [node name="GunSprite" type="PointLight2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(0.04, 0.04)
-enabled = false
-color = Color(0.823529, 0, 0.188235, 1)
-energy = 2.0
+color = Color(1, 0.427451, 0.435294, 1)
+energy = 1.2
 blend_mode = 2
 texture = ExtResource("4_lgycb")
-
-[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+script = ExtResource("4_jekhc")

@@ -1,20 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://gknhuym3eqm6"]
+[gd_scene load_steps=11 format=3 uid="uid://cpojwkqyrr2ti"]
 
-[ext_resource type="Script" path="res://Scenes/GameScene/GameManager.cs" id="1_8or21"]
+[ext_resource type="Script" path="res://Scenes/GameScene/GameManager.gd" id="1_p5rll"]
 [ext_resource type="PackedScene" uid="uid://c57avfx61vgpf" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
 [ext_resource type="PackedScene" uid="uid://c34mtpo40yogi" path="res://Prefabs/Swarm/Swarm.tscn" id="3_4sbd7"]
 [ext_resource type="Texture2D" uid="uid://dfgeubb5qh2ao" path="res://Background/invaders.png" id="4_d73rs"]
-[ext_resource type="Script" path="res://Background/Background.cs" id="5_qj6f5"]
+[ext_resource type="Script" path="res://Scenes/GameScene/ScoreValueText.gd" id="5_qexkm"]
+[ext_resource type="Script" path="res://Background/Background.gd" id="5_qj6f5"]
+[ext_resource type="Script" path="res://Scenes/GameScene/LivesValueText.gd" id="6_0sa8i"]
 [ext_resource type="FontFile" uid="uid://bnysnaafha7r" path="res://Fonts/space_invaders.ttf" id="6_r1pgb"]
-[ext_resource type="Script" path="res://Scenes/GameScene/ScoreValueText.cs" id="7_ybkdj"]
-[ext_resource type="Script" path="res://Scenes/GameScene/LivesValueText.cs" id="8_dh8ac"]
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="9_ogu07"]
 
 [sub_resource type="Theme" id="Theme_jyikk"]
 default_font = ExtResource("6_r1pgb")
 
 [node name="GameManager" type="Node2D"]
-script = ExtResource("1_8or21")
+script = ExtResource("1_p5rll")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -52,7 +52,7 @@ theme = SubResource("Theme_jyikk")
 theme_override_font_sizes/normal_font_size = 8
 text = "0"
 scroll_active = false
-script = ExtResource("7_ybkdj")
+script = ExtResource("5_qexkm")
 
 [node name="LivesLabel" type="RichTextLabel" parent="Environment/UI"]
 offset_left = 120.0
@@ -72,7 +72,7 @@ theme = SubResource("Theme_jyikk")
 theme_override_font_sizes/normal_font_size = 8
 text = "3"
 scroll_active = false
-script = ExtResource("8_dh8ac")
+script = ExtResource("6_0sa8i")
 
 [node name="TopKillZone" parent="Environment" instance=ExtResource("9_ogu07")]
 position = Vector2(22, -180)

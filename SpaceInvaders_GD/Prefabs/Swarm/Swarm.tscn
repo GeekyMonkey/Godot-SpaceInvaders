@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://c34mtpo40yogi"]
 
 [ext_resource type="PackedScene" uid="uid://bd671pmqc8kq3" path="res://Prefabs/Alien/Alien_1.tscn" id="1_fibd7"]
-[ext_resource type="Script" path="res://Prefabs/Swarm/Swarm.cs" id="1_hcdtq"]
-[ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/Sounds/fastinvader1.wav" id="2_dyme3"]
-[ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/Sounds/fastinvader2.wav" id="3_ilxj6"]
-[ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/Sounds/fastinvader3.wav" id="4_ahtcc"]
-[ext_resource type="AudioStream" uid="uid://cr5n6jer1txoo" path="res://Prefabs/Swarm/Sounds/fastinvader4.wav" id="5_2a0e2"]
+[ext_resource type="Script" path="res://Prefabs/Swarm/Swarm.gd" id="1_kwuay"]
+[ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/Sounds/fastinvader1.wav" id="2_vop0n"]
+[ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/Sounds/fastinvader2.wav" id="3_txrm3"]
+[ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/Sounds/fastinvader3.wav" id="4_n0pfy"]
+[ext_resource type="AudioStream" uid="uid://cr5n6jer1txoo" path="res://Prefabs/Swarm/Sounds/fastinvader4.wav" id="5_r8iwq"]
 [ext_resource type="PackedScene" uid="uid://cjnd0n0oev3cy" path="res://Prefabs/Alien/Alien_2.tscn" id="7_y63qb"]
 [ext_resource type="PackedScene" uid="uid://cljsh7k05jhkb" path="res://Prefabs/Alien/Alien_3.tscn" id="8_07le4"]
 
@@ -25,8 +25,8 @@ gradient = SubResource("Gradient_6s5wf")
 width = 8
 
 [node name="Swarm" type="Node2D"]
-script = ExtResource("1_hcdtq")
-StompSounds = Array[AudioStream]([ExtResource("2_dyme3"), ExtResource("3_ilxj6"), ExtResource("4_ahtcc"), ExtResource("5_2a0e2")])
+script = ExtResource("1_kwuay")
+StompSounds = Array[AudioStream]([ExtResource("2_vop0n"), ExtResource("3_txrm3"), ExtResource("4_n0pfy"), ExtResource("5_r8iwq")])
 SpacingX = 20.0
 SpacingY = 18.0
 XMargin = 4.0

@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://c57avfx61vgpf"]
 
 [ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Prefabs/Player/Sprites/Player.png" id="1_58v0r"]
-[ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_jgndr"]
+[ext_resource type="Script" path="res://Prefabs/Player/Player.gd" id="1_qng2s"]
 
 [node name="Player" type="Node2D" groups=["Players"]]
 modulate = Color(0, 1, 0, 1)
-script = ExtResource("1_jgndr")
-MoveSpeed = 100.0
+script = ExtResource("1_qng2s")
+MoveSpeed = 300.0
 
 [node name="Area2d" type="Area2D" parent="."]
 collision_mask = 4
@@ -23,4 +23,4 @@ polygon = PackedVector2Array(0, -4, 2, -1, 6, 0, 6, 4, -6, 4, -6, 0, -2, -1)
 position = Vector2(0, -9)
 scale = Vector2(4, 4)
 
-[connection signal="body_entered" from="Area2d" to="." method="OnBodyEntered"]
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://djdy4dv3eho7r"]
 
-[ext_resource type="Script" path="res://Prefabs/Bomb/Bomb.cs" id="1_ni4mn"]
+[ext_resource type="Script" path="res://Prefabs/Bomb/Bomb.gd" id="1_gcknr"]
 [ext_resource type="Texture2D" uid="uid://stothgnxshk5" path="res://Prefabs/Bomb/Sprites/Bomb1A.png" id="3_6wdwy"]
 [ext_resource type="Texture2D" uid="uid://vooxfuq655v0" path="res://Prefabs/Bomb/Sprites/Bomb1B.png" id="4_16wdy"]
 [ext_resource type="Texture2D" uid="uid://dggt2b1l1qp7x" path="res://Prefabs/Bomb/Sprites/Bomb2A.png" id="5_dj2r6"]
@@ -34,13 +34,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pvr1"]
 size = Vector2(4, 8)
 
-[node name="BombBody" type="RigidBody2D"]
-scale = Vector2(1.5, 1.5)
+[node name="BombBody" type="RigidBody2D" groups=["Bombs"]]
 collision_layer = 4
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true
-script = ExtResource("1_ni4mn")
+script = ExtResource("1_gcknr")
 
 [node name="BombAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3)

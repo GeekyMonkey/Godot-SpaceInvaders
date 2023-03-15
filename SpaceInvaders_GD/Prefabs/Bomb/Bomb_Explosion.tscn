@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://difu4o4sj24iu"]
 
-[ext_resource type="Script" path="res://Prefabs/Bomb/Bomb_Explosion.cs" id="1_y8oq6"]
+[ext_resource type="Script" path="res://Prefabs/Bomb/Bomb_Explosion.gd" id="1_1d6p3"]
 [ext_resource type="AudioStream" uid="uid://d7mhun4oen1l" path="res://Prefabs/Bomb/Sounds/Thud.mp3" id="2_78v11"]
 [ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Alien/Sprites/AlienDeath.png" id="3_m32sn"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_wh1vc"]
 
 [node name="BombExplosion" type="Node2D"]
-script = ExtResource("1_y8oq6")
+script = ExtResource("1_1d6p3")
 FadeSeconds = 0.6
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
