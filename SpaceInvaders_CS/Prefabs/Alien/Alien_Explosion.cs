@@ -33,10 +33,10 @@ public partial class Alien_Explosion : GmNode2D
         Age += delta;
         float opacity = Math.Clamp(1f - (float)(Age / FadeSeconds), 0, 1f);
         Sprite.Modulate = new Color(Sprite.Modulate.R, Sprite.Modulate.G, Sprite.Modulate.B, opacity);
+        ExplosionLight.Energy = LightEnergy * opacity;
         if (opacity <= 0 && !ExplosionSound.Playing)
         {
             QueueFree();
         }
-        ExplosionLight.Energy = LightEnergy * opacity;
     }
 }

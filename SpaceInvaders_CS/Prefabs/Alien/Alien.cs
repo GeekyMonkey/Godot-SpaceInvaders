@@ -18,9 +18,9 @@ public partial class Alien : GmRigidBody2D
 
     // Public State
     public bool Dead = false;
+    public Rect2 Extents;
 
     // Private State
-    public Rect2 Extents;
     private float Width = 0f;
     private float Height = 0f;
     private bool PlayerIsDead = false;

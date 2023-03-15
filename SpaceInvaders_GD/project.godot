@@ -33,7 +33,7 @@ project/assembly_name="SpaceInvaders_GD"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
