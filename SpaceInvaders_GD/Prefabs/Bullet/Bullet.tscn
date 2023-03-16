@@ -8,9 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhm0v"]
 size = Vector2(1, 4)
 
-[node name="BulletPrefab" type="RigidBody2D" groups=["Bullet"]]
+[node name="BulletPrefab" type="RigidBody2D" groups=["Bullets"]]
 collision_layer = 5
-collision_mask = 7
+collision_mask = 15
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true

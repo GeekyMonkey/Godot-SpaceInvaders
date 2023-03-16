@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqtj81vec172h"]
+
+[ext_resource type="Script" path="res://Prefabs/Pixel/PixelGroup.gd" id="1_vqnu1"]
+
+[node name="PixelGroup" type="Node2D"]
+script = ExtResource("1_vqnu1")

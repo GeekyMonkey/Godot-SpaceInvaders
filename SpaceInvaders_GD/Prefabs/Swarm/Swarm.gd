@@ -108,7 +108,6 @@ func MeasureExtents():
 	for child in children:
 		if child.is_in_group("Aliens"):
 			var alien = child
-			print("child " + str(alien))
 			if alien.Dead:
 				continue
 			alienCount += 1
@@ -169,7 +168,7 @@ func CreateSwarm(swarmType: int):
 			if alienType != null:
 				var x: float = left + col * SpacingX
 				var y: float = top + row * SpacingY
-				print("Spawn alien " + str(alienTypeIndex) + " at " + str(x) + "," + str(y))
+				# print("Spawn alien " + str(alienTypeIndex) + " at " + str(x) + "," + str(y))
 				var alien = alienType.instantiate()
 				alien.position = Vector2(x,y)
 				add_child.call_deferred(alien)

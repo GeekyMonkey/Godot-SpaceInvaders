@@ -1,0 +1,902 @@
+[gd_scene load_steps=4 format=3 uid="uid://dalougx88ht34"]
+
+[ext_resource type="PackedScene" uid="uid://cgrn6ejyprxju" path="res://Prefabs/Pixel/Pixel.tscn" id="1_asrfg"]
+[ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_lodw2"]
+[ext_resource type="Texture2D" uid="uid://blueyrafynbp6" path="res://Prefabs/Sheild/Sprites/Shield.png" id="2_stsur"]
+
+[node name="Shield" type="Node2D" groups=["Shields"]]
+
+[node name="ShieldTemplate" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0980392)
+position = Vector2(0, 0.5)
+texture = ExtResource("2_stsur")
+offset = Vector2(11, -8)
+metadata/_edit_lock_ = true
+
+[node name="ShieldPixels" parent="." groups=["Shields"] instance=ExtResource("2_lodw2")]
+PixelColor = Color(0, 0, 1, 1)
+Group = "Shields"
+CollisionLayer = 15
+CollisionMask = 15
+
+[node name="Pixel5" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -1)
+
+[node name="Pixel" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+
+[node name="Pixel2" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, 0)
+
+[node name="Pixel4" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -1)
+
+[node name="Pixel31" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -1)
+
+[node name="Pixel32" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -1)
+
+[node name="Pixel33" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -1)
+
+[node name="Pixel3" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -2)
+
+[node name="Pixel34" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -2)
+
+[node name="Pixel35" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -2)
+
+[node name="Pixel37" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -2)
+
+[node name="Pixel36" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -2)
+
+[node name="Pixel6" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -3)
+
+[node name="Pixel42" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -3)
+
+[node name="Pixel7" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -3)
+
+[node name="Pixel8" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -2)
+
+[node name="Pixel38" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -3)
+
+[node name="Pixel39" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -3)
+
+[node name="Pixel40" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -3)
+
+[node name="Pixel41" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -3)
+
+[node name="Pixel43" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -4)
+
+[node name="Pixel44" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -4)
+
+[node name="Pixel45" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -4)
+
+[node name="Pixel46" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -4)
+
+[node name="Pixel47" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -4)
+
+[node name="Pixel48" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -4)
+
+[node name="Pixel49" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -4)
+
+[node name="Pixel50" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -4)
+
+[node name="Pixel51" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -4)
+
+[node name="Pixel52" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -4)
+
+[node name="Pixel53" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -4)
+
+[node name="Pixel54" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -4)
+
+[node name="Pixel55" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -4)
+
+[node name="Pixel56" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -4)
+
+[node name="Pixel9" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -4)
+
+[node name="Pixel10" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -4)
+
+[node name="Pixel11" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -4)
+
+[node name="Pixel12" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -4)
+
+[node name="Pixel28" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, 0)
+
+[node name="Pixel29" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, 0)
+
+[node name="Pixel30" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, 0)
+
+[node name="Pixel27" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -3)
+
+[node name="Pixel26" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -2)
+
+[node name="Pixel25" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -1)
+
+[node name="Pixel24" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, 0)
+
+[node name="Pixel23" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, 0)
+
+[node name="Pixel22" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, 0)
+
+[node name="Pixel21" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, 0)
+
+[node name="Pixel58" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -1)
+
+[node name="Pixel59" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -1)
+
+[node name="Pixel60" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -1)
+
+[node name="Pixel61" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -2)
+
+[node name="Pixel62" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -2)
+
+[node name="Pixel63" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -2)
+
+[node name="Pixel64" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -3)
+
+[node name="Pixel65" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -3)
+
+[node name="Pixel66" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -3)
+
+[node name="Pixel67" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -1)
+
+[node name="Pixel68" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -2)
+
+[node name="Pixel69" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -3)
+
+[node name="Pixel20" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, 0)
+
+[node name="Pixel19" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, 0)
+
+[node name="Pixel18" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -1)
+
+[node name="Pixel17" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -2)
+
+[node name="Pixel16" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -3)
+
+[node name="Pixel70" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -3)
+
+[node name="Pixel71" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -3)
+
+[node name="Pixel72" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -2)
+
+[node name="Pixel15" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -4)
+
+[node name="Pixel57" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -4)
+
+[node name="Pixel14" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -4)
+
+[node name="Pixel13" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -4)
+
+[node name="Pixel73" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -5)
+
+[node name="Pixel74" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -5)
+
+[node name="Pixel75" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -5)
+
+[node name="Pixel76" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -5)
+
+[node name="Pixel77" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -5)
+
+[node name="Pixel78" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -5)
+
+[node name="Pixel79" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -5)
+
+[node name="Pixel80" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -5)
+
+[node name="Pixel81" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -5)
+
+[node name="Pixel82" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -5)
+
+[node name="Pixel83" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -5)
+
+[node name="Pixel84" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -5)
+
+[node name="Pixel85" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -5)
+
+[node name="Pixel86" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -5)
+
+[node name="Pixel87" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -5)
+
+[node name="Pixel88" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -5)
+
+[node name="Pixel89" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -5)
+
+[node name="Pixel90" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -5)
+
+[node name="Pixel91" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -5)
+
+[node name="Pixel92" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -5)
+
+[node name="Pixel93" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -5)
+
+[node name="Pixel94" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -5)
+
+[node name="Pixel95" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -6)
+
+[node name="Pixel96" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -6)
+
+[node name="Pixel97" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -6)
+
+[node name="Pixel98" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -6)
+
+[node name="Pixel99" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -6)
+
+[node name="Pixel100" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -6)
+
+[node name="Pixel101" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -6)
+
+[node name="Pixel102" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -6)
+
+[node name="Pixel103" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -6)
+
+[node name="Pixel104" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -6)
+
+[node name="Pixel105" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -6)
+
+[node name="Pixel106" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -6)
+
+[node name="Pixel107" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -6)
+
+[node name="Pixel108" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -6)
+
+[node name="Pixel109" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -6)
+
+[node name="Pixel110" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -6)
+
+[node name="Pixel111" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -6)
+
+[node name="Pixel112" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -6)
+
+[node name="Pixel113" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -6)
+
+[node name="Pixel114" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -6)
+
+[node name="Pixel115" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -6)
+
+[node name="Pixel116" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -6)
+
+[node name="Pixel117" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -7)
+
+[node name="Pixel118" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -7)
+
+[node name="Pixel119" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -7)
+
+[node name="Pixel120" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -7)
+
+[node name="Pixel121" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -7)
+
+[node name="Pixel122" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -7)
+
+[node name="Pixel123" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -7)
+
+[node name="Pixel124" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -7)
+
+[node name="Pixel125" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -7)
+
+[node name="Pixel126" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -7)
+
+[node name="Pixel127" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -7)
+
+[node name="Pixel128" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -7)
+
+[node name="Pixel129" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -7)
+
+[node name="Pixel130" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -7)
+
+[node name="Pixel131" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -7)
+
+[node name="Pixel132" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -7)
+
+[node name="Pixel133" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -7)
+
+[node name="Pixel134" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -7)
+
+[node name="Pixel135" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -7)
+
+[node name="Pixel136" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -7)
+
+[node name="Pixel137" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -7)
+
+[node name="Pixel138" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -7)
+
+[node name="Pixel139" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -8)
+
+[node name="Pixel140" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -8)
+
+[node name="Pixel141" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -8)
+
+[node name="Pixel142" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -8)
+
+[node name="Pixel143" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -8)
+
+[node name="Pixel144" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -8)
+
+[node name="Pixel145" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -8)
+
+[node name="Pixel146" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -8)
+
+[node name="Pixel147" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -8)
+
+[node name="Pixel148" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -8)
+
+[node name="Pixel149" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -8)
+
+[node name="Pixel150" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -8)
+
+[node name="Pixel151" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -8)
+
+[node name="Pixel152" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -8)
+
+[node name="Pixel153" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -8)
+
+[node name="Pixel154" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -8)
+
+[node name="Pixel155" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -8)
+
+[node name="Pixel156" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -8)
+
+[node name="Pixel157" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -8)
+
+[node name="Pixel158" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -8)
+
+[node name="Pixel159" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -8)
+
+[node name="Pixel160" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -8)
+
+[node name="Pixel161" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -9)
+
+[node name="Pixel162" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -9)
+
+[node name="Pixel163" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -9)
+
+[node name="Pixel164" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -9)
+
+[node name="Pixel165" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -9)
+
+[node name="Pixel166" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -9)
+
+[node name="Pixel167" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -9)
+
+[node name="Pixel168" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -9)
+
+[node name="Pixel169" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -9)
+
+[node name="Pixel170" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -9)
+
+[node name="Pixel171" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -9)
+
+[node name="Pixel172" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -9)
+
+[node name="Pixel173" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -9)
+
+[node name="Pixel174" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -9)
+
+[node name="Pixel175" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -9)
+
+[node name="Pixel176" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -9)
+
+[node name="Pixel177" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -9)
+
+[node name="Pixel178" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -9)
+
+[node name="Pixel179" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -9)
+
+[node name="Pixel180" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -9)
+
+[node name="Pixel181" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -9)
+
+[node name="Pixel182" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -9)
+
+[node name="Pixel183" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -10)
+
+[node name="Pixel184" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -10)
+
+[node name="Pixel185" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -10)
+
+[node name="Pixel186" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -10)
+
+[node name="Pixel187" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -10)
+
+[node name="Pixel188" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -10)
+
+[node name="Pixel189" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -10)
+
+[node name="Pixel190" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -10)
+
+[node name="Pixel191" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -10)
+
+[node name="Pixel192" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -10)
+
+[node name="Pixel193" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -10)
+
+[node name="Pixel194" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -10)
+
+[node name="Pixel195" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -10)
+
+[node name="Pixel196" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -10)
+
+[node name="Pixel197" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -10)
+
+[node name="Pixel198" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -10)
+
+[node name="Pixel199" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -10)
+
+[node name="Pixel200" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -10)
+
+[node name="Pixel201" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -10)
+
+[node name="Pixel202" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -10)
+
+[node name="Pixel203" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -10)
+
+[node name="Pixel204" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -10)
+
+[node name="Pixel205" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(0, -11)
+
+[node name="Pixel206" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -11)
+
+[node name="Pixel207" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -11)
+
+[node name="Pixel208" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -11)
+
+[node name="Pixel209" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -11)
+
+[node name="Pixel210" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -11)
+
+[node name="Pixel211" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -11)
+
+[node name="Pixel212" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -11)
+
+[node name="Pixel213" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -11)
+
+[node name="Pixel214" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(21, -11)
+
+[node name="Pixel215" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -11)
+
+[node name="Pixel216" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -11)
+
+[node name="Pixel217" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -11)
+
+[node name="Pixel218" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -11)
+
+[node name="Pixel219" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -11)
+
+[node name="Pixel220" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -11)
+
+[node name="Pixel221" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -11)
+
+[node name="Pixel222" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -11)
+
+[node name="Pixel223" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -11)
+
+[node name="Pixel224" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -11)
+
+[node name="Pixel225" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -11)
+
+[node name="Pixel226" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -11)
+
+[node name="Pixel227" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(1, -12)
+
+[node name="Pixel228" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -12)
+
+[node name="Pixel229" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -12)
+
+[node name="Pixel230" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -12)
+
+[node name="Pixel231" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -12)
+
+[node name="Pixel232" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -12)
+
+[node name="Pixel233" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -12)
+
+[node name="Pixel234" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -12)
+
+[node name="Pixel235" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -12)
+
+[node name="Pixel236" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -12)
+
+[node name="Pixel237" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -12)
+
+[node name="Pixel238" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(20, -12)
+
+[node name="Pixel239" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -12)
+
+[node name="Pixel240" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -12)
+
+[node name="Pixel241" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -12)
+
+[node name="Pixel242" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -12)
+
+[node name="Pixel243" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -12)
+
+[node name="Pixel244" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -12)
+
+[node name="Pixel245" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -12)
+
+[node name="Pixel246" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -12)
+
+[node name="Pixel247" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -13)
+
+[node name="Pixel248" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(2, -13)
+
+[node name="Pixel249" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -13)
+
+[node name="Pixel250" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -13)
+
+[node name="Pixel251" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -13)
+
+[node name="Pixel252" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -13)
+
+[node name="Pixel253" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -13)
+
+[node name="Pixel254" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -13)
+
+[node name="Pixel255" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -13)
+
+[node name="Pixel256" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(19, -13)
+
+[node name="Pixel257" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -13)
+
+[node name="Pixel258" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -13)
+
+[node name="Pixel259" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -13)
+
+[node name="Pixel260" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -13)
+
+[node name="Pixel261" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -13)
+
+[node name="Pixel262" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -13)
+
+[node name="Pixel263" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -13)
+
+[node name="Pixel264" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -13)
+
+[node name="Pixel265" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -14)
+
+[node name="Pixel266" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(3, -14)
+
+[node name="Pixel267" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -14)
+
+[node name="Pixel268" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -14)
+
+[node name="Pixel269" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -14)
+
+[node name="Pixel270" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -14)
+
+[node name="Pixel271" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -14)
+
+[node name="Pixel272" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(18, -14)
+
+[node name="Pixel273" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -14)
+
+[node name="Pixel274" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -14)
+
+[node name="Pixel275" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -14)
+
+[node name="Pixel276" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -14)
+
+[node name="Pixel277" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -14)
+
+[node name="Pixel278" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -14)
+
+[node name="Pixel279" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -14)
+
+[node name="Pixel280" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -14)
+
+[node name="Pixel281" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(6, -15)
+
+[node name="Pixel282" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(4, -15)
+
+[node name="Pixel283" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(5, -15)
+
+[node name="Pixel284" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(15, -15)
+
+[node name="Pixel285" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(16, -15)
+
+[node name="Pixel286" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(17, -15)
+
+[node name="Pixel287" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(7, -15)
+
+[node name="Pixel288" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(8, -15)
+
+[node name="Pixel289" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(9, -15)
+
+[node name="Pixel290" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(10, -15)
+
+[node name="Pixel291" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(13, -15)
+
+[node name="Pixel292" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(14, -15)
+
+[node name="Pixel293" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(12, -15)
+
+[node name="Pixel294" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
+position = Vector2(11, -15)

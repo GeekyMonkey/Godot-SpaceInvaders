@@ -27,7 +27,6 @@ var ViewIsClear: bool = false
 
 ## Alien added to the scene
 func _ready():
-	print ("Alien start")
 
 	# Watch for swarm stomp events
 	CS.connect("Stomp", Stomp)
@@ -44,7 +43,7 @@ func _ready():
 	SpriteScale = CollisionShape.scale.x
 	var collisionRect = CollisionShape.shape.get_rect()
 	Extents = Rect2(collisionRect.position.x * SpriteScale, collisionRect.position.y * SpriteScale, collisionRect.size.x * SpriteScale, collisionRect.size.y * SpriteScale);
-	print ("Alien extents " + str(Extents));
+	# print ("Alien extents " + str(Extents));
 
 	await get_tree().create_timer(0.5).timeout
 	CheckView()
@@ -81,7 +80,7 @@ func _process(delta):
 ## Drop a bomb
 func Shoot():
 	var bombTypeIndex = randi_range(1, BombTypes)
-	print("Alien shoot " + str(bombTypeIndex))
+	# print("Alien shoot " + str(bombTypeIndex))
 	var bomb: Node
 	if bombTypeIndex == 1:
 		bomb = preload("res://Prefabs/Bomb/Bomb_1.tscn").instantiate()
@@ -93,7 +92,7 @@ func Shoot():
 
 ## Alien has collided with something
 func _on_body_entered(otherObject: Node):
-	if otherObject.is_in_group("Bullet"):
+	if otherObject.is_in_group("Bullets"):
 		HitByBullet(otherObject)
 
 

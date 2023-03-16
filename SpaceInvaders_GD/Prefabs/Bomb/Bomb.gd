@@ -15,7 +15,7 @@ func _ready():
 
 ## Bomb collided with something
 func _on_body_entered(other: Node2D):
-	if other.is_in_group("Bullet"):
+	if other.is_in_group("Bullets"):
 		print("Bomb " + name + " hit " + other.name)
 		# Show an explosion where the bullet hit the bomb
 		var explosion = preload("res://Prefabs/Bomb/Bomb_Explosion.tscn").instantiate()

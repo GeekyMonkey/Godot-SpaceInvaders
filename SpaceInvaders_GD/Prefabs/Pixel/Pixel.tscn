@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgrn6ejyprxju"]
+
+[ext_resource type="Script" path="res://Prefabs/Pixel/Pixel.gd" id="1_dysmt"]
+[ext_resource type="QuadMesh" uid="uid://dkmxqbmrgqxx7" path="res://Prefabs/Pixel/PixelMesh.tres" id="1_j88cx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc4fu"]
+size = Vector2(1, 1)
+
+[node name="Pixel" type="Node2D"]
+script = ExtResource("1_dysmt")
+
+[node name="RigidBody" type="RigidBody2D" parent="."]
+max_contacts_reported = 3
+contact_monitor = true
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionSquare" type="CollisionShape2D" parent="RigidBody"]
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_fc4fu")
+
+[node name="SquareMesh" type="MeshInstance2D" parent="RigidBody"]
+mesh = ExtResource("1_j88cx")
+
+[connection signal="body_entered" from="RigidBody" to="." method="_on_rigid_body_body_entered"]
