@@ -3,7 +3,6 @@ extends Node2D
 class_name PixelGroup
 
 @export var PixelColor: Color
-@export var Group: String
 @export var CollisionLayer: int = 0
 @export var CollisionMask: int = 0
 

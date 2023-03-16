@@ -16,7 +16,6 @@ metadata/_edit_lock_ = true
 
 [node name="ShieldPixels" parent="." groups=["Shields"] instance=ExtResource("2_lodw2")]
 PixelColor = Color(0, 0, 1, 1)
-Group = "Shields"
 CollisionLayer = 15
 CollisionMask = 15
 

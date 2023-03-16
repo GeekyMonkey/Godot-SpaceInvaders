@@ -6,6 +6,9 @@ class_name PixelPrefab
 @onready var RB: RigidBody2D = $RigidBody
 @onready var PixelMesh: MeshInstance2D = $RigidBody/SquareMesh
 
+# Private State
+var PixelType = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +18,7 @@ func _ready():
 ## Set the pixels properties from the group
 func InitPixel(group: String, color: Color, collisionLayer, collisionMask):
 	print("InitPixel " + name + " in group " + group + " color=" + str(color))
+	PixelType = group
 	add_to_group(group)
 	RB.add_to_group(group)
 	RB.collision_layer = collisionLayer
@@ -24,11 +28,17 @@ func InitPixel(group: String, color: Color, collisionLayer, collisionMask):
 
 ## Something collided with the pixel
 func _on_rigid_body_body_entered(other: Node2D):
-	if (other.is_in_group("Bullets") || other.is_in_group("Bombs") || other.is_in_group("Aliens")):
-		var otherPos: Vector2 = other.global_position
-		BeginPixelDestroy.call_deferred(otherPos)
-	else:
-		print("Pixel " + name + " collided with " + other.name)
+	match PixelType:
+		"Shields":
+			if (other.is_in_group("Bullets") || other.is_in_group("Bombs") || other.is_in_group("Aliens") || other.is_in_group("ShieldExplosions")):
+				var otherPos: Vector2 = other.global_position
+				BeginPixelDestroy.call_deferred(otherPos)
+			else:
+				print("Pixel " + name + " collided with " + other.name)
+		"ShieldExplosions":
+			queue_free()
+		_:
+			print("Pixel collied of unknown type: " + PixelType)
 
 
 ## Pixel is being destroyed

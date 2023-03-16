@@ -27,7 +27,9 @@ func _on_body_entered(other: Node):
 
 ## We have struck a shield!
 func BulletHitShieldPixel(_shieldPixel):
-	#ToDo: explode something
+	var explosion = preload("res://Prefabs/Sheild/ShieldExplosion.tscn").instantiate()
+	explosion.global_position = global_position
+	get_tree().get_root().add_child(explosion)
 	queue_free()
 
 
