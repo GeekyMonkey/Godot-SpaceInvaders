@@ -63,6 +63,7 @@ Shoot={
 2d_physics/layer_2="Bullets_Bombs"
 2d_physics/layer_3="Aliens"
 2d_physics/layer_4="Shields"
+2d_physics/layer_5="Explosions"
 
 [rendering]
 

@@ -18,8 +18,8 @@ metadata/_edit_lock_ = true
 
 [node name="ShieldPixels" parent="." instance=ExtResource("2_lodw2")]
 PixelColor = Color(0, 0, 1, 1)
-CollisionLayer = 15
-CollisionMask = 15
+CollisionLayer = 8
+CollisionMask = 2
 
 [node name="Pixel5" parent="ShieldPixels" instance=ExtResource("1_asrfg")]
 position = Vector2(4, -2)

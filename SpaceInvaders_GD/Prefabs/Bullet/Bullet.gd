@@ -24,6 +24,8 @@ func _on_body_entered(other: Node):
 		BulletHitShieldPixel(other)
 	elif other.is_in_group("Ufo"):
 		BulletHitUfo(other)
+	elif other.is_in_group("ShieldExplosions"):
+		print("Bullet doesn't care about sheild explosion")
 	else:
 		print("Bullet hit " + str(other.get_groups()))
 		queue_free()

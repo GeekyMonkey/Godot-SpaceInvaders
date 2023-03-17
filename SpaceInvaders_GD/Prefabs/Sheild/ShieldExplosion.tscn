@@ -23,8 +23,8 @@ metadata/_edit_lock_ = true
 
 [node name="ExplosionPixels" parent="." groups=["ShieldExplosions"] instance=ExtResource("3_2xfoq")]
 PixelColor = Color(0, 0, 0, 0.443137)
-CollisionLayer = 1
-CollisionMask = 15
+CollisionLayer = 16
+CollisionMask = 8
 metadata/_edit_lock_ = true
 
 [node name="Pixel" parent="ExplosionPixels" instance=ExtResource("4_ba28q")]
