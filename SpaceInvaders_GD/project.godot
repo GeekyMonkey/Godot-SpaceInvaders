@@ -23,7 +23,9 @@ general/3d_panning_strength=2.0
 
 [autoload]
 
-CS="*res://AutoLoad/custom_signals.gd"
+CS="*res://AutoLoad/GlobalSignals.gd"
+XViewport="*res://AutoLoad/ViewportExtensions.gd"
+XDelay="*res://AutoLoad/DelayExtensions.gd"
 
 [display]
 

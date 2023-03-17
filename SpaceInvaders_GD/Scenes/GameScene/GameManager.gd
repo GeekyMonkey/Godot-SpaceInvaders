@@ -18,9 +18,9 @@ func _ready():
 
 func OnSwarmDeath():
 	# Add a bunch of points
-	await get_tree().create_timer(0.5).timeout
+	await XDelay.Seconds(0.5)
 	ScoreAdd(201)
-	await get_tree().create_timer(2.5).timeout
+	await XDelay.Seconds(2.5)
 
 	# Level up
 	SpawnNewSwarm()

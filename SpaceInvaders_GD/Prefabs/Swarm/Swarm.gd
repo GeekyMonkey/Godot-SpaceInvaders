@@ -63,13 +63,12 @@ func _ready():
 	)
 
 	# Measure the screen
-	ScreenSizeX = get_viewport_rect().size.x / 3
+	ScreenSizeX = XViewport.Size().x
 	XMin = ScreenSizeX / -2 + XMargin
 	XMax = ScreenSizeX / 2 - XMargin
 
 	# Create the swarm
-	await get_tree().process_frame
-	CreateSwarm(SwarmType)
+	CreateSwarm.call_deferred(SwarmType)
 
 
 # Timer says it's stomping time. Alert the aliens!
@@ -99,7 +98,7 @@ func Stomp():
 
 # Measure the size of the swarm so we can tell if a side is hit
 func MeasureExtents():
-	await get_tree().process_frame
+	await XDelay.NextFrame()
 	var children = get_children()
 	var left = 999999
 	var top = 999999
@@ -121,7 +120,7 @@ func MeasureExtents():
 
 	if alienCount == 0:
 		SwarmDead = true
-		await get_tree().create_timer(1.0).timeout # Allow last alien death sound to finish playing
+		await XDelay.Seconds(1.0) # Allow last alien death sound to finish playing
 		CS.SwarmDeath.emit()
 		queue_free()
 	else:
@@ -133,7 +132,7 @@ func MeasureExtents():
 
 ## Create a swarm of the specified type
 func CreateSwarm(swarmType: int):
-	await get_tree().process_frame
+	await XDelay.NextFrame()
 	print("Creating swarm type " + str(swarmType))
 	ClearSwarm()
 
@@ -174,8 +173,7 @@ func CreateSwarm(swarmType: int):
 				alien.position = Vector2(x,y)
 				add_child.call_deferred(alien)
 
-	await get_tree().create_timer(0.1).timeout
-	await get_tree().process_frame
+	await XDelay.Seconds(0.1)
 	MeasureExtents()
 
 

@@ -47,7 +47,7 @@ func BeginPixelDestroy(otherPos: Vector2):
 	RB.lock_rotation = true
 	RB.collision_layer = 0
 	RB.max_contacts_reported = 0
-	await get_tree().physics_frame
+	await XDelay.NextPhysicsFrame()
 	#RB.apply_central_impulse(Vector2(otherPos.x - global_position.x + randf_range(-0.5, 0.1), -2) * 400)
 	RB.apply_central_impulse(Vector2(otherPos.x - global_position.x + randf_range(-0.5, 0.1), global_position.y - otherPos.y ).normalized() * 400)
 	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)

@@ -17,7 +17,7 @@ var XMargin: float = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ScreenSizeX = get_viewport_rect().size.x / 3
+	ScreenSizeX = XViewport.Size().x
 	XMin = ScreenSizeX / -2 + XMargin
 	XMax = ScreenSizeX / 2 - XMargin
 
@@ -62,7 +62,7 @@ func _on_area_2d_body_entered(other: Node2D):
 		explosion.global_position = global_position
 		get_tree().get_root().add_child(explosion)
 
-		await get_tree().create_timer(0.1).timeout
+		await XDelay.Seconds(0.1)
 		queue_free()
 		var gm = get_node("/root/GameManager")
 		gm.PlayerDied()

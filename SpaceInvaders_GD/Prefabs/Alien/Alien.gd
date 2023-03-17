@@ -46,7 +46,7 @@ func _ready():
 	Extents = Rect2(collisionRect.position.x * SpriteScale, collisionRect.position.y * SpriteScale, collisionRect.size.x * SpriteScale, collisionRect.size.y * SpriteScale);
 	# print ("Alien extents " + str(Extents));
 
-	await get_tree().create_timer(0.5).timeout
+	await XDelay.Seconds(0.5)
 	CheckView()
 
 
@@ -65,7 +65,7 @@ func Reload():
 ## An alien has perished. Perhaps now we have a clear shot at the player.
 func OnAlienDied(alien):
 	if alien != self:
-		await get_tree().create_timer(0.5).timeout
+		await XDelay.Seconds(0.5)
 		CheckView()
 
 
