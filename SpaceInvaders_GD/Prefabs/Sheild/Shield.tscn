@@ -15,6 +15,7 @@ offset = Vector2(11, -8)
 metadata/_edit_lock_ = true
 
 [node name="ShieldPixels" parent="." groups=["Shields"] instance=ExtResource("2_lodw2")]
+position = Vector2(0, -1)
 PixelColor = Color(0, 0, 1, 1)
 CollisionLayer = 15
 CollisionMask = 15

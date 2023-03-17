@@ -36,4 +36,4 @@ func BombHitShieldPixel(_shieldPixel):
 	explosion.global_position = global_position + Vector2(0,6)
 	explosion.rotation_degrees = randf_range(90, 270)
 	explosion.apply_scale(Vector2(1.5,1.5))
-	get_tree().get_root().add_child(explosion)
+	get_tree().get_root().add_child.call_deferred(explosion)

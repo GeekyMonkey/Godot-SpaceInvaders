@@ -19,6 +19,7 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_nfm4g")
 Points = 20
+ReloadSecMax = 5.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_124s5")

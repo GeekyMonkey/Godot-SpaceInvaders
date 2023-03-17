@@ -29,7 +29,7 @@ func _on_body_entered(other: Node):
 func BulletHitShieldPixel(_shieldPixel):
 	var explosion = preload("res://Prefabs/Sheild/ShieldExplosion.tscn").instantiate()
 	explosion.global_position = global_position
-	get_tree().get_root().add_child(explosion)
+	get_tree().get_root().add_child.call_deferred(explosion)
 	queue_free()
 
 
