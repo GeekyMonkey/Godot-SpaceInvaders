@@ -32,7 +32,6 @@ XDelay="*res://AutoLoad/DelayExtensions.gd"
 window/size/viewport_width=600
 window/size/viewport_height=450
 window/stretch/mode="viewport"
-window/stretch/scale=0.5
 
 [dotnet]
 

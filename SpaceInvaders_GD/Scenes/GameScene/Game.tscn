@@ -31,7 +31,7 @@ script = ExtResource("5_qj6f5")
 metadata/_edit_lock_ = true
 
 [node name="Camera2d" type="Camera2D" parent="Environment"]
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
 
 [node name="UI" type="CanvasLayer" parent="Environment"]
 follow_viewport_enabled = true
@@ -95,14 +95,17 @@ color = Color(0.843137, 0.843137, 0.843137, 1)
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(2, 143)
 
-[node name="Shield" parent="." instance=ExtResource("10_xolgy")]
+
+[node name="Shields" type="Node2D" parent="."]
+
+[node name="Shield" parent="Shields" instance=ExtResource("10_xolgy")]
 position = Vector2(-40, 118)
 
-[node name="Shield2" parent="." instance=ExtResource("10_xolgy")]
+[node name="Shield2" parent="Shields" instance=ExtResource("10_xolgy")]
 position = Vector2(-114, 119)
 
-[node name="Shield3" parent="." instance=ExtResource("10_xolgy")]
+[node name="Shield3" parent="Shields" instance=ExtResource("10_xolgy")]
 position = Vector2(93, 118)
 
-[node name="Shield4" parent="." instance=ExtResource("10_xolgy")]
+[node name="Shield4" parent="Shields" instance=ExtResource("10_xolgy")]
 position = Vector2(19, 119)

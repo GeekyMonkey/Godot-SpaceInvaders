@@ -64,5 +64,5 @@ func _on_area_2d_body_entered(other: Node2D):
 
 		await XDelay.Seconds(0.1)
 		queue_free()
-		var gm = get_node("/root/GameManager")
+		var gm: GameManager = get_node("/root/GameManager")
 		gm.PlayerDied()
