@@ -8,6 +8,7 @@ extends Node2D
 # Child Nodes
 @onready var ExplosionLight: PointLight2D = $ExplosionLight
 @onready var ExplosionSound: AudioStreamPlayer2D = $ExplosionSound
+@onready var ExplosionPixels: PixelGroup = $ExplosionPixels
 
 # Private State
 var Age:= 0.0
@@ -17,6 +18,7 @@ var LightEnergy: float
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	LightEnergy = ExplosionLight.energy
+	ExplosionPixels.PixelGroupCollision.connect(OnExplostionPixelCollision)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +29,8 @@ func _process(delta):
 
 	if opacity <= 0 && !ExplosionSound.playing:
 		queue_free()
+
+
+## Explostion pixel collided with something
+func OnExplostionPixelCollision(pixel: PixelPrefab, other: Node2D):
+	pixel.DestroySilent()

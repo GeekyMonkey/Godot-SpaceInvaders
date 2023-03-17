@@ -45,7 +45,7 @@ func _ready():
 	SpriteScale = CollisionShape.scale.x
 	var collisionRect = CollisionShape.shape.get_rect()
 	Extents = Rect2(collisionRect.position.x * SpriteScale, collisionRect.position.y * SpriteScale, collisionRect.size.x * SpriteScale, collisionRect.size.y * SpriteScale);
-	# print ("Alien extents " + str(Extents));
+	# print ("Alien extents " + str(Extents))
 
 	await XDelay.Seconds(0.5)
 	CheckView()
@@ -101,7 +101,7 @@ func _on_body_entered(otherObject: Node):
 ## A bullet has hit this alien
 func HitByBullet(_bullet):
 	if !Dead:
-		Dead = true;
+		Dead = true
 
 		# Spread the word
 		CS.AlienDied.emit(self)

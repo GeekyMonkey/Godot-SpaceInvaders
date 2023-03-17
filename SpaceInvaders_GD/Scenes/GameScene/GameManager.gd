@@ -37,7 +37,7 @@ func ScoreAdd(points: int):
 	Score += points
 
 	# Alert the text box
-	CS.ScoreChanged.emit(Score);
+	CS.ScoreChanged.emit(Score)
 
 
 # Spawn a new swarm
