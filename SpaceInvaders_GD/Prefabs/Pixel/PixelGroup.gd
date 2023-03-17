@@ -1,6 +1,5 @@
-extends Node2D
-
 class_name PixelGroup
+extends Node2D
 
 @export var PixelColor: Color
 @export var CollisionLayer: int = 0

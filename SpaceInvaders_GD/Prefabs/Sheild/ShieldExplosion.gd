@@ -1,3 +1,4 @@
+class_name ShieldExplosion
 extends Node2D
 
 # Editor State

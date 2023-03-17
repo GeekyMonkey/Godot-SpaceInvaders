@@ -1,3 +1,4 @@
+class_name Swarm
 extends Node2D
 
 # Editor State

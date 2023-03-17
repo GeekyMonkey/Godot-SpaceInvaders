@@ -1,6 +1,5 @@
-extends Node2D
-
 class_name PixelPrefab
+extends Node2D
 
 # Child Nodes
 @onready var RB: RigidBody2D = $RigidBody

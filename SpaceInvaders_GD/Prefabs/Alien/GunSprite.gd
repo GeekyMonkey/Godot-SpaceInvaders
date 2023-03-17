@@ -1,3 +1,4 @@
+class_name GunSprite
 extends PointLight2D
 
 # Editor State

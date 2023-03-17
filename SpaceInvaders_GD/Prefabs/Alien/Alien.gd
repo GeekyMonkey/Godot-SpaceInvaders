@@ -1,3 +1,4 @@
+class_name Alien
 extends RigidBody2D
 
 # Editor State

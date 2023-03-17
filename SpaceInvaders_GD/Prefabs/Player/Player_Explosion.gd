@@ -1,3 +1,4 @@
+class_name PlayerExplosion
 extends Node2D
 
 # Editor State

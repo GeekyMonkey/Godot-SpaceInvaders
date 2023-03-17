@@ -1,3 +1,4 @@
+class_name Background
 extends Sprite2D
 
 

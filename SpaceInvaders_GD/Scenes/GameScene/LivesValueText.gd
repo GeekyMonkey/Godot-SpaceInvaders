@@ -1,3 +1,4 @@
+class_name LivesValueText
 extends RichTextLabel
 
 

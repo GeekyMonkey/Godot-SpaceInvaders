@@ -1,3 +1,4 @@
+class_name AlienExplosion
 extends Node2D
 
 # Editor State

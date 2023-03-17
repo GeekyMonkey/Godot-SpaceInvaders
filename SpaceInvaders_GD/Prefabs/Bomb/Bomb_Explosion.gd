@@ -1,3 +1,4 @@
+class_name BombExplosion
 extends Node2D
 
 # Editor State

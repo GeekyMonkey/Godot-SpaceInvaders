@@ -1,6 +1,6 @@
+class_name CustomSignals
 extends Node
 
-class_name CustomSignals
 
 ## An alien has perished
 signal AlienDied(alien)
