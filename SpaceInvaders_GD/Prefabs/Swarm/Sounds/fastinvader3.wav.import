@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/fastinvader3.wav-2fc4d2b8db9864ff75cf777bd10a
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

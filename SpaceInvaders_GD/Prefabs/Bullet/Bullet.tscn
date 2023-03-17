@@ -33,5 +33,6 @@ position = Vector2(0, -19)
 stream = ExtResource("4_l2af1")
 autoplay = true
 max_polyphony = 2
+panning_strength = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -16,6 +16,7 @@ texture = ExtResource("2_q322u")
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ooj2y")
 autoplay = true
+panning_strength = 3.0
 
 [node name="ExplosionLight" type="PointLight2D" parent="."]
 color = Color(1, 0.0941176, 0.129412, 1)

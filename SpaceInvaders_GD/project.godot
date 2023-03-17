@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+general/2d_panning_strength=2.0
+general/3d_panning_strength=2.0
+
 [autoload]
 
 CS="*res://AutoLoad/custom_signals.gd"

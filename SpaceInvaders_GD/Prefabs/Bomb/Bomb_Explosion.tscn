@@ -12,6 +12,7 @@ FadeSeconds = 0.6
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_78v11")
 autoplay = true
+panning_strength = 2.0
 
 [node name="BombExplosionSprite" type="Sprite2D" parent="."]
 modulate = Color(0.639216, 0.32549, 0.101961, 1)
