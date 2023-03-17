@@ -16,7 +16,7 @@ func _ready():
 
 ## Set the pixels properties from the group
 func InitPixel(group: String, color: Color, collisionLayer, collisionMask):
-	print("InitPixel " + name + " in group " + group + " color=" + str(color))
+	# print("InitPixel " + name + " in group " + group + " color=" + str(color))
 	PixelType = group
 	add_to_group(group)
 	RB.add_to_group(group)
@@ -33,7 +33,8 @@ func _on_rigid_body_body_entered(other: Node2D):
 				var otherPos: Vector2 = other.global_position
 				BeginPixelDestroy.call_deferred(otherPos)
 			else:
-				print("Pixel " + name + " collided with " + other.name)
+				# print("Pixel " + name + " collided with " + other.name)
+				pass
 		"ShieldExplosions":
 			queue_free()
 		_:
