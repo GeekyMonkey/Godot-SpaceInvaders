@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Alien/Sprites/Alien3A.png")
 class_name Alien
 extends RigidBody2D
 

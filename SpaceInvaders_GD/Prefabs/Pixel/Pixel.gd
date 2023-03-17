@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Pixel/PixelIcon.svg")
 class_name PixelPrefab
 extends Node2D
 

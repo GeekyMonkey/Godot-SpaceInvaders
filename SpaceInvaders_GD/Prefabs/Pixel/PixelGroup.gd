@@ -1,6 +1,9 @@
+@icon("res://Prefabs/Pixel/PixelGroupIcon.svg")
 class_name PixelGroup
 extends Node2D
 
+
+## Editor State
 @export var PixelColor: Color
 @export var CollisionLayer: int = 0
 @export var CollisionMask: int = 0

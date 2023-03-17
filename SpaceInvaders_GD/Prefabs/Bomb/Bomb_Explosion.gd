@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Alien/Sprites/AlienDeath.png")
 class_name BombExplosion
 extends Node2D
 

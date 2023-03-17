@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Player/Sprites/Player.png")
 class_name Player
 extends Node2D
 

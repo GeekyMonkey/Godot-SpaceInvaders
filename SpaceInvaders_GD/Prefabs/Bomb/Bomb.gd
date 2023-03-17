@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Bomb/Sprites/Bomb1B.png")
 class_name Bomb
 extends RigidBody2D
 

@@ -1,3 +1,4 @@
+@icon("res://Prefabs/Alien/Sprites/Alien1B.png")
 class_name UfoSpawner
 extends Node2D
 
