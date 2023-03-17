@@ -1,0 +1,226 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu8mis3o8r2v5"]
+
+[ext_resource type="Texture2D" uid="uid://ck1vo7xkt3dlf" path="res://Design/Space Invaders Sprites.png" id="1_i6led"]
+[ext_resource type="Script" path="res://Prefabs/UFO/Ufo.gd" id="1_ibmgm"]
+[ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_6lkqd"]
+[ext_resource type="PackedScene" uid="uid://cgrn6ejyprxju" path="res://Prefabs/Pixel/Pixel.tscn" id="3_kkwga"]
+[ext_resource type="AudioStream" uid="uid://caf0dwkn5efqb" path="res://Prefabs/UFO/Sounds/UfoThreat.wav" id="4_mibpo"]
+
+[node name="Ufo" type="Node2D" groups=["Shields"]]
+script = ExtResource("1_ibmgm")
+Speed = 50.0
+
+[node name="UfoTemplate" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0980392)
+position = Vector2(15, -2)
+texture = ExtResource("1_i6led")
+offset = Vector2(11, -8)
+metadata/_edit_lock_ = true
+
+[node name="ShieldPixels" parent="." groups=["Shields"] instance=ExtResource("2_6lkqd")]
+position = Vector2(0, -1)
+PixelColor = Color(1, 0, 0, 1)
+CollisionLayer = 2
+CollisionMask = 15
+
+[node name="Pixel50" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-7, -2)
+
+[node name="Pixel51" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-6, -2)
+
+[node name="Pixel52" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(6, -3)
+
+[node name="Pixel53" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-4, -3)
+
+[node name="Pixel54" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-5, -2)
+
+[node name="Pixel55" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(2, -3)
+
+[node name="Pixel56" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(2, -5)
+
+[node name="Pixel27" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(7, -2)
+
+[node name="Pixel26" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(5, -1)
+
+[node name="Pixel25" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(4, -1)
+
+[node name="Pixel24" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(4, 0)
+
+[node name="Pixel23" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(3, -1)
+
+[node name="Pixel22" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(3, -5)
+
+[node name="Pixel21" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(3, -4)
+
+[node name="Pixel58" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(4, -2)
+
+[node name="Pixel59" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(5, -2)
+
+[node name="Pixel60" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -1)
+
+[node name="Pixel61" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(4, -4)
+
+[node name="Pixel62" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(1, -2)
+
+[node name="Pixel63" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -2)
+
+[node name="Pixel64" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(2, -6)
+
+[node name="Pixel65" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(2, -2)
+
+[node name="Pixel66" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(6, -2)
+
+[node name="Pixel67" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -1)
+
+[node name="Pixel68" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-2, -2)
+
+[node name="Pixel69" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-3, -2)
+
+[node name="Pixel20" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(3, -3)
+
+[node name="Pixel19" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(3, -2)
+
+[node name="Pixel18" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -2)
+
+[node name="Pixel17" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-4, -1)
+
+[node name="Pixel16" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-5, 0)
+
+[node name="Pixel70" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-6, -1)
+
+[node name="Pixel71" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-5, -1)
+
+[node name="Pixel72" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-4, -2)
+
+[node name="Pixel57" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-8, -2)
+
+[node name="Pixel80" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-6, -3)
+
+[node name="Pixel81" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-7, -3)
+
+[node name="Pixel82" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(4, -5)
+
+[node name="Pixel83" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -3)
+
+[node name="Pixel84" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-3, -3)
+
+[node name="Pixel85" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(2, -4)
+
+[node name="Pixel86" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(5, -3)
+
+[node name="Pixel91" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -4)
+
+[node name="Pixel92" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(1, -4)
+
+[node name="Pixel103" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-6, -4)
+
+[node name="Pixel104" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(5, -4)
+
+[node name="Pixel105" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -3)
+
+[node name="Pixel106" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-5, -4)
+
+[node name="Pixel107" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-4, -4)
+
+[node name="Pixel108" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-3, -4)
+
+[node name="Pixel124" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -4)
+
+[node name="Pixel125" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(1, -5)
+
+[node name="Pixel126" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-2, -4)
+
+[node name="Pixel127" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -5)
+
+[node name="Pixel128" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -5)
+
+[node name="Pixel129" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-4, -5)
+
+[node name="Pixel130" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-5, -5)
+
+[node name="Pixel148" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-2, -6)
+
+[node name="Pixel151" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-3, -5)
+
+[node name="Pixel152" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-3, -6)
+
+[node name="Pixel170" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-2, -5)
+
+[node name="Pixel174" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(1, -6)
+
+[node name="Pixel192" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(-1, -6)
+
+[node name="Pixel214" parent="ShieldPixels" instance=ExtResource("3_kkwga")]
+position = Vector2(0, -6)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mibpo")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mibpo")
+autoplay = true
+max_polyphony = 2
+panning_strength = 2.0

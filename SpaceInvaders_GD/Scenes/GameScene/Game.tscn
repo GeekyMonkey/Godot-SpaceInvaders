@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpojwkqyrr2ti"]
+[gd_scene load_steps=13 format=3 uid="uid://cpojwkqyrr2ti"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene/GameManager.gd" id="1_p5rll"]
 [ext_resource type="PackedScene" uid="uid://c57avfx61vgpf" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/GameScene/LivesValueText.gd" id="6_0sa8i"]
 [ext_resource type="FontFile" uid="uid://bnysnaafha7r" path="res://Fonts/space_invaders.ttf" id="6_r1pgb"]
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="9_ogu07"]
+[ext_resource type="Script" path="res://Prefabs/UFO/UfoSpawner.gd" id="10_lymhp"]
 [ext_resource type="PackedScene" uid="uid://dalougx88ht34" path="res://Prefabs/Sheild/Shield.tscn" id="10_xolgy"]
 
 [sub_resource type="Theme" id="Theme_jyikk"]
@@ -95,6 +96,9 @@ color = Color(0.843137, 0.843137, 0.843137, 1)
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(2, 143)
 
+[node name="UfoSpawner" type="Node2D" parent="."]
+position = Vector2(-232, -117)
+script = ExtResource("10_lymhp")
 
 [node name="Shields" type="Node2D" parent="."]
 

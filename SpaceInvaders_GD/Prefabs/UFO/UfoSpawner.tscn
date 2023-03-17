@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ltlp6t3j0o8s"]
+
+[ext_resource type="Script" path="res://Prefabs/UFO/UfoSpawner.gd" id="1_5ucq3"]
+
+[node name="UfoSpawner" type="Node2D"]
+script = ExtResource("1_5ucq3")
