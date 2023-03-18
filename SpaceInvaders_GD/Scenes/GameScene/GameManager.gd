@@ -1,6 +1,10 @@
 class_name GameManager
 extends Node2D
 
+
+# Child Nodes
+@onready var PlayerSpawnPoint: Marker2D = $PlayerSpawnPoint
+
 # Public State
 var Level = 1
 var Score = 0
@@ -16,14 +20,15 @@ func _ready():
 	CS.connect("SwarmDeath", OnSwarmDeath)
 
 
-func OnSwarmDeath():
+func OnSwarmDeath(points: int):
 	# Add a bunch of points
 	await XDelay.Seconds(0.5)
-	ScoreAdd(201)
+	ScoreAdd(points)
 	await XDelay.Seconds(2.5)
 
 	# Level up
-	SpawnNewSwarm()
+	if (PlayerLives > 0):
+		SpawnNewSwarm()
 
 
 # An alien is pining for the fjords
@@ -61,7 +66,6 @@ func PlayerDied():
 
 # Spawn a player
 func SpawnPlayer():
-	var spawnMarker: Marker2D = get_node("PlayerSpawnPoint")
 	var player = preload("res://Prefabs/Player/Player.tscn").instantiate()
-	player.global_position = spawnMarker.global_position
+	player.global_position = PlayerSpawnPoint.global_position
 	get_tree().get_root().add_child(player)

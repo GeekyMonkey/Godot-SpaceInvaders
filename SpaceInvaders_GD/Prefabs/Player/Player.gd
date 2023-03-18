@@ -8,6 +8,8 @@ extends Node2D
 
 # Child Nodes
 @onready var GunPosition: Marker2D = $GunPosition
+@onready var gm: GameManager = get_node("/root/GameManager")
+@onready var ExplosionPrefab = preload("res://Prefabs/Player/Player_Explosion.tscn")
 
 # Private State
 var ScreenSizeX: float
@@ -21,6 +23,7 @@ func _ready():
 	ScreenSizeX = XViewport.Size().x
 	XMin = ScreenSizeX / -2 + XMargin
 	XMax = ScreenSizeX / 2 - XMargin
+	CS.SwarmDeath.connect(SwarmDied)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,11 +62,23 @@ func ProcessShootInput(_delta: float):
 func _on_area_2d_body_entered(other: Node2D):
 	print("Player hit by " + other.name)
 	if other.is_in_group("Bombs"):
-		var explosion = preload("res://Prefabs/Player/Player_Explosion.tscn").instantiate()
-		explosion.global_position = global_position
-		get_tree().get_root().add_child(explosion)
+		await ExplodePlayer()
+	elif other.is_in_group("Aliens"):
+		await ExplodePlayer()
 
-		await XDelay.Seconds(0.1)
-		queue_free()
-		var gm: GameManager = get_node("/root/GameManager")
-		gm.PlayerDied()
+
+# Explode the player
+func ExplodePlayer():
+	var explosion = ExplosionPrefab.instantiate()
+	explosion.global_position = global_position
+	get_tree().get_root().add_child(explosion)
+	await XDelay.Seconds(0.1)
+	queue_free()
+	gm.PlayerDied()
+
+
+# The Swarm died
+func SwarmDied(points: int):
+	if (points == 0):
+		# Swarm reached the bottom
+		ExplodePlayer()
