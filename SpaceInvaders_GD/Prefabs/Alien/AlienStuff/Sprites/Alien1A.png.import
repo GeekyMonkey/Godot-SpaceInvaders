@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck1vo7xkt3dlf"
-path="res://.godot/imported/Space Invaders Sprites.png-ec8814f84a5ba8b5e5724f6c63123d09.ctex"
+uid="uid://drpj6rg8k83i8"
+path="res://.godot/imported/Alien1A.png-08a0ac3f77885e27e767253142ce990c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Design/Space Invaders Sprites.png"
-dest_files=["res://.godot/imported/Space Invaders Sprites.png-ec8814f84a5ba8b5e5724f6c63123d09.ctex"]
+source_file="res://Prefabs/Alien/AlienStuff/Sprites/Alien1A.png"
+dest_files=["res://.godot/imported/Alien1A.png-08a0ac3f77885e27e767253142ce990c.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

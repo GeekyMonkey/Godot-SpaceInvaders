@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvm12vvhkvt63"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://Prefabs/Alien/Alien_Explosion.gd" id="1_1oxre"]
-[ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Alien/Sprites/AlienDeath.png" id="2_q322u"]
-[ext_resource type="AudioStream" uid="uid://djh407vngdv7y" path="res://Prefabs/Alien/Sounds/InvaderDeath.wav" id="3_ooj2y"]
+[ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Alien/AlienStuff/Sprites/AlienDeath.png" id="2_q322u"]
+[ext_resource type="AudioStream" uid="uid://djh407vngdv7y" path="res://Prefabs/Alien/AlienStuff/Sounds/InvaderDeath.wav" id="3_ooj2y"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_qb2na"]
 
 [node name="AlienExplosion" type="Node2D"]

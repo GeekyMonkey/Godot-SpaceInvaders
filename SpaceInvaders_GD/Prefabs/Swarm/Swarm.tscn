@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://criu75u1pi8fv"]
+[gd_scene load_steps=13 format=3 uid="uid://4f1pa776mflw"]
 
 [ext_resource type="PackedScene" uid="uid://bd671pmqc8kq3" path="res://Prefabs/Alien/Alien_1.tscn" id="1_fibd7"]
-[ext_resource type="Script" path="res://Prefabs/Swarm/SwarmStuff/Swarm.gd" id="1_ykbpd"]
+[ext_resource type="Script" path="res://Prefabs/Swarm/Swarm.gd" id="1_kwuay"]
 [ext_resource type="AudioStream" uid="uid://bo0b1jttin4nq" path="res://Prefabs/Swarm/SwarmStuff/Sounds/fastinvader1.wav" id="2_jx0jc"]
 [ext_resource type="AudioStream" uid="uid://ktx78th6ne3a" path="res://Prefabs/Swarm/SwarmStuff/Sounds/fastinvader2.wav" id="3_xxxj2"]
 [ext_resource type="AudioStream" uid="uid://cbyyaj2hyvmmb" path="res://Prefabs/Swarm/SwarmStuff/Sounds/fastinvader3.wav" id="4_ul64g"]
@@ -25,7 +25,7 @@ gradient = SubResource("Gradient_6s5wf")
 width = 8
 
 [node name="Swarm" type="Node2D"]
-script = ExtResource("1_ykbpd")
+script = ExtResource("1_kwuay")
 StompSounds = Array[AudioStream]([ExtResource("2_jx0jc"), ExtResource("3_xxxj2"), ExtResource("4_ul64g"), ExtResource("5_qmk2d")])
 SpacingX = 20.0
 SpacingY = 18.0

@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dojev1p0r4cwn"]
+[gd_scene load_steps=6 format=3 uid="uid://c5f0sqvd31orj"]
 
-[ext_resource type="AudioStream" uid="uid://d7mhun4oen1l" path="res://Prefabs/Bomb/Sounds/Thud.mp3" id="1_mlffu"]
 [ext_resource type="Script" path="res://Prefabs/Sheild/ShieldExplosion.gd" id="1_xcatn"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="2_1amv6"]
+[ext_resource type="AudioStream" uid="uid://d7mhun4oen1l" path="res://Prefabs/Bomb/BombStuff/Sounds/Thud.mp3" id="2_danwa"]
 [ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="3_2xfoq"]
-[ext_resource type="PackedScene" uid="uid://cgrn6ejyprxju" path="res://Prefabs/Pixel/Pixel.tscn" id="4_ba28q"]
+[ext_resource type="PackedScene" uid="uid://bdr0xhue3cuew" path="res://Prefabs/Pixel/Pixel.tscn" id="4_ba28q"]
 
 [node name="ShieldExplosion" type="Node2D"]
 script = ExtResource("1_xcatn")
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_mlffu")
+stream = ExtResource("2_danwa")
 autoplay = true
 
 [node name="ExplosionLight" type="PointLight2D" parent="."]

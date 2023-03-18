@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu8mis3o8r2v5"]
+[gd_scene load_steps=7 format=3 uid="uid://cf8py18dhucug"]
 
 [ext_resource type="Texture2D" uid="uid://ck1vo7xkt3dlf" path="res://Design/Space Invaders Sprites.png" id="1_i6led"]
 [ext_resource type="Script" path="res://Prefabs/UFO/Ufo.gd" id="1_ibmgm"]
 [ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_6lkqd"]
-[ext_resource type="PackedScene" uid="uid://cgrn6ejyprxju" path="res://Prefabs/Pixel/Pixel.tscn" id="3_kkwga"]
-[ext_resource type="AudioStream" uid="uid://caf0dwkn5efqb" path="res://Prefabs/UFO/Sounds/UfoThreat.wav" id="4_mibpo"]
-[ext_resource type="AudioStream" uid="uid://c63pibmw0h1aa" path="res://Prefabs/UFO/Sounds/UfoDeath.wav" id="6_5wn1b"]
+[ext_resource type="PackedScene" uid="uid://bdr0xhue3cuew" path="res://Prefabs/Pixel/Pixel.tscn" id="3_kkwga"]
+[ext_resource type="AudioStream" uid="uid://caf0dwkn5efqb" path="res://Prefabs/UFO/UfoStuff/Sounds/UfoThreat.wav" id="3_t4yu6"]
+[ext_resource type="AudioStream" uid="uid://c63pibmw0h1aa" path="res://Prefabs/UFO/UfoStuff/Sounds/UfoDeath.wav" id="4_rko4e"]
 
 [node name="Ufo" type="Node2D" groups=["Ufo"]]
 position = Vector2(0, 3)
@@ -21,11 +21,11 @@ offset = Vector2(11, -8)
 metadata/_edit_lock_ = true
 
 [node name="UfoThreatSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_mibpo")
+stream = ExtResource("3_t4yu6")
 autoplay = true
 
 [node name="UfoDeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_5wn1b")
+stream = ExtResource("4_rko4e")
 max_polyphony = 2
 panning_strength = 2.0
 

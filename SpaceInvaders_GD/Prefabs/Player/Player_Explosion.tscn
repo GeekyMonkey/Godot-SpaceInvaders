@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cciqc7vldthew"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player_Explosion.gd" id="1_tnugv"]
-[ext_resource type="AudioStream" uid="uid://b7t23iguesf3u" path="res://Prefabs/Player/Sounds/PlayerDeath.wav" id="2_g5rpf"]
-[ext_resource type="Texture2D" uid="uid://c2arxm8unhx82" path="res://Prefabs/Player/Sprites/PlayerDeath1.png" id="4_j5n7u"]
+[ext_resource type="AudioStream" uid="uid://b7t23iguesf3u" path="res://Prefabs/Player/PlayerStuff/Sounds/PlayerDeath.wav" id="2_g5rpf"]
+[ext_resource type="Texture2D" uid="uid://c2arxm8unhx82" path="res://Prefabs/Player/PlayerStuff/Sprites/PlayerDeath1.png" id="4_j5n7u"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_xd5ed"]
-[ext_resource type="Texture2D" uid="uid://cbffj4nqcqekq" path="res://Prefabs/Player/Sprites/PlayerDeath2.png" id="5_8gnd4"]
+[ext_resource type="Texture2D" uid="uid://cbffj4nqcqekq" path="res://Prefabs/Player/PlayerStuff/Sprites/PlayerDeath2.png" id="5_8gnd4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odye5"]
 animations = [{

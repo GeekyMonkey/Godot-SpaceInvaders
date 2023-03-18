@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd671pmqc8kq3"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://Prefabs/Alien/Alien.gd" id="1_nfm4g"]
-[ext_resource type="SpriteFrames" path="res://Prefabs/Alien/Sprites/AlienAnimations.tres" id="3_124s5"]
+[ext_resource type="SpriteFrames" path="res://Prefabs/Alien/AlienStuff/Sprites/AlienAnimations.tres" id="3_124s5"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_47eo7"]
 [ext_resource type="Script" path="res://Prefabs/Alien/GunSprite.gd" id="4_afc37"]
 

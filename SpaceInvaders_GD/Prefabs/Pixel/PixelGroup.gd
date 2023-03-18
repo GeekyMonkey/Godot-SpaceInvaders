@@ -15,7 +15,7 @@ signal PixelGroupCollision(pixel: PixelPrefab, object: Node2D)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var pixels = find_children("Pixel*", "", true) as Array[PixelPrefab]
-	print("Pixel group " + name + " has " + str(pixels.size()) + " pixels")
+	#print("Pixel group " + name + " has " + str(pixels.size()) + " pixels")
 	var group = GetGroupFromParent()
 	for pixel in pixels:
 		pixel.InitPixel(group, PixelColor, CollisionLayer, CollisionMask)
@@ -43,7 +43,7 @@ func OnPixelCollision(pixel: PixelPrefab, other: Node2D):
 ## Explode all pixels in the group from the group origin
 func ExplodeFrom(center: Vector2, force: float):
 	var pixels = find_children("Pixel*", "", true) as Array[PixelPrefab]
-	print("Exploding pixel group " + name + " has " + str(pixels.size()) + " pixels")
+	#print("Exploding pixel group " + name + " has " + str(pixels.size()) + " pixels")
 	for pixel in pixels:
 		pixel.DestroyExplodeFrom(center, force)
 	await XDelay.Seconds(2)

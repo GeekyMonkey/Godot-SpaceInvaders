@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://k8kxcvb2w2by"]
+[gd_scene load_steps=6 format=3 uid="uid://c1gj2vexogdqx"]
 
 [ext_resource type="Script" path="res://Prefabs/Bullet/Bullet.gd" id="1_2n1p2"]
-[ext_resource type="Texture2D" uid="uid://c5llhln77xriq" path="res://Prefabs/Bullet/Sprites/Bullet.png" id="2_7kgg4"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="2_sgls3"]
-[ext_resource type="AudioStream" uid="uid://cxae50cowysxd" path="res://Prefabs/Bullet/Sounds/PlayerShoot.wav" id="4_l2af1"]
+[ext_resource type="Texture2D" uid="uid://c5llhln77xriq" path="res://Prefabs/Bullet/BulletStuff/Sprites/Bullet.png" id="2_xkjsb"]
+[ext_resource type="AudioStream" uid="uid://cxae50cowysxd" path="res://Prefabs/Bullet/BulletStuff/Sounds/PlayerShoot.wav" id="4_e7blb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhm0v"]
 size = Vector2(1, 4)
@@ -19,7 +19,7 @@ Speed = 200.0
 [node name="BulletSprite" type="Sprite2D" parent="."]
 modulate = Color(0, 2, 0, 1)
 position = Vector2(0, -2)
-texture = ExtResource("2_7kgg4")
+texture = ExtResource("2_xkjsb")
 
 [node name="BulletLight" type="PointLight2D" parent="."]
 position = Vector2(0, -2)
@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_dhm0v")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -19)
-stream = ExtResource("4_l2af1")
+stream = ExtResource("4_e7blb")
 autoplay = true
 max_polyphony = 2
 panning_strength = 2.0

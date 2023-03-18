@@ -11,19 +11,26 @@ extends Node2D
 @export var XMargin: float = 8
 
 @export_category("Swarm Movement")
+@export var SpeedMin: float = 0.5
+@export var SpeedMax: float = 6
 @export var StepX: int = 8
-@export var StepY: int = 8
+@export var StepY: int = 12
 
 # Child Nodes
 @onready var StompSoundPlayer: AudioStreamPlayer2D = $StompSoundPlayer
+@onready var StompTimer: Timer = $StompTimer
+@onready var gm: GameManager = get_node("/root/GameManager")
 
 # Public State
 var SwarmType: int = 0
 
 # Private State
+var AlienCount: int
+var AlienCountStart: int
 var DirectionX: int = 1 # 1 or -1
 var IsStomping: bool = true
 var ScreenSizeX: float
+var Speed: float
 var StompSoundIndex: int = 0
 var SwarmDead: bool = false
 var SwarmExtents: Rect2
@@ -49,11 +56,12 @@ var SwarmPattern2: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# It's stompin' time!
-	CS.connect("Stomp", Stomp)
+	StompTimer.timeout.connect(StompTime)
 
 	# When an alien dies, re-check the swarm size
 	CS.connect("AlienDied", func(_alien):
 		MeasureExtents()
+		SetSpeed()
 	)
 
 	# The player is out of lives - stop stomping
@@ -72,8 +80,9 @@ func _ready():
 
 
 # Timer says it's stomping time. Alert the aliens!
-func StompTimer():
+func StompTime():
 	if !SwarmDead:
+		Stomp()
 		CS.Stomp.emit()
 
 
@@ -88,12 +97,19 @@ func Stomp():
 			StompSoundPlayer.stream = StompSounds[StompSoundIndex]
 			StompSoundPlayer.play()
 
-		# Move the swarm
+		# Move the swarm X
 		var dX: float = DirectionX * StepX
 		position += Vector2(dX, 0)
 		if (position.x + SwarmExtents.position.x) <= XMin || (position.x + SwarmExtents.end.x) >= XMax:
+			# Move swarm down
 			DirectionX *= -1
 			position += Vector2(-dX, StepY)
+			# Is swarm at bottom
+			if (global_position.y + SwarmExtents.end.y >= gm.PlayerSpawnPoint.position.y - 16):
+				SwarmDead = true
+				await XDelay.Seconds(2)
+				CS.SwarmDeath.emit(0)
+				queue_free()
 
 
 # Measure the size of the swarm so we can tell if a side is hit
@@ -104,13 +120,15 @@ func MeasureExtents():
 	var top = 999999
 	var bottom = -999999
 	var right = -999999
-	var alienCount: int = 0
+
+	AlienCount = 0
+
 	for child in children:
 		if child.is_in_group("Aliens"):
 			var alien = child
 			if alien.Dead:
 				continue
-			alienCount += 1
+			AlienCount += 1
 			var extents: Rect2 = alien.Extents
 			var pos: Vector2 = alien.position
 			left = min(left, pos.x + extents.position.x)
@@ -118,10 +136,10 @@ func MeasureExtents():
 			right = max(right, pos.x + extents.end.x)
 			bottom = max(bottom, pos.y + extents.end.y)
 
-	if alienCount == 0:
+	if AlienCount == 0:
 		SwarmDead = true
 		await XDelay.Seconds(1.0) # Allow last alien death sound to finish playing
-		CS.SwarmDeath.emit()
+		CS.SwarmDeath.emit(500)
 		queue_free()
 	else:
 		SwarmExtents = Rect2(left, top, right - left, bottom - top)
@@ -172,9 +190,12 @@ func CreateSwarm(swarmType: int):
 				var alien = alienType.instantiate()
 				alien.position = Vector2(x,y)
 				add_child.call_deferred(alien)
+				AlienCount += 1
 
 	await XDelay.Seconds(0.1)
 	MeasureExtents()
+	AlienCountStart = AlienCount
+	SetSpeed()
 
 
 ## Remove any aliens from the swarm
@@ -183,3 +204,10 @@ func ClearSwarm():
 	for child in children:
 		if child.is_in_group("Aliens"):
 			child.queue_free()
+
+
+## Set the swarm's move speed
+func SetSpeed():
+	Speed = SpeedMax - (SpeedMax - SpeedMin) * ((AlienCount - 1)  as float / (1.0 if AlienCountStart == 0 else AlienCountStart as float))
+	StompTimer.wait_time = 1.0 / (Speed * Speed)
+	print("Speed=" + str(Speed) + " Interval=" + str(StompTimer.wait_time) + " Count=" + str(AlienCount) + " Start=" + str(AlienCountStart))

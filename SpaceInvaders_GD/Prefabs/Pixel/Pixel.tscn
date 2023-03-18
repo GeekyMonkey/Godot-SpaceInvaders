@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgrn6ejyprxju"]
+[gd_scene load_steps=4 format=3 uid="uid://bdr0xhue3cuew"]
 
 [ext_resource type="Script" path="res://Prefabs/Pixel/Pixel.gd" id="1_dysmt"]
-[ext_resource type="QuadMesh" uid="uid://dkmxqbmrgqxx7" path="res://Prefabs/Pixel/PixelMesh.tres" id="1_j88cx"]
+[ext_resource type="QuadMesh" uid="uid://dkmxqbmrgqxx7" path="res://Prefabs/Pixel/PixelStuff/PixelMesh.tres" id="2_inx6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc4fu"]
 size = Vector2(1, 1)
@@ -21,6 +21,6 @@ scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_fc4fu")
 
 [node name="SquareMesh" type="MeshInstance2D" parent="RigidBody"]
-mesh = ExtResource("1_j88cx")
+mesh = ExtResource("2_inx6y")
 
 [connection signal="body_entered" from="RigidBody" to="." method="_on_rigid_body_body_entered"]

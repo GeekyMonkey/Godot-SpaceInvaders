@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c57avfx61vgpf"]
+[gd_scene load_steps=3 format=3 uid="uid://bu8wh23fottnc"]
 
-[ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Prefabs/Player/Sprites/Player.png" id="1_58v0r"]
 [ext_resource type="Script" path="res://Prefabs/Player/Player.gd" id="1_qng2s"]
+[ext_resource type="Texture2D" uid="uid://bjccgt0k6b5f8" path="res://Prefabs/Player/PlayerStuff/Sprites/Player.png" id="2_weumo"]
 
 [node name="Player" type="Node2D" groups=["Players"]]
 modulate = Color(0, 1, 0, 1)
@@ -13,7 +13,7 @@ collision_mask = 4
 
 [node name="PlayerSprite" type="Sprite2D" parent="Area2d"]
 position = Vector2(0, -4)
-texture = ExtResource("1_58v0r")
+texture = ExtResource("2_weumo")
 
 [node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Area2d"]
 position = Vector2(0, -4)

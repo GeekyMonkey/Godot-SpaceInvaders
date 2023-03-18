@@ -33,7 +33,7 @@ func _process(delta):
 
 
 ## Ufo pixels hit by something
-func UfoPixelsCollision(pixel: PixelPrefab, other: Node2D):
+func UfoPixelsCollision(_pixel: PixelPrefab, other: Node2D):
 	if other.is_in_group("Bullets"):
 		UfoDeath()
 

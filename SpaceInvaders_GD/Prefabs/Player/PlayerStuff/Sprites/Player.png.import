@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck1vo7xkt3dlf"
-path="res://.godot/imported/Space Invaders Sprites.png-ec8814f84a5ba8b5e5724f6c63123d09.ctex"
+uid="uid://bjccgt0k6b5f8"
+path="res://.godot/imported/Player.png-84ff529d0e02a8ba87ccbada970bf579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Design/Space Invaders Sprites.png"
-dest_files=["res://.godot/imported/Space Invaders Sprites.png-ec8814f84a5ba8b5e5724f6c63123d09.ctex"]
+source_file="res://Prefabs/Player/PlayerStuff/Sprites/Player.png"
+dest_files=["res://.godot/imported/Player.png-84ff529d0e02a8ba87ccbada970bf579.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

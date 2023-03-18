@@ -1,19 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://djdy4dv3eho7r"]
+[gd_scene load_steps=8 format=3 uid="uid://cw0l3dhpfali0"]
 
 [ext_resource type="Script" path="res://Prefabs/Bomb/Bomb.gd" id="1_gcknr"]
-[ext_resource type="Texture2D" uid="uid://stothgnxshk5" path="res://Prefabs/Bomb/Sprites/Bomb1A.png" id="3_6wdwy"]
-[ext_resource type="Texture2D" uid="uid://vooxfuq655v0" path="res://Prefabs/Bomb/Sprites/Bomb1B.png" id="4_16wdy"]
-[ext_resource type="Texture2D" uid="uid://dggt2b1l1qp7x" path="res://Prefabs/Bomb/Sprites/Bomb2A.png" id="5_dj2r6"]
-[ext_resource type="Texture2D" uid="uid://ckuqcvcifqj6k" path="res://Prefabs/Bomb/Sprites/Bomb2B.png" id="6_gqad4"]
+[ext_resource type="Texture2D" uid="uid://stothgnxshk5" path="res://Prefabs/Bomb/BombStuff/Sprites/Bomb1A.png" id="2_7xmdh"]
+[ext_resource type="Texture2D" uid="uid://vooxfuq655v0" path="res://Prefabs/Bomb/BombStuff/Sprites/Bomb1B.png" id="3_84fi6"]
+[ext_resource type="Texture2D" uid="uid://dggt2b1l1qp7x" path="res://Prefabs/Bomb/BombStuff/Sprites/Bomb2A.png" id="4_7t3d3"]
+[ext_resource type="Texture2D" uid="uid://ckuqcvcifqj6k" path="res://Prefabs/Bomb/BombStuff/Sprites/Bomb2B.png" id="5_bvs52"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o82pm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6wdwy")
+"texture": ExtResource("2_7xmdh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_16wdy")
+"texture": ExtResource("3_84fi6")
 }],
 "loop": true,
 "name": &"Bomb1",
@@ -21,10 +21,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_dj2r6")
+"texture": ExtResource("4_7t3d3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_gqad4")
+"texture": ExtResource("5_bvs52")
 }],
 "loop": true,
 "name": &"Bomb2",
