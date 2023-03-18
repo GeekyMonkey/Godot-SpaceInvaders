@@ -4,6 +4,7 @@ extends Node2D
 
 # Child Nodes
 @onready var PlayerSpawnPoint: Marker2D = $PlayerSpawnPoint
+@onready var UI: CanvasLayer = get_node("./Environment/UI")
 
 # Public State
 var Level = 1
@@ -13,6 +14,7 @@ var PlayerLives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	# Listen for alien deaths
 	CS.connect("AlienDied", OnAlienDied)
 
@@ -62,6 +64,9 @@ func PlayerDied():
 		var t = get_tree().create_timer(2.0)
 		await t.timeout
 		SpawnPlayer()
+	else:
+		var gameOverPanel = preload("res://Background/GameOverPanel.tscn").instantiate()
+		UI.add_child(gameOverPanel)
 
 
 # Spawn a player

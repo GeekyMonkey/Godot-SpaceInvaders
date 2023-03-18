@@ -1,28 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpojwkqyrr2ti"]
+[gd_scene load_steps=13 format=3 uid="uid://cpojwkqyrr2ti"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene/GameManager.gd" id="1_p5rll"]
-[ext_resource type="PackedScene" uid="uid://c57avfx61vgpf" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
-[ext_resource type="PackedScene" uid="uid://criu75u1pi8fv" path="res://Prefabs/Swarm/Swarm.tscn" id="3_4sbd7"]
+[ext_resource type="PackedScene" uid="uid://bu8wh23fottnc" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
+[ext_resource type="PackedScene" uid="uid://4f1pa776mflw" path="res://Prefabs/Swarm/Swarm.tscn" id="3_4sbd7"]
 [ext_resource type="Texture2D" uid="uid://dfgeubb5qh2ao" path="res://Background/invaders.png" id="4_d73rs"]
+[ext_resource type="Theme" uid="uid://ps2teiofoxiv" path="res://Fonts/FontTheme.tres" id="4_hxdsx"]
 [ext_resource type="Script" path="res://Scenes/GameScene/ScoreValueText.gd" id="5_qexkm"]
 [ext_resource type="Script" path="res://Background/Background.gd" id="5_qj6f5"]
 [ext_resource type="Script" path="res://Scenes/GameScene/LivesValueText.gd" id="6_0sa8i"]
-[ext_resource type="FontFile" uid="uid://bnysnaafha7r" path="res://Fonts/space_invaders.ttf" id="6_r1pgb"]
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="9_ogu07"]
 [ext_resource type="Script" path="res://Prefabs/UFO/UfoSpawner.gd" id="10_lymhp"]
 [ext_resource type="PackedScene" uid="uid://dalougx88ht34" path="res://Prefabs/Sheild/Shield.tscn" id="10_xolgy"]
 
 [sub_resource type="Environment" id="Environment_6xi3q"]
 background_mode = 3
+background_color = Color(0.678431, 0, 0, 1)
 ambient_light_source = 2
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 5.64
 glow_strength = 1.5
+glow_bloom = 0.01
 glow_blend_mode = 0
-
-[sub_resource type="Theme" id="Theme_jyikk"]
-default_font = ExtResource("6_r1pgb")
+glow_hdr_threshold = 1.2
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_p5rll")
@@ -54,7 +54,7 @@ offset_left = -192.0
 offset_top = -140.0
 offset_right = -158.0
 offset_bottom = -129.0
-theme = SubResource("Theme_jyikk")
+theme = ExtResource("4_hxdsx")
 theme_override_font_sizes/normal_font_size = 8
 text = "Score:"
 
@@ -63,7 +63,7 @@ offset_left = -156.0
 offset_top = -140.0
 offset_right = -122.0
 offset_bottom = -129.0
-theme = SubResource("Theme_jyikk")
+theme = ExtResource("4_hxdsx")
 theme_override_font_sizes/normal_font_size = 8
 text = "0"
 scroll_active = false
@@ -74,7 +74,7 @@ offset_left = 120.0
 offset_top = -139.0
 offset_right = 154.0
 offset_bottom = -128.0
-theme = SubResource("Theme_jyikk")
+theme = ExtResource("4_hxdsx")
 theme_override_font_sizes/normal_font_size = 8
 text = "LIVES:"
 
@@ -83,7 +83,7 @@ offset_left = 157.0
 offset_top = -139.0
 offset_right = 177.0
 offset_bottom = -129.0
-theme = SubResource("Theme_jyikk")
+theme = ExtResource("4_hxdsx")
 theme_override_font_sizes/normal_font_size = 8
 text = "3"
 scroll_active = false
@@ -100,10 +100,6 @@ position = Vector2(2, 143)
 
 [node name="Swarm" parent="." instance=ExtResource("3_4sbd7")]
 position = Vector2(-2, -25)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(50, 30)
-color = Color(0.843137, 0.843137, 0.843137, 1)
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(2, 143)

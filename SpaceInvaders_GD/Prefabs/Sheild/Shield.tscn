@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dalougx88ht34"]
 
-[ext_resource type="PackedScene" uid="uid://cgrn6ejyprxju" path="res://Prefabs/Pixel/Pixel.tscn" id="1_asrfg"]
+[ext_resource type="PackedScene" uid="uid://bdr0xhue3cuew" path="res://Prefabs/Pixel/Pixel.tscn" id="1_asrfg"]
 [ext_resource type="Script" path="res://Prefabs/Sheild/Shield.gd" id="1_cgsju"]
 [ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_lodw2"]
 [ext_resource type="Texture2D" uid="uid://blueyrafynbp6" path="res://Prefabs/Sheild/Sprites/Shield.png" id="2_stsur"]

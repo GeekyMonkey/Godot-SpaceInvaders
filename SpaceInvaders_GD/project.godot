@@ -41,6 +41,10 @@ project/assembly_name="SpaceInvaders_GD"
 
 enabled=PackedStringArray()
 
+[gui]
+
+theme/custom="res://Fonts/FontTheme.tres"
+
 [input]
 
 move_right={

@@ -55,6 +55,7 @@ var SwarmPattern2: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	# It's stompin' time!
 	StompTimer.timeout.connect(StompTime)
 
@@ -105,11 +106,12 @@ func Stomp():
 			DirectionX *= -1
 			position += Vector2(-dX, StepY)
 			# Is swarm at bottom
-			if (global_position.y + SwarmExtents.end.y >= gm.PlayerSpawnPoint.position.y - 16):
+			if (global_position.y + SwarmExtents.end.y >= gm.PlayerSpawnPoint.position.y - 8):
 				SwarmDead = true
-				await XDelay.Seconds(2)
 				CS.SwarmDeath.emit(0)
-				queue_free()
+				await XDelay.Seconds(1)
+				if (gm.PlayerLives > 0):
+					queue_free()
 
 
 # Measure the size of the swarm so we can tell if a side is hit
