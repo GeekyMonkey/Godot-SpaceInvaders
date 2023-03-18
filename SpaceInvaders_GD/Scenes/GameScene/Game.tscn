@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpojwkqyrr2ti"]
+[gd_scene load_steps=15 format=3 uid="uid://cpojwkqyrr2ti"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene/GameManager.gd" id="1_p5rll"]
 [ext_resource type="PackedScene" uid="uid://c57avfx61vgpf" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
@@ -11,6 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="9_ogu07"]
 [ext_resource type="Script" path="res://Prefabs/UFO/UfoSpawner.gd" id="10_lymhp"]
 [ext_resource type="PackedScene" uid="uid://dalougx88ht34" path="res://Prefabs/Sheild/Shield.tscn" id="10_xolgy"]
+[ext_resource type="PackedScene" uid="uid://k8kxcvb2w2by" path="res://Prefabs/Bullet/Bullet.tscn" id="12_04iuv"]
+
+[sub_resource type="Environment" id="Environment_6xi3q"]
+background_mode = 3
+ambient_light_source = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 5.64
+glow_strength = 1.5
+glow_blend_mode = 0
 
 [sub_resource type="Theme" id="Theme_jyikk"]
 default_font = ExtResource("6_r1pgb")
@@ -19,6 +29,9 @@ default_font = ExtResource("6_r1pgb")
 script = ExtResource("1_p5rll")
 
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_6xi3q")
 
 [node name="Background" type="Sprite2D" parent="Environment"]
 editor_description = "Arcade cabinet background image"
@@ -113,3 +126,6 @@ position = Vector2(93, 118)
 
 [node name="Shield4" parent="Shields" instance=ExtResource("10_xolgy")]
 position = Vector2(19, 119)
+
+[node name="BulletPrefab" parent="." instance=ExtResource("12_04iuv")]
+position = Vector2(2, 130)

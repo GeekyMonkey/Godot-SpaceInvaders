@@ -15,7 +15,7 @@ autoplay = true
 panning_strength = 2.0
 
 [node name="BombExplosionSprite" type="Sprite2D" parent="."]
-modulate = Color(0.639216, 0.32549, 0.101961, 1)
+modulate = Color(3, 3, 1, 1)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_m32sn")
