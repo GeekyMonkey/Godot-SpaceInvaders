@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cjurprhl03kqr"]
 
 [ext_resource type="Script" path="res://Prefabs/Alien/Alien.gd" id="1_nfm4g"]
-[ext_resource type="SpriteFrames" path="res://Prefabs/Alien/AlienStuff/Sprites/AlienAnimations.tres" id="3_124s5"]
+[ext_resource type="SpriteFrames" uid="uid://bcy7fmhdgsyx2" path="res://Prefabs/Alien/AlienStuff/Sprites/AlienAnimations.tres" id="3_124s5"]
 [ext_resource type="Texture2D" uid="uid://8x7yinyohkik" path="res://Lights/LightGradient.png" id="4_47eo7"]
 [ext_resource type="Script" path="res://Prefabs/Alien/GunSprite.gd" id="4_afc37"]
 
@@ -22,6 +22,7 @@ Points = 20
 ReloadSecMax = 5.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = ExtResource("3_124s5")
 animation = &"Alien2"
 metadata/playing = true

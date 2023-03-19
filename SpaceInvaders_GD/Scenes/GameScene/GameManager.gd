@@ -22,6 +22,13 @@ func _ready():
 	CS.connect("SwarmDeath", OnSwarmDeath)
 
 
+## Game Inputs - Pause
+func _input(event):
+	if event.is_action_pressed("Pause"):
+		get_tree().paused = !get_tree().paused
+
+
+## Swarm Died
 func OnSwarmDeath(points: int):
 	# Add a bunch of points
 	await XDelay.Seconds(0.5)

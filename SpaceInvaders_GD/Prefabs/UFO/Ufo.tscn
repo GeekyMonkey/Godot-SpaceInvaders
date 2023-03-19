@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf8py18dhucug"]
+[gd_scene load_steps=6 format=3 uid="uid://cf8py18dhucug"]
 
-[ext_resource type="Texture2D" uid="uid://ck1vo7xkt3dlf" path="res://Design/Space Invaders Sprites.png" id="1_i6led"]
 [ext_resource type="Script" path="res://Prefabs/UFO/Ufo.gd" id="1_ibmgm"]
 [ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_6lkqd"]
 [ext_resource type="PackedScene" uid="uid://bdr0xhue3cuew" path="res://Prefabs/Pixel/Pixel.tscn" id="3_kkwga"]
@@ -11,14 +10,6 @@
 position = Vector2(0, 3)
 script = ExtResource("1_ibmgm")
 Speed = 50.0
-
-[node name="UfoTemplate" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.0980392)
-position = Vector2(15, -2)
-texture = ExtResource("1_i6led")
-offset = Vector2(11, -8)
-metadata/_edit_lock_ = true
 
 [node name="UfoThreatSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_t4yu6")

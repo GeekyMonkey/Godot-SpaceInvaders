@@ -1,4 +1,4 @@
-@icon("res://Prefabs/Alien/Sprites/Alien1B.png")
+@icon("res://Scenes/TitleScene/Ufo.png")
 class_name UfoSpawner
 extends Node2D
 
@@ -19,6 +19,7 @@ func _ready():
 	UfoTimer = Timer.new()
 	add_child(UfoTimer)
 	UfoTimer.timeout.connect(LaunchTime)
+	var u = UfoPrefab
 	StartTimer()
 
 
@@ -43,6 +44,6 @@ func LaunchTime():
 ## Launch now
 func LaunchUfo():
 	print("Launch UFO")
-	var ufo: Ufo = UfoPrefab.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	var ufo: Ufo = UfoPrefab.instantiate()
 	ufo.global_position = global_position
 	gm.add_child(ufo)

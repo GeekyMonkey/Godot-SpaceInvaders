@@ -1,20 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dalougx88ht34"]
+[gd_scene load_steps=4 format=3 uid="uid://dalougx88ht34"]
 
 [ext_resource type="PackedScene" uid="uid://bdr0xhue3cuew" path="res://Prefabs/Pixel/Pixel.tscn" id="1_asrfg"]
 [ext_resource type="Script" path="res://Prefabs/Sheild/Shield.gd" id="1_cgsju"]
 [ext_resource type="PackedScene" uid="uid://cqtj81vec172h" path="res://Prefabs/Pixel/PixelGroup.tscn" id="2_lodw2"]
-[ext_resource type="Texture2D" uid="uid://blueyrafynbp6" path="res://Prefabs/Sheild/Sprites/Shield.png" id="2_stsur"]
 
 [node name="Shield" type="Node2D" groups=["Shields"]]
 script = ExtResource("1_cgsju")
-
-[node name="ShieldTemplate" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.0980392)
-position = Vector2(0, 0.5)
-texture = ExtResource("2_stsur")
-offset = Vector2(11, -8)
-metadata/_edit_lock_ = true
 
 [node name="ShieldPixels" parent="." instance=ExtResource("2_lodw2")]
 PixelColor = Color(0, 0, 1, 1)

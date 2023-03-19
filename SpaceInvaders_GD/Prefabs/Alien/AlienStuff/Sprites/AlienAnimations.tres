@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bcy7fmhdgsyx2"]
 
 [ext_resource type="Texture2D" uid="uid://drpj6rg8k83i8" path="res://Prefabs/Alien/AlienStuff/Sprites/Alien1A.png" id="1_5fpyn"]
 [ext_resource type="Texture2D" uid="uid://bap8734436fpp" path="res://Prefabs/Alien/AlienStuff/Sprites/Alien1B.png" id="2_exl7t"]

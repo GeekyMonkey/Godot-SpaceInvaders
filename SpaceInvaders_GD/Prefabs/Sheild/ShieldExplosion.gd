@@ -32,5 +32,5 @@ func _process(delta):
 
 
 ## Explostion pixel collided with something
-func OnExplostionPixelCollision(pixel: PixelPrefab, other: Node2D):
+func OnExplostionPixelCollision(pixel: PixelPrefab, _other: Node2D):
 	pixel.DestroySilent()

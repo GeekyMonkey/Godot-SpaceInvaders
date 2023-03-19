@@ -210,6 +210,6 @@ func ClearSwarm():
 
 ## Set the swarm's move speed
 func SetSpeed():
-	Speed = SpeedMax - (SpeedMax - SpeedMin) * ((AlienCount - 1)  as float / (1.0 if AlienCountStart == 0 else AlienCountStart as float))
+	Speed = SpeedMax - (SpeedMax - SpeedMin) * ((AlienCount - 1)  as float / (1.0 as float if AlienCountStart == 0 else (AlienCountStart as float)))
 	StompTimer.wait_time = 1.0 / (Speed * Speed)
 	print("Speed=" + str(Speed) + " Interval=" + str(StompTimer.wait_time) + " Count=" + str(AlienCount) + " Start=" + str(AlienCountStart))

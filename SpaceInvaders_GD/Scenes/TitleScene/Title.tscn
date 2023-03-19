@@ -1,0 +1,224 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxsqa8gi6naek"]
+
+[ext_resource type="Texture2D" uid="uid://dfgeubb5qh2ao" path="res://Background/invaders.png" id="1_lobnm"]
+[ext_resource type="Script" path="res://Scenes/TitleScene/Title.gd" id="1_nysf2"]
+[ext_resource type="Script" path="res://Background/Background.gd" id="2_sb46u"]
+[ext_resource type="Theme" uid="uid://pnetbr3iv6qo" path="res://Fonts/UiTheme.tres" id="4_krmpr"]
+[ext_resource type="Texture2D" uid="uid://dgiql43libb7i" path="res://Scenes/TitleScene/Logo.png" id="4_tkrxv"]
+
+[sub_resource type="Environment" id="Environment_gxt3e"]
+background_mode = 3
+background_color = Color(0.678431, 0, 0, 1)
+ambient_light_source = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 5.64
+glow_strength = 1.5
+glow_bloom = 0.01
+glow_blend_mode = 0
+glow_hdr_threshold = 1.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgs7h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_a1bq2"]
+resource_name = "InsructionsTyping"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 0, 60]
+}
+
+[sub_resource type="Animation" id="Animation_rrw4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn18i"]
+_data = {
+"InsructionsTyping": SubResource("Animation_a1bq2"),
+"RESET": SubResource("Animation_rrw4o")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8iro"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcmc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frw32"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_nysf2")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_gxt3e")
+
+[node name="Background" type="Sprite2D" parent="Environment"]
+editor_description = "Arcade cabinet background image"
+modulate = Color(0.411765, 0.411765, 0.411765, 1)
+position = Vector2(-3, -1.5)
+scale = Vector2(0.42065, 0.401926)
+texture = ExtResource("1_lobnm")
+region_rect = Rect2(-0.074, 0, 300, 200)
+region_filter_clip_enabled = true
+script = ExtResource("2_sb46u")
+
+[node name="Camera2d" type="Camera2D" parent="Environment"]
+position = Vector2(0, -1)
+zoom = Vector2(2.5, 2.5)
+
+[node name="UI" type="CanvasLayer" parent="Environment"]
+follow_viewport_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Environment/UI"]
+anchors_preset = -1
+anchor_left = -0.2
+anchor_top = -0.198
+anchor_right = 0.2
+anchor_bottom = 0.202
+offset_left = 0.199997
+offset_top = -0.247986
+offset_right = -0.199997
+offset_bottom = 0.151993
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MartinTop" type="MarginContainer" parent="Environment/UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="LogoRect" type="TextureRect" parent="Environment/UI/VBoxContainer"]
+custom_minimum_size = Vector2(300, 84)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("4_tkrxv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginMiddle" type="MarginContainer" parent="Environment/UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="InstructionsPanel" type="Panel" parent="Environment/UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgs7h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Environment/UI/VBoxContainer/InstructionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -72.0
+offset_right = 119.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Instructions"
+theme_override_constants/line_separation = 7
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[img=center,center,width=28]res://Scenes/TitleScene/Ufo.png[/img] = ? Mystery
+[img=center,center,width=28]res://prefabs/Alien/AlienStuff/Sprites/Alien3A.png[/img] = 30 Points
+[img=center,center,width=28]res://prefabs/Alien/AlienStuff/Sprites/Alien2A.png[/img] = 20 Points
+[img=center,center,width=28]res://prefabs/Alien/AlienStuff/Sprites/Alien1A.png[/img] = 10 Points"
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/UI/VBoxContainer/InstructionsPanel/RichTextLabel"]
+autoplay = "InsructionsTyping"
+libraries = {
+"": SubResource("AnimationLibrary_hn18i")
+}
+
+[node name="ActionsPanel" type="Panel" parent="Environment/UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayButton" type="Button" parent="Environment/UI/VBoxContainer/ActionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.5
+offset_right = 40.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_krmpr")
+theme_type_variation = &"Spacy"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8iro")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qqcmc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_frw32")
+text = "play"
+icon_alignment = 2

@@ -3,4 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bnysnaafha7r" path="res://Fonts/space_invaders.ttf" id="1_be813"]
 
 [resource]
+default_base_scale = 2.0
 default_font = ExtResource("1_be813")
+default_font_size = 24
