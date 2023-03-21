@@ -30,13 +30,13 @@ Main="*res://AutoLoad/Main.gd"
 
 [display]
 
-window/size/viewport_width=896
-window/size/viewport_height=1024
-window/size/resizable=false
-window/size/window_width_override=448
-window/size/window_height_override=512
+window/size/viewport_width=448
+window/size/viewport_height=512
+window/size/window_width_override=224
+window/size/window_height_override=256
 window/handheld/orientation=1
 window/stretch/mode="viewport"
+window/stretch/scale=0.5
 
 [dotnet]
 
@@ -44,7 +44,7 @@ project/assembly_name="SpaceInvaders_GD"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/FileSystemView/plugin.cfg")
 
 [gui]
 
