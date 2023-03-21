@@ -15,12 +15,12 @@ var LightEnergy: float
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	LightEnergy = ExplosionLight.energy
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	Age += delta
 	var opacity = clamp(1.0 - (Age / FadeSeconds), 0.0, 1.0)
 	Sprite.modulate = Color(Sprite.modulate, opacity)

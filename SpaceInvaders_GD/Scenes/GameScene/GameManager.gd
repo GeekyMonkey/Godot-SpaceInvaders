@@ -13,7 +13,7 @@ var PlayerLives = 3
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 
 	# Listen for alien deaths
 	CS.connect("AlienDied", OnAlienDied)
@@ -23,13 +23,13 @@ func _ready():
 
 
 ## Game Inputs - Pause
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):
 		get_tree().paused = !get_tree().paused
 
 
 ## Swarm Died
-func OnSwarmDeath(points: int):
+func OnSwarmDeath(points: int) -> void:
 	# Add a bunch of points
 	await XDelay.Seconds(0.5)
 	ScoreAdd(points)
@@ -41,13 +41,13 @@ func OnSwarmDeath(points: int):
 
 
 # An alien is pining for the fjords
-func OnAlienDied(alien):
+func OnAlienDied(alien) -> void:
 	var points: int = alien.Points
 	ScoreAdd(points)
 
 
 # Add some points
-func ScoreAdd(points: int):
+func ScoreAdd(points: int) -> void:
 	Score += points
 
 	# Alert the text box
@@ -55,7 +55,7 @@ func ScoreAdd(points: int):
 
 
 # Spawn a new swarm
-func SpawnNewSwarm():
+func SpawnNewSwarm() -> void:
 	Level += 1
 	var swarm = preload("res://Prefabs/Swarm/Swarm.tscn").instantiate()
 	swarm.SwarmType = Level - 1
@@ -63,7 +63,7 @@ func SpawnNewSwarm():
 
 
 # The player has lost a life
-func PlayerDied():
+func PlayerDied() -> void:
 	PlayerLives -= 1
 	CS.LivesChanged.emit(PlayerLives)
 
@@ -77,7 +77,7 @@ func PlayerDied():
 
 
 # Spawn a player
-func SpawnPlayer():
+func SpawnPlayer() -> void:
 	var player = preload("res://Prefabs/Player/Player.tscn").instantiate()
 	player.global_position = PlayerSpawnPoint.global_position
 	get_tree().get_root().add_child(player)

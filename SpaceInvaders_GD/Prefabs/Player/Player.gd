@@ -19,7 +19,7 @@ var XMargin: float = 16
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	ScreenSizeX = XViewport.Size().x
 	XMin = ScreenSizeX / -2 + XMargin
 	XMax = ScreenSizeX / 2 - XMargin
@@ -27,13 +27,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	ProcessMoveInput(delta)
 	ProcessShootInput(delta)
 
 
 ## Left/right movement
-func ProcessMoveInput(delta: float):
+func ProcessMoveInput(delta: float) -> void:
 	var input: float = 0
 	if Input.is_action_pressed("ui_right"):
 		input = 1.0
@@ -47,7 +47,7 @@ func ProcessMoveInput(delta: float):
 
 
 ## Shoot Input
-func ProcessShootInput(_delta: float):
+func ProcessShootInput(_delta: float) -> void:
 	var input: float = 0
 	if (Input.is_action_just_pressed("Shoot")):
 		input = 1
@@ -59,7 +59,7 @@ func ProcessShootInput(_delta: float):
 
 
 ## Something collided with the player
-func _on_area_2d_body_entered(other: Node2D):
+func _on_area_2d_body_entered(other: Node2D) -> void:
 	print("Player hit by " + other.name)
 	if other.is_in_group("Bombs"):
 		await ExplodePlayer()
@@ -68,7 +68,7 @@ func _on_area_2d_body_entered(other: Node2D):
 
 
 # Explode the player
-func ExplodePlayer():
+func ExplodePlayer() -> void:
 	var explosion = ExplosionPrefab.instantiate()
 	explosion.global_position = global_position
 	get_tree().get_root().add_child(explosion)
@@ -78,7 +78,7 @@ func ExplodePlayer():
 
 
 # The Swarm died
-func SwarmDied(points: int):
+func SwarmDied(points: int) -> void:
 	if (points == 0):
 		# Swarm reached the bottom
 		ExplodePlayer()

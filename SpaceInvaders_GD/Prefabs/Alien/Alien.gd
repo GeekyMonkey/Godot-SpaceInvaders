@@ -28,7 +28,7 @@ var ViewIsClear: bool = false
 
 
 ## Alien added to the scene
-func _ready():
+func _ready() -> void:
 
 	# Watch for swarm stomp events
 	CS.connect("Stomp", Stomp)
@@ -52,26 +52,26 @@ func _ready():
 
 
 ## Has the player used all lives
-func OnLivesChanged(lives: int):
+func OnLivesChanged(lives: int) -> void:
 	if lives == 0:
 		PlayerIsDead = true
 		CheckView()
 
 
 ## Begin reloading
-func Reload():
+func Reload() -> void:
 	ReloadTime = randf_range(ReloadSecMin, ReloadSecMax)
 
 
 ## An alien has perished. Perhaps now we have a clear shot at the player.
-func OnAlienDied(alien):
+func OnAlienDied(alien: Alien) -> void:
 	if alien != self:
 		await XDelay.Seconds(0.5)
 		CheckView()
 
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	if ViewIsClear == true && ReloadTime > 0:
 		ReloadTime -= delta
 		if ReloadTime < 0 && !PlayerIsDead:
@@ -80,7 +80,7 @@ func _process(delta):
 
 
 ## Drop a bomb
-func Shoot():
+func Shoot() -> void:
 	var bombTypeIndex = randi_range(1, BombTypes)
 	# print("Alien shoot " + str(bombTypeIndex))
 	var bomb: Node
@@ -93,13 +93,13 @@ func Shoot():
 
 
 ## Alien has collided with something
-func _on_body_entered(otherObject: Node):
+func _on_body_entered(otherObject: Node) -> void:
 	if otherObject.is_in_group("Bullets"):
 		HitByBullet(otherObject)
 
 
 ## A bullet has hit this alien
-func HitByBullet(_bullet):
+func HitByBullet(_bullet: Bullet) -> void:
 	if !Dead:
 		Dead = true
 
@@ -116,12 +116,12 @@ func HitByBullet(_bullet):
 
 
 ## We're all stompin'. Do a little dance.
-func Stomp():
+func Stomp() -> void:
 	AnimatedSprite.frame = 1 if AnimatedSprite.frame == 0 else 0
 
 
 ## Make sure there are no aliens under this alien's gun
-func CheckView():
+func CheckView() -> void:
 	var spaceState = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 1000), 2, [self])
 	var result = spaceState.intersect_ray(query)

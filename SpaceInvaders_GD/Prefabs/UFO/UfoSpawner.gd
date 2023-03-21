@@ -15,7 +15,7 @@ var UfoTimer: Timer
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	UfoTimer = Timer.new()
 	add_child(UfoTimer)
 	UfoTimer.timeout.connect(LaunchTime)
@@ -24,7 +24,7 @@ func _ready():
 
 
 ## Start/restart the timer
-func StartTimer():
+func StartTimer() -> void:
 	var seconds = randf_range(MinSeconds, MaxSeconds)
 	print("Launching UFO in " + str(seconds) + " seconds")
 	UfoTimer.wait_time = seconds
@@ -32,7 +32,7 @@ func StartTimer():
 
 
 ## Time to launch the UFO
-func LaunchTime():
+func LaunchTime() -> void:
 	print("Launch Time")
 	# Only if the player is still alive
 	if (gm.PlayerLives > 0):
@@ -42,7 +42,7 @@ func LaunchTime():
 
 
 ## Launch now
-func LaunchUfo():
+func LaunchUfo() -> void:
 	print("Launch UFO")
 	var ufo: Ufo = UfoPrefab.instantiate()
 	ufo.global_position = global_position

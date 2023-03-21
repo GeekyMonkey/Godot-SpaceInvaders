@@ -6,6 +6,6 @@ extends Node
 @onready var GameScene = preload("res://Scenes/GameScene//Game.tscn")
 
 
-func StartGame():
+func StartGame() -> void:
 	print("Start game")
 	get_tree().change_scene_to_packed(GameScene)

@@ -13,7 +13,7 @@ signal PixelGroupCollision(pixel: PixelPrefab, object: Node2D)
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	var pixels = find_children("Pixel*", "", true) as Array[PixelPrefab]
 	#print("Pixel group " + name + " has " + str(pixels.size()) + " pixels")
 	var group = GetGroupFromParent()
@@ -23,7 +23,7 @@ func _ready():
 
 
 ## Get the group from the pixel group settings, or its parent
-func GetGroupFromParent():
+func GetGroupFromParent() -> String:
 	var group = ""
 	if get_groups().size() > 0:
 		group = get_groups()[0]
@@ -36,12 +36,12 @@ func GetGroupFromParent():
 
 
 ## A pixel got a collision - broadcast signal to parent
-func OnPixelCollision(pixel: PixelPrefab, other: Node2D):
+func OnPixelCollision(pixel: PixelPrefab, other: Node2D) -> void:
 	PixelGroupCollision.emit(pixel, other)
 
 
 ## Explode all pixels in the group from the group origin
-func ExplodeFrom(center: Vector2, force: float):
+func ExplodeFrom(center: Vector2, force: float) -> void:
 	var pixels = find_children("Pixel*", "", true) as Array[PixelPrefab]
 	#print("Exploding pixel group " + name + " has " + str(pixels.size()) + " pixels")
 	for pixel in pixels:
@@ -50,5 +50,5 @@ func ExplodeFrom(center: Vector2, force: float):
 
 
 ## Explode all pixels in the group from the group origin
-func ExplodeFromGroupOrigin(force: float):
+func ExplodeFromGroupOrigin(force: float) -> void:
 	ExplodeFrom(global_position, force)

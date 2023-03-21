@@ -7,11 +7,11 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	PlayButton.grab_focus()
 	PlayButton.pressed.connect(PlayButtonClicked)
 
 
 ## Play button was clicked
-func PlayButtonClicked():
+func PlayButtonClicked() -> void:
 	Main.StartGame()

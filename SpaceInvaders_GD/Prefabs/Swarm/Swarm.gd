@@ -54,7 +54,7 @@ var SwarmPattern2: Array[String] = [
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 
 	# It's stompin' time!
 	StompTimer.timeout.connect(StompTime)
@@ -81,14 +81,14 @@ func _ready():
 
 
 # Timer says it's stomping time. Alert the aliens!
-func StompTime():
+func StompTime() -> void:
 	if !SwarmDead:
 		Stomp()
 		CS.Stomp.emit()
 
 
 # Move the swarm and make the sound
-func Stomp():
+func Stomp() -> void:
 	if IsStomping:
 		# Play a sound
 		StompSoundIndex += 1
@@ -115,7 +115,7 @@ func Stomp():
 
 
 # Measure the size of the swarm so we can tell if a side is hit
-func MeasureExtents():
+func MeasureExtents() -> void:
 	await XDelay.NextFrame()
 	var children = get_children()
 	var left = 999999
@@ -151,7 +151,7 @@ func MeasureExtents():
 
 
 ## Create a swarm of the specified type
-func CreateSwarm(swarmType: int):
+func CreateSwarm(swarmType: int) -> void:
 	await XDelay.NextFrame()
 	print("Creating swarm type " + str(swarmType))
 	ClearSwarm()
@@ -201,7 +201,7 @@ func CreateSwarm(swarmType: int):
 
 
 ## Remove any aliens from the swarm
-func ClearSwarm():
+func ClearSwarm() -> void:
 	var children = get_children(false)
 	for child in children:
 		if child.is_in_group("Aliens"):
@@ -209,7 +209,7 @@ func ClearSwarm():
 
 
 ## Set the swarm's move speed
-func SetSpeed():
+func SetSpeed() -> void:
 	Speed = SpeedMax - (SpeedMax - SpeedMin) * ((AlienCount - 1)  as float / (1.0 as float if AlienCountStart == 0 else (AlienCountStart as float)))
 	StompTimer.wait_time = 1.0 / (Speed * Speed)
 	print("Speed=" + str(Speed) + " Interval=" + str(StompTimer.wait_time) + " Count=" + str(AlienCount) + " Start=" + str(AlienCountStart))

@@ -6,7 +6,7 @@ extends RigidBody2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	# Start it moving
 	linear_velocity = Vector2.UP * Speed
 
@@ -15,7 +15,7 @@ func _ready():
 
 
 ## Something collided with the bullet. The nerve!
-func _on_body_entered(other: Node):
+func _on_body_entered(other: Node) -> void:
 	if other.is_in_group("Aliens"):
 		BulletHitAlien(other)
 	elif other.is_in_group("Bombs"):
@@ -32,7 +32,7 @@ func _on_body_entered(other: Node):
 
 
 ## We have struck a shield!
-func BulletHitShieldPixel(_shieldPixel):
+func BulletHitShieldPixel(_shieldPixel: PixelPrefab) -> void:
 	var explosion = preload("res://Prefabs/Sheild/ShieldExplosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().get_root().add_child.call_deferred(explosion)
@@ -40,7 +40,7 @@ func BulletHitShieldPixel(_shieldPixel):
 
 
 ## We have struck an alien!
-func BulletHitAlien(_alien):
+func BulletHitAlien(_alien: Alien) -> void:
 	# The alien knows this is bad. Just remove the bullet
 	queue_free()
 

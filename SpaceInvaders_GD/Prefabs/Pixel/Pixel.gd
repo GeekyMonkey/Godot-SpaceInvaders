@@ -12,12 +12,12 @@ signal OnCollision(other: Node2D)
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass
 
 
 ## Set the pixels properties from the group
-func InitPixel(group: String, color: Color, collisionLayer, collisionMask):
+func InitPixel(group: String, color: Color, collisionLayer, collisionMask) -> void:
 	# print("InitPixel " + name + " in group " + group + " color=" + str(color))
 	add_to_group(group)
 	RB.add_to_group(group)
@@ -27,13 +27,13 @@ func InitPixel(group: String, color: Color, collisionLayer, collisionMask):
 
 
 ## Something collided with the pixel
-func _on_rigid_body_body_entered(other: Node2D):
+func _on_rigid_body_body_entered(other: Node2D) -> void:
 	# print("Pixel collied of unknown type: " + PixelType)
 	OnCollision.emit(self, other)
 
 
 ## Just make it go away
-func DestroySilent():
+func DestroySilent() -> void:
 	queue_free()
 
 

@@ -16,13 +16,13 @@ var LightEnergy: float
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	LightEnergy = ExplosionLight.energy
 	ExplosionPixels.PixelGroupCollision.connect(OnExplostionPixelCollision)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	Age += delta
 	var opacity = clamp(1.0 - (Age / FadeSeconds), 0.0, 1.0)
 	ExplosionLight.energy = LightEnergy * opacity
@@ -32,5 +32,5 @@ func _process(delta):
 
 
 ## Explostion pixel collided with something
-func OnExplostionPixelCollision(pixel: PixelPrefab, _other: Node2D):
+func OnExplostionPixelCollision(pixel: PixelPrefab, _other: Node2D) -> void:
 	pixel.DestroySilent()

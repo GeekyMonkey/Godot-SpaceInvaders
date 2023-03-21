@@ -10,17 +10,17 @@ var scoreCurrent: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	CS.connect("ScoreChanged", OnScoreChanged)
 
 
 # Respond to score change
-func OnScoreChanged(newScore: int):
+func OnScoreChanged(newScore: int) -> void:
 	scoreCurrent = newScore
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	# If the score displayed is behind the actual score - increment by one, but slowly
 	if (scoreCurrent > scoreDisplayed):
 		changeTime += delta

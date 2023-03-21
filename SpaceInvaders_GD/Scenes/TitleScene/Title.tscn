@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxsqa8gi6naek"]
+[gd_scene load_steps=13 format=3 uid="uid://dxsqa8gi6naek"]
 
 [ext_resource type="Texture2D" uid="uid://dfgeubb5qh2ao" path="res://Background/invaders.png" id="1_lobnm"]
 [ext_resource type="Script" path="res://Scenes/TitleScene/Title.gd" id="1_nysf2"]
-[ext_resource type="Script" path="res://Background/Background.gd" id="2_sb46u"]
 [ext_resource type="Theme" uid="uid://pnetbr3iv6qo" path="res://Fonts/UiTheme.tres" id="4_krmpr"]
 [ext_resource type="Texture2D" uid="uid://dgiql43libb7i" path="res://Scenes/TitleScene/Logo.png" id="4_tkrxv"]
 
@@ -119,7 +118,6 @@ scale = Vector2(0.42065, 0.401926)
 texture = ExtResource("1_lobnm")
 region_rect = Rect2(-0.074, 0, 300, 200)
 region_filter_clip_enabled = true
-script = ExtResource("2_sb46u")
 
 [node name="Camera2d" type="Camera2D" parent="Environment"]
 position = Vector2(0, -1)

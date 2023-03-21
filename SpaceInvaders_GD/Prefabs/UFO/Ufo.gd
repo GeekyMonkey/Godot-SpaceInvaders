@@ -19,13 +19,13 @@ var XPadding: float = 20
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	XMax = XViewport.Size().x / 2 + XPadding
 	UfoPixels.PixelGroupCollision.connect(UfoPixelsCollision)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	if Dead == false:
 		position += Vector2(Speed * delta, 0)
 		if (position.x > XMax):
@@ -33,13 +33,13 @@ func _process(delta):
 
 
 ## Ufo pixels hit by something
-func UfoPixelsCollision(_pixel: PixelPrefab, other: Node2D):
+func UfoPixelsCollision(_pixel: PixelPrefab, other: Node2D) -> void:
 	if other.is_in_group("Bullets"):
 		UfoDeath()
 
 
 ## Ufo is dead
-func UfoDeath():
+func UfoDeath() -> void:
 	if Dead == false:
 		Dead = true
 		gm.ScoreAdd(randi_range(2, 5) * 100)

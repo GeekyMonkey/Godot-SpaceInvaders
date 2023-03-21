@@ -9,12 +9,12 @@ var Age: float = 0
 var Energy: float
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	Energy = 5 # self.energy # Get the designed energy as the max
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	Age += delta
 	# energy = max(1.0,(sin(Age * Speed) / 2.0 + 0.5) * Energy)
 	enabled = (sin(Age * Speed)) > 0

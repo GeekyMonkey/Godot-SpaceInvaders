@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpojwkqyrr2ti"]
+[gd_scene load_steps=12 format=3 uid="uid://cpojwkqyrr2ti"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene/GameManager.gd" id="1_p5rll"]
 [ext_resource type="PackedScene" uid="uid://bu8wh23fottnc" path="res://Prefabs/Player/Player.tscn" id="2_0gydd"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dfgeubb5qh2ao" path="res://Background/invaders.png" id="4_d73rs"]
 [ext_resource type="Theme" uid="uid://ps2teiofoxiv" path="res://Fonts/FontTheme.tres" id="4_hxdsx"]
 [ext_resource type="Script" path="res://Scenes/GameScene/ScoreValueText.gd" id="5_qexkm"]
-[ext_resource type="Script" path="res://Background/Background.gd" id="5_qj6f5"]
 [ext_resource type="Script" path="res://Scenes/GameScene/LivesValueText.gd" id="6_0sa8i"]
 [ext_resource type="PackedScene" uid="uid://dfqw2pngwoeid" path="res://Prefabs/Environment/KillZone.tscn" id="9_ogu07"]
 [ext_resource type="Script" path="res://Prefabs/UFO/UfoSpawner.gd" id="10_lymhp"]
@@ -40,7 +39,6 @@ scale = Vector2(0.42065, 0.401926)
 texture = ExtResource("4_d73rs")
 region_rect = Rect2(-0.074, 0, 300, 200)
 region_filter_clip_enabled = true
-script = ExtResource("5_qj6f5")
 
 [node name="Camera2d" type="Camera2D" parent="Environment"]
 position = Vector2(0, -1)
