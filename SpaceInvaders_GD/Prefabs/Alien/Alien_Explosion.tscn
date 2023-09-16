@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://dtoo8xih2bco0"]
 
 [ext_resource type="Script" path="res://Prefabs/Alien/Alien_Explosion.gd" id="1_1oxre"]
 [ext_resource type="Texture2D" uid="uid://b2qqqptu5u34x" path="res://Prefabs/Alien/AlienStuff/Sprites/AlienDeath.png" id="2_q322u"]

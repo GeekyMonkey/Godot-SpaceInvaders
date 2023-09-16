@@ -32,7 +32,7 @@ func _on_body_entered(other: Node) -> void:
 
 
 ## We have struck a shield!
-func BulletHitShieldPixel(_shieldPixel: PixelPrefab) -> void:
+func BulletHitShieldPixel(_shieldPixel) -> void:
 	var explosion = preload("res://Prefabs/Sheild/ShieldExplosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().get_root().add_child.call_deferred(explosion)

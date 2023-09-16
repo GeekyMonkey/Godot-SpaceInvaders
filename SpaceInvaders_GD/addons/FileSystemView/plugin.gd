@@ -32,9 +32,9 @@ func _enter_tree():
 			filesystem_move_dialog = i
 		if tree and filesystem_popup and filesystem_move_dialog:
 			break
-	
+
 	load_views()
-	
+
 	config_dialog.plugin = self
 	config_dialog.connect("closed", _on_ViewEditor_closed)
 	interface.get_base_control().add_child(config_dialog)
@@ -55,7 +55,7 @@ func load_views():
 		file = FileAccess.open(PLUGIN_DIR + "defaultConfig.json", FileAccess.READ)
 		assert(file, str(FileAccess.get_open_error()))
 		print_debug("FileSystemView: load defaultConfig.json")
-	
+
 	var config = JSON.parse_string(file.get_as_text())
 	assert(config is Dictionary)
 	self.config = config
@@ -94,8 +94,8 @@ func fsd_select_paths(paths: PackedStringArray):
 			item.select(0)
 			tree.select_mode = Tree.SELECT_MULTI
 			_start_select = true
-	
+
 	tree.multi_selected.emit(null, 0, true)
 	tree.get_root().remove_child.call_deferred(temp_item)
 	tree.queue_redraw.call_deferred()
- 
+
