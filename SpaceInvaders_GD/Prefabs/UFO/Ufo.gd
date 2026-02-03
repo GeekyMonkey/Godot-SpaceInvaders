@@ -48,4 +48,3 @@ func UfoDeath() -> void:
 		await UfoPixels.ExplodeFrom(global_position, 400)
 		await UfoDeathSound.finished
 		queue_free()
-

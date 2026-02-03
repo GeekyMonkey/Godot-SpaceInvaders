@@ -16,4 +16,3 @@ signal LivesChanged(newLives: int)
 
 ## The swarm has been vanquished!
 signal SwarmDeath(points: int)
-

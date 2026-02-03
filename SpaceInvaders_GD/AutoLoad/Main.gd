@@ -3,7 +3,7 @@ extends Node
 
 # Scenes
 @onready var TitleScene = preload("res://Scenes/TitleScene/Title.tscn")
-@onready var GameScene = preload("res://Scenes/GameScene//Game.tscn")
+@onready var GameScene = preload("res://Scenes/GameScene/Game.tscn")
 
 
 func StartGame() -> void:
